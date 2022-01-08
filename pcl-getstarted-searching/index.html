@@ -1,289 +1,329 @@
-<!doctype html><html lang=zh-cn>
+<!DOCTYPE html>
+<html lang="zh-CN">
+
 <head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=robots content="noodp">
-<title class=pjax-title>Point Cloud Library的基础入门及资料查找方法 - Ray 的小站</title><meta name=Description content="Ray 零散笔记的聚集地"><meta property="og:title" content="Point Cloud Library的基础入门及资料查找方法">
-<meta property="og:description" content="Point Cloud Library项目的编译使用官方教程源地址： https://pointclouds.org/documentation/tutorials/using_pcl_pcl_config.html 官方教程中提供了各平台比较通用的项目编译方法，这里作简单的翻译补充。 创建cpp文件和CMa">
-<meta property="og:type" content="article">
-<meta property="og:url" content="railzy.github.io/pcl-getstarted-searching/"><meta property="og:image" content="/images/avatar.webp"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2021-06-03T20:22:21+08:00">
-<meta property="article:modified_time" content="2021-06-09T21:40:22+08:00"><meta property="og:site_name" content="Ray 的小站">
-<meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="/images/avatar.webp">
-<meta name=twitter:title content="Point Cloud Library的基础入门及资料查找方法">
-<meta name=twitter:description content="Point Cloud Library项目的编译使用官方教程源地址： https://pointclouds.org/documentation/tutorials/using_pcl_pcl_config.html 官方教程中提供了各平台比较通用的项目编译方法，这里作简单的翻译补充。 创建cpp文件和CMa">
-<meta name=application-name content="Ray 的小站">
-<meta name=apple-mobile-web-app-title content="Ray 的小站">
-<meta name=theme-color content="#f8f8f8"><meta name=msapplication-TileColor content="#da532c"><link rel=canonical href=railzy.github.io/pcl-getstarted-searching/><link rel=next href=railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/><link rel=stylesheet href=/railzy.github.io/lib/normalize/normalize.min.css><link rel=stylesheet href=/railzy.github.io/css/style.min.css><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/railzy.github.io/lib/fontawesome-free/all.min.css>
-<noscript><link rel=stylesheet href=/railzy.github.io/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/railzy.github.io/lib/animate/animate.min.css>
-<noscript><link rel=stylesheet href=/railzy.github.io/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Point Cloud Library的基础入门及资料查找方法","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"railzy.github.io\/pcl-getstarted-searching\/"},"image":["\/images\/Apple-Devices-Preview.png"],"genre":"posts","wordcount":3734,"url":"railzy.github.io\/pcl-getstarted-searching\/","datePublished":"2021-06-03T20:22:21+08:00","dateModified":"2021-06-09T21:40:22+08:00","publisher":{"@type":"Organization","name":"Ray"},"author":{"@type":"Person","name":"Ray"},"description":""}</script></head>
-<body header-desktop=fixed header-mobile=fixed><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a)}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let metaColors={light:'#f8f8f8',dark:'#252627',black:'#000000'};getMeta('theme-color').content=metaColors[document.body.getAttribute('theme')]</script>
-<div id=back-to-top></div>
-<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
-<div class=header-wrapper>
-<div class=header-title>
-<a href=railzy.github.io/ title="Ray 的小站">Ray 的小站</a>
-</div>
-<div class=menu>
-<div class=menu-inner><a class=menu-item href=/railzy.github.io/posts/> 所有文章 </a><a class=menu-item href=/railzy.github.io/tags/> 标签 </a><a class=menu-item href=/railzy.github.io/categories/> 分类 </a><a class=menu-item href=/railzy.github.io/about/> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
-<input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
-<a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-desktop title=搜索>
-<i class="fas fa-search fa-fw"></i>
-</a>
-<a href=# onclick=return!1 class="search-button search-clear" id=search-clear-desktop title=清空>
-<i class="fas fa-times-circle fa-fw"></i>
-</a>
-<span class="search-button search-loading" id=search-loading-desktop>
-<i class="fas fa-spinner fa-fw fa-spin"></i>
-</span>
-</span><a href=# onclick=return!1 class="menu-item theme-select" title=切换主题>
-<i class="fas fa-adjust fa-fw"></i>
-<select class=color-theme-select id=theme-select-desktop title=切换主题><option value=light>浅色</option><option value=dark>深色</option><option value=black>黑色</option><option value=auto>跟随系统</option></select>
-</a></div>
-</div>
-</div>
-</header><header class=mobile id=header-mobile>
-<div class=header-container>
-<div class=header-wrapper>
-<div class=header-title>
-<a href=railzy.github.io/ title="Ray 的小站">Ray 的小站</a>
-</div>
-<div class=menu-toggle id=menu-toggle-mobile>
-<span></span><span></span><span></span>
-</div>
-</div>
-<div class=menu id=menu-mobile><div class=search-wrapper>
-<div class="search mobile" id=search-mobile>
-<input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
-<a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-mobile title=搜索>
-<i class="fas fa-search fa-fw"></i>
-</a>
-<a href=# onclick=return!1 class="search-button search-clear" id=search-clear-mobile title=清空>
-<i class="fas fa-times-circle fa-fw"></i>
-</a>
-<span class="search-button search-loading" id=search-loading-mobile>
-<i class="fas fa-spinner fa-fw fa-spin"></i>
-</span>
-</div>
-<a href=# onclick=return!1 class=search-cancel id=search-cancel-mobile>
-取消
-</a>
-</div><a class=menu-item href=/railzy.github.io/posts/ title>所有文章</a><a class=menu-item href=/railzy.github.io/tags/ title>标签</a><a class=menu-item href=/railzy.github.io/categories/ title>分类</a><a class=menu-item href=/railzy.github.io/about/ title>关于</a><a href=# onclick=return!1 class="menu-item theme-select" title=切换主题>
-<i class="fas fa-adjust fa-fw"></i>
-<select class=color-theme-select id=theme-select-mobile title=切换主题><option value=light>浅色</option><option value=dark>深色</option><option value=black>黑色</option><option value=auto>跟随系统</option></select>
-</a></div>
-</div>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">Point Cloud Library的基础入门及资料查找方法 - Ray 的小站</title><meta name="Description" content="Ray 零散笔记的聚集地"><meta property="og:title" content="Point Cloud Library的基础入门及资料查找方法" />
+<meta property="og:description" content="Point Cloud Library项目的编译使用官方教程源地址： https://pointclouds.org/documentation/tutorials/using_pcl_pcl_config.html 官方教程中提供了各平台比较通用的项目编译方法，这里作简单的翻译补充。 创建cpp文件和CMa" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="railzy.github.io/pcl-getstarted-searching/" /><meta property="og:image" content="/images/avatar.webp"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-06-03T20:22:21+08:00" />
+<meta property="article:modified_time" content="2021-06-09T21:40:22+08:00" /><meta property="og:site_name" content="Ray 的小站" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="/images/avatar.webp"/>
+
+<meta name="twitter:title" content="Point Cloud Library的基础入门及资料查找方法"/>
+<meta name="twitter:description" content="Point Cloud Library项目的编译使用官方教程源地址： https://pointclouds.org/documentation/tutorials/using_pcl_pcl_config.html 官方教程中提供了各平台比较通用的项目编译方法，这里作简单的翻译补充。 创建cpp文件和CMa"/>
+<meta name="application-name" content="Ray 的小站">
+<meta name="apple-mobile-web-app-title" content="Ray 的小站">
+
+<meta name="theme-color" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="canonical" href="railzy.github.io/pcl-getstarted-searching/" /><link rel="next" href="railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/" /><link rel="stylesheet" href="/railzy.github.io/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/railzy.github.io/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/railzy.github.io/lib/fontawesome-free/all.min.css">
+    <noscript><link rel="stylesheet" href="/railzy.github.io/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/railzy.github.io/lib/animate/animate.min.css">
+    <noscript><link rel="stylesheet" href="/railzy.github.io/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Point Cloud Library的基础入门及资料查找方法",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "railzy.github.io\/pcl-getstarted-searching\/"
+        },"image": ["\/images\/Apple-Devices-Preview.png"],"genre": "posts","wordcount":  3734 ,
+        "url": "railzy.github.io\/pcl-getstarted-searching\/","datePublished": "2021-06-03T20:22:21+08:00","dateModified": "2021-06-09T21:40:22+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Ray"},"author": {
+                "@type": "Person",
+                "name": "Ray"
+            },"description": ""
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="fixed"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let metaColors = {'light': '#f8f8f8','dark': '#252627','black': '#000000'}
+        getMeta('theme-color').content = metaColors[document.body.getAttribute('theme')];
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="railzy.github.io/" title="Ray 的小站">Ray 的小站</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/railzy.github.io/posts/"> 所有文章 </a><a class="menu-item" href="/railzy.github.io/tags/"> 标签 </a><a class="menu-item" href="/railzy.github.io/categories/"> 分类 </a><a class="menu-item" href="/railzy.github.io/about/"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="#" onclick="return false;" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" onclick="return false;" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="#" onclick="return false;" class="menu-item theme-select" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                    <select class="color-theme-select" id="theme-select-desktop" title="切换主题">
+                        <option value="light">浅色</option>
+                        <option value="dark">深色</option>
+                        <option value="black">黑色</option>
+                        <option value="auto">跟随系统</option>
+                    </select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="railzy.github.io/" title="Ray 的小站">Ray 的小站</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="#" onclick="return false;" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" onclick="return false;" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="#" onclick="return false;" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/railzy.github.io/posts/" title="">所有文章</a><a class="menu-item" href="/railzy.github.io/tags/" title="">标签</a><a class="menu-item" href="/railzy.github.io/categories/" title="">分类</a><a class="menu-item" href="/railzy.github.io/about/" title="">关于</a><a href="#" onclick="return false;" class="menu-item theme-select" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+                <select class="color-theme-select" id="theme-select-mobile" title="切换主题">
+                    <option value="light">浅色</option>
+                    <option value="dark">深色</option>
+                    <option value="black">黑色</option>
+                    <option value="auto">跟随系统</option>
+                </select>
+            </a></div>
+    </div>
 </header>
 <div class="search-dropdown desktop">
-<div id=search-dropdown-desktop></div>
+    <div id="search-dropdown-desktop"></div>
 </div>
 <div class="search-dropdown mobile">
-<div id=search-dropdown-mobile></div>
+    <div id="search-dropdown-mobile"></div>
 </div>
-<main class=main>
-<div class=container><div class=toc id=toc-auto>
-<h2 class=toc-title>目录</h2>
-<div class="toc-content always-active" id=toc-content-auto><nav id=TableOfContents>
-<ul>
-<li><a href=#point-cloud-library项目的编译使用>Point Cloud Library项目的编译使用</a>
-<ul>
-<li><a href=#创建cpp文件和cmakeliststxt>创建cpp文件和CMakeLists.txt</a></li>
-<li><a href=#编译文件>编译文件</a></li>
-<li><a href=#运行文件>运行文件</a></li>
-<li><a href=#总结>总结</a></li>
-</ul>
-</li>
-<li><a href=#point-cloud-library基础使用>Point Cloud Library基础使用</a>
-<ul>
-<li><a href=#pcd点云文件的读取>pcd点云文件的读取</a></li>
-<li><a href=#保存点云到pcd文件>保存点云到pcd文件</a></li>
-<li><a href=#显示点云>显示点云</a></li>
-</ul>
-</li>
-<li><a href=#point-cloud-library学习指南>Point Cloud Library学习指南</a>
-<ul>
-<li><a href=#中文学习资料>中文学习资料</a></li>
-<li><a href=#官方教程和文档>官方教程和文档</a></li>
-<li><a href=#pcl问题解决方法查找>PCL问题解决方法查找</a></li>
-</ul>
-</li>
-</ul>
+<main class="main">
+            <div class="container"><div class="toc" id="toc-auto">
+        <h2 class="toc-title">目录</h2>
+        <div class="toc-content always-active" id="toc-content-auto"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#point-cloud-library项目的编译使用">Point Cloud Library项目的编译使用</a>
+      <ul>
+        <li><a href="#创建cpp文件和cmakeliststxt">创建cpp文件和CMakeLists.txt</a></li>
+        <li><a href="#编译文件">编译文件</a></li>
+        <li><a href="#运行文件">运行文件</a></li>
+        <li><a href="#总结">总结</a></li>
+      </ul>
+    </li>
+    <li><a href="#point-cloud-library基础使用">Point Cloud Library基础使用</a>
+      <ul>
+        <li><a href="#pcd点云文件的读取">pcd点云文件的读取</a></li>
+        <li><a href="#保存点云到pcd文件">保存点云到pcd文件</a></li>
+        <li><a href="#显示点云">显示点云</a></li>
+      </ul>
+    </li>
+    <li><a href="#point-cloud-library学习指南">Point Cloud Library学习指南</a>
+      <ul>
+        <li><a href="#中文学习资料">中文学习资料</a></li>
+        <li><a href="#官方教程和文档">官方教程和文档</a></li>
+        <li><a href="#pcl问题解决方法查找">PCL问题解决方法查找</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav></div>
-</div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle","normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC","true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Point Cloud Library的基础入门及资料查找方法</h1><div class=post-meta>
-<div class=post-meta-line>
-<span class=post-author><i class="author fas fa-user-circle fa-fw"></i><a href=https://github.com/railzy title=Author target=_blank rel="noopener noreffer author" class=author>Ray</a>
-</span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-06-03>2021-06-03</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2021-06-09>2021-06-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3734 字&nbsp;
-<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 8 分钟&nbsp;</div>
-</div><div class="details toc" id=toc-static kept>
-<div class="details-summary toc-title">
-<span>目录</span>
-<span><i class="details-icon fas fa-angle-right"></i></span>
-</div>
-<div class="details-content toc-content" id=toc-content-static></div>
-</div><div class=content id=content><div class="details admonition note open">
-<div class="details-summary admonition-title">
-<i class="icon fas fa-pencil-alt fa-fwnote"></i>注意<i class="details-icon fas fa-angle-right fa-fw"></i>
-</div>
-<div class=details-content>
-<div class=admonition-content>
-本文最后更新于 <span class=timeago datetime=2021-06-09T21:40:22 title="June 9, 2021">2021-06-09</span>，文中内容可能已过时。</div>
-</div>
-</div><h2 id=point-cloud-library项目的编译使用 class=headerLink>
-<a href=#point-cloud-library%e9%a1%b9%e7%9b%ae%e7%9a%84%e7%bc%96%e8%af%91%e4%bd%bf%e7%94%a8 class=header-mark></a>Point Cloud Library项目的编译使用</h2><p>官方教程源地址： <a href=https://pointclouds.org/documentation/tutorials/using_pcl_pcl_config.html target=_blank rel="noopener noreffer">https://pointclouds.org/documentation/tutorials/using_pcl_pcl_config.html</a></p>
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Point Cloud Library的基础入门及资料查找方法</h1><div class="post-meta">
+            <div class="post-meta-line">
+                <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://github.com/railzy" title="Author" target="_blank" rel="noopener noreffer author" class="author">Ray</a>
+                </span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-03">2021-06-03</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-06-09">2021-06-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3734 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 8 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"></div>
+            </div><div class="content" id="content"><div class="details admonition note open">
+                <div class="details-summary admonition-title">
+                    <i class="icon fas fa-pencil-alt fa-fwnote"></i>注意<i class="details-icon fas fa-angle-right fa-fw"></i>
+                </div>
+                <div class="details-content">
+                    <div class="admonition-content">
+                        本文最后更新于 <span class="timeago" datetime="2021-06-09T21:40:22" title="June 9, 2021">2021-06-09</span>，文中内容可能已过时。</div>
+                </div>
+            </div><h2 id="point-cloud-library项目的编译使用" class="headerLink">
+    <a href="#point-cloud-library%e9%a1%b9%e7%9b%ae%e7%9a%84%e7%bc%96%e8%af%91%e4%bd%bf%e7%94%a8" class="header-mark"></a>Point Cloud Library项目的编译使用</h2><p>官方教程源地址： <a href="https://pointclouds.org/documentation/tutorials/using_pcl_pcl_config.html" target="_blank" rel="noopener noreffer">https://pointclouds.org/documentation/tutorials/using_pcl_pcl_config.html</a></p>
 <p>官方教程中提供了各平台比较通用的项目编译方法，这里作简单的翻译补充。</p>
-<h3 id=创建cpp文件和cmakeliststxt class=headerLink>
-<a href=#%e5%88%9b%e5%bb%bacpp%e6%96%87%e4%bb%b6%e5%92%8ccmakeliststxt class=header-mark></a>创建cpp文件和CMakeLists.txt</h3><p>在项目文件夹中，我们创建一个调用了pcl库保存pcd文件的模块的示例c++源码文件<code>pcd_write.cpp</code>，文件内容我们先不管。</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
+<h3 id="创建cpp文件和cmakeliststxt" class="headerLink">
+    <a href="#%e5%88%9b%e5%bb%bacpp%e6%96%87%e4%bb%b6%e5%92%8ccmakeliststxt" class="header-mark"></a>创建cpp文件和CMakeLists.txt</h3><p>在项目文件夹中，我们创建一个调用了pcl库保存pcd文件的模块的示例c++源码文件<code>pcd_write.cpp</code>，文件内容我们先不管。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
 </span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=cp>#include</span> <span class=cpf>&lt;iostream&gt;</span><span class=cp>
-</span><span class=cp>#include</span> <span class=cpf>&lt;pcl/io/pcd_io.h&gt;</span><span class=cp>
-</span><span class=cp>#include</span> <span class=cpf>&lt;pcl/point_types.h&gt;</span><span class=cp>
-</span><span class=cp></span>
-<span class=kt>int</span>
-  <span class=nf>main</span> <span class=p>()</span>
-<span class=p>{</span>
-  <span class=n>pcl</span><span class=o>::</span><span class=n>PointCloud</span><span class=o>&lt;</span><span class=n>pcl</span><span class=o>::</span><span class=n>PointXYZ</span><span class=o>&gt;</span> <span class=n>cloud</span><span class=p>;</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;pcl/io/pcd_io.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;pcl/point_types.h&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="kt">int</span>
+  <span class="nf">main</span> <span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZ</span><span class="o">&gt;</span> <span class="n">cloud</span><span class="p">;</span>
 
-  <span class=c1>// Fill in the cloud data
-</span><span class=c1></span>  <span class=n>cloud</span><span class=p>.</span><span class=n>width</span>    <span class=o>=</span> <span class=mi>5</span><span class=p>;</span>
-  <span class=n>cloud</span><span class=p>.</span><span class=n>height</span>   <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
-  <span class=n>cloud</span><span class=p>.</span><span class=n>is_dense</span> <span class=o>=</span> <span class=nb>false</span><span class=p>;</span>
-  <span class=n>cloud</span><span class=p>.</span><span class=n>resize</span> <span class=p>(</span><span class=n>cloud</span><span class=p>.</span><span class=n>width</span> <span class=o>*</span> <span class=n>cloud</span><span class=p>.</span><span class=n>height</span><span class=p>);</span>
+  <span class="c1">// Fill in the cloud data
+</span><span class="c1"></span>  <span class="n">cloud</span><span class="p">.</span><span class="n">width</span>    <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+  <span class="n">cloud</span><span class="p">.</span><span class="n">height</span>   <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="n">cloud</span><span class="p">.</span><span class="n">is_dense</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+  <span class="n">cloud</span><span class="p">.</span><span class="n">resize</span> <span class="p">(</span><span class="n">cloud</span><span class="p">.</span><span class="n">width</span> <span class="o">*</span> <span class="n">cloud</span><span class="p">.</span><span class="n">height</span><span class="p">);</span>
 
-  <span class=k>for</span> <span class=p>(</span><span class=k>auto</span><span class=o>&amp;</span> <span class=nl>point</span><span class=p>:</span> <span class=n>cloud</span><span class=p>)</span>
-  <span class=p>{</span>
-    <span class=n>point</span><span class=p>.</span><span class=n>x</span> <span class=o>=</span> <span class=mi>1024</span> <span class=o>*</span> <span class=n>rand</span> <span class=p>()</span> <span class=o>/</span> <span class=p>(</span><span class=n>RAND_MAX</span> <span class=o>+</span> <span class=mf>1.0f</span><span class=p>);</span>
-    <span class=n>point</span><span class=p>.</span><span class=n>y</span> <span class=o>=</span> <span class=mi>1024</span> <span class=o>*</span> <span class=n>rand</span> <span class=p>()</span> <span class=o>/</span> <span class=p>(</span><span class=n>RAND_MAX</span> <span class=o>+</span> <span class=mf>1.0f</span><span class=p>);</span>
-    <span class=n>point</span><span class=p>.</span><span class=n>z</span> <span class=o>=</span> <span class=mi>1024</span> <span class=o>*</span> <span class=n>rand</span> <span class=p>()</span> <span class=o>/</span> <span class=p>(</span><span class=n>RAND_MAX</span> <span class=o>+</span> <span class=mf>1.0f</span><span class=p>);</span>
-  <span class=p>}</span>
+  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="nl">point</span><span class="p">:</span> <span class="n">cloud</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">point</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1024</span> <span class="o">*</span> <span class="n">rand</span> <span class="p">()</span> <span class="o">/</span> <span class="p">(</span><span class="n">RAND_MAX</span> <span class="o">+</span> <span class="mf">1.0f</span><span class="p">);</span>
+    <span class="n">point</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">1024</span> <span class="o">*</span> <span class="n">rand</span> <span class="p">()</span> <span class="o">/</span> <span class="p">(</span><span class="n">RAND_MAX</span> <span class="o">+</span> <span class="mf">1.0f</span><span class="p">);</span>
+    <span class="n">point</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">1024</span> <span class="o">*</span> <span class="n">rand</span> <span class="p">()</span> <span class="o">/</span> <span class="p">(</span><span class="n">RAND_MAX</span> <span class="o">+</span> <span class="mf">1.0f</span><span class="p">);</span>
+  <span class="p">}</span>
 
-  <span class=n>pcl</span><span class=o>::</span><span class=n>io</span><span class=o>::</span><span class=n>savePCDFileASCII</span> <span class=p>(</span><span class=s>&#34;test_pcd.pcd&#34;</span><span class=p>,</span> <span class=n>cloud</span><span class=p>);</span>
-  <span class=n>std</span><span class=o>::</span><span class=n>cerr</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;Saved &#34;</span> <span class=o>&lt;&lt;</span> <span class=n>cloud</span><span class=p>.</span><span class=n>size</span> <span class=p>()</span> <span class=o>&lt;&lt;</span> <span class=s>&#34; data points to test_pcd.pcd.&#34;</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
+  <span class="n">pcl</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">savePCDFileASCII</span> <span class="p">(</span><span class="s">&#34;test_pcd.pcd&#34;</span><span class="p">,</span> <span class="n">cloud</span><span class="p">);</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Saved &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">cloud</span><span class="p">.</span><span class="n">size</span> <span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; data points to test_pcd.pcd.&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 
-  <span class=k>for</span> <span class=p>(</span><span class=k>const</span> <span class=k>auto</span><span class=o>&amp;</span> <span class=nl>point</span><span class=p>:</span> <span class=n>cloud</span><span class=p>)</span>
-    <span class=n>std</span><span class=o>::</span><span class=n>cerr</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;    &#34;</span> <span class=o>&lt;&lt;</span> <span class=n>point</span><span class=p>.</span><span class=n>x</span> <span class=o>&lt;&lt;</span> <span class=s>&#34; &#34;</span> <span class=o>&lt;&lt;</span> <span class=n>point</span><span class=p>.</span><span class=n>y</span> <span class=o>&lt;&lt;</span> <span class=s>&#34; &#34;</span> <span class=o>&lt;&lt;</span> <span class=n>point</span><span class=p>.</span><span class=n>z</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">point</span><span class="p">:</span> <span class="n">cloud</span><span class="p">)</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;    &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">point</span><span class="p">.</span><span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">point</span><span class="p">.</span><span class="n">y</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">point</span><span class="p">.</span><span class="n">z</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 
-  <span class=k>return</span> <span class=p>(</span><span class=mi>0</span><span class=p>);</span>
-<span class=p>}</span>
+  <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>这个文件要先被编译成可执行文件，才能够运行使用。这里，我们使用CMake这个跨平台编译工具来对cpp文件进行编译。为此需要创建一个<code>CMakeLists.txt</code>来告诉CMake怎么编译。</p>
 <p>不理解上面这段话没问题，在<code>pcd_write.cpp</code>同一个目录下创建一个<code>CMakeLists.txt</code>即可。</p>
 <p><code>CMakeLists.txt</code>内容如下</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
 </span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-cmake data-lang=cmake><span class=c>## 这一行声明了需要的cmake最低版本号，不用改
-</span><span class=c></span><span class=nb>cmake_minimum_required</span><span class=p>(</span><span class=s>VERSION</span> <span class=s>2.8</span> <span class=s>FATAL_ERROR</span><span class=p>)</span><span class=err>
-</span><span class=err>
-</span><span class=err></span><span class=c>## 这一行是项目名称，一般没什么影响
-</span><span class=c></span><span class=nb>project</span><span class=p>(</span><span class=s>your_project_name</span><span class=p>)</span><span class=err>
-</span><span class=err>
-</span><span class=err></span><span class=c>## 这一行表示需要PCL最低1.2版本的所有组件，不清楚不要修改
-</span><span class=c></span><span class=nb>find_package</span><span class=p>(</span><span class=s>PCL</span> <span class=s>1.2</span> <span class=s>REQUIRED</span><span class=p>)</span><span class=err>
-</span><span class=err>
-</span><span class=err></span><span class=c>## 下面这三行不用改
-</span><span class=c></span><span class=nb>include_directories</span><span class=p>(</span><span class=o>${</span><span class=nv>PCL_INCLUDE_DIRS</span><span class=o>}</span><span class=p>)</span><span class=err>
-</span><span class=err></span><span class=nb>link_directories</span><span class=p>(</span><span class=o>${</span><span class=nv>PCL_LIBRARY_DIRS</span><span class=o>}</span><span class=p>)</span><span class=err>
-</span><span class=err></span><span class=nb>add_definitions</span><span class=p>(</span><span class=o>${</span><span class=nv>PCL_DEFINITIONS</span><span class=o>}</span><span class=p>)</span><span class=err>
-</span><span class=err>
-</span><span class=err></span><span class=c>## 这一句告诉CMake从单个源文件pcd_write.cpp建立一个名叫main的可执行文件
-</span><span class=c>## 源文件文件名需要根据实际修改
-</span><span class=c>## 可执行文件名称可根据个人喜好修改
-</span><span class=c></span><span class=nb>add_executable</span> <span class=p>(</span><span class=s>main</span> <span class=s>pcd_write.cpp</span><span class=p>)</span><span class=err>
-</span><span class=err></span><span class=c>##               ^^^^ ^^^^^^^^^^^^^
-</span><span class=c></span><span class=err>
-</span><span class=err></span><span class=c>## 这一句表示将PCL库文件与可执行文件main链接
-</span><span class=c>## 这一句中可执行文件的名称要与前面一致
-</span><span class=c></span><span class=nb>target_link_libraries</span> <span class=p>(</span><span class=s>main</span> <span class=o>${</span><span class=nv>PCL_LIBRARIES</span><span class=o>}</span><span class=p>)</span><span class=err>
-</span><span class=err></span><span class=c>##                      ^^^^
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cmake" data-lang="cmake"><span class="c">## 这一行声明了需要的cmake最低版本号，不用改
+</span><span class="c"></span><span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span> <span class="s">2.8</span> <span class="s">FATAL_ERROR</span><span class="p">)</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="c">## 这一行是项目名称，一般没什么影响
+</span><span class="c"></span><span class="nb">project</span><span class="p">(</span><span class="s">your_project_name</span><span class="p">)</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="c">## 这一行表示需要PCL最低1.2版本的所有组件，不清楚不要修改
+</span><span class="c"></span><span class="nb">find_package</span><span class="p">(</span><span class="s">PCL</span> <span class="s">1.2</span> <span class="s">REQUIRED</span><span class="p">)</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="c">## 下面这三行不用改
+</span><span class="c"></span><span class="nb">include_directories</span><span class="p">(</span><span class="o">${</span><span class="nv">PCL_INCLUDE_DIRS</span><span class="o">}</span><span class="p">)</span><span class="err">
+</span><span class="err"></span><span class="nb">link_directories</span><span class="p">(</span><span class="o">${</span><span class="nv">PCL_LIBRARY_DIRS</span><span class="o">}</span><span class="p">)</span><span class="err">
+</span><span class="err"></span><span class="nb">add_definitions</span><span class="p">(</span><span class="o">${</span><span class="nv">PCL_DEFINITIONS</span><span class="o">}</span><span class="p">)</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="c">## 这一句告诉CMake从单个源文件pcd_write.cpp建立一个名叫main的可执行文件
+</span><span class="c">## 源文件文件名需要根据实际修改
+</span><span class="c">## 可执行文件名称可根据个人喜好修改
+</span><span class="c"></span><span class="nb">add_executable</span> <span class="p">(</span><span class="s">main</span> <span class="s">pcd_write.cpp</span><span class="p">)</span><span class="err">
+</span><span class="err"></span><span class="c">##               ^^^^ ^^^^^^^^^^^^^
+</span><span class="c"></span><span class="err">
+</span><span class="err"></span><span class="c">## 这一句表示将PCL库文件与可执行文件main链接
+</span><span class="c">## 这一句中可执行文件的名称要与前面一致
+</span><span class="c"></span><span class="nb">target_link_libraries</span> <span class="p">(</span><span class="s">main</span> <span class="o">${</span><span class="nv">PCL_LIBRARIES</span><span class="o">}</span><span class="p">)</span><span class="err">
+</span><span class="err"></span><span class="c">##                      ^^^^
 </span></code></pre></td></tr></table>
 </div>
 </div><p>正常使用中，我们只需要注意<strong>源文件名</strong>和<strong>可执行文件名</strong>保持正确，位置已在文件中标出</p>
-<h3 id=编译文件 class=headerLink>
-<a href=#%e7%bc%96%e8%af%91%e6%96%87%e4%bb%b6 class=header-mark></a>编译文件</h3><p>正确创建完成上面这两个文件后，项目目录结构如下所示，可以开始对cpp源文件进行编译了！</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
+<h3 id="编译文件" class="headerLink">
+    <a href="#%e7%bc%96%e8%af%91%e6%96%87%e4%bb%b6" class="header-mark"></a>编译文件</h3><p>正确创建完成上面这两个文件后，项目目录结构如下所示，可以开始对cpp源文件进行编译了！</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
 </span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>project_folder
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">project_folder
       |-- pcd_write.cpp
       |-- CMakeLists.txt
 </code></pre></td></tr></table>
 </div>
 </div><p>我们先在项目文件夹中创建一个名为<code>build</code>的空文件夹，我们将在里面完成编译，文件夹叫<code>build</code>是约定俗成的，一般不修改</p>
 <p>现在项目目录结构是这样的</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
 </span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>project_folder
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">project_folder
       |-- pcd_write.cpp
       |-- CMakeLists.txt
       |-- build
@@ -291,53 +331,53 @@
 </div>
 </div><p>我们从文件进入<code>build</code>文件夹，右键打开终端。或者在终端里手动输入命令切换到<code>build</code>目录下。</p>
 <p>执行下面的指令，即可完成编译</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
 </span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-shell data-lang=shell>cmake ..
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">cmake ..
 make
 </code></pre></td></tr></table>
 </div>
 </div><p>编译成功后，终端中应该可以看到类似这样的信息</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
 </span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>Scanning dependencies of target main
-<span class=o>[</span> 50%<span class=o>]</span> Building CXX object CMakeFiles/main.dir/pcd_write.cpp.o
-<span class=o>[</span>100%<span class=o>]</span> Linking CXX executable main
-<span class=o>[</span>100%<span class=o>]</span> Built target main
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">Scanning dependencies of target main
+<span class="o">[</span> 50%<span class="o">]</span> Building CXX object CMakeFiles/main.dir/pcd_write.cpp.o
+<span class="o">[</span>100%<span class="o">]</span> Linking CXX executable main
+<span class="o">[</span>100%<span class="o">]</span> Built target main
 </code></pre></td></tr></table>
 </div>
-</div><h3 id=运行文件 class=headerLink>
-<a href=#%e8%bf%90%e8%a1%8c%e6%96%87%e4%bb%b6 class=header-mark></a>运行文件</h3><p>现在我们可以输入以下指令运行可执行文件<code>main</code>，观察源cpp文件的效果</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</div><h3 id="运行文件" class="headerLink">
+    <a href="#%e8%bf%90%e8%a1%8c%e6%96%87%e4%bb%b6" class="header-mark"></a>运行文件</h3><p>现在我们可以输入以下指令运行可执行文件<code>main</code>，观察源cpp文件的效果</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>./main
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">./main
 </code></pre></td></tr></table>
 </div>
 </div><p>使用示例文件得到的终端运行显示结果应该类似于这样，运行成功</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
 </span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>Saved 5 data points to test_pcd.pcd.
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Saved 5 data points to test_pcd.pcd.
   0.352222 -0.151883 -0.106395
   -0.397406 -0.473106 0.292602
   -0.731898 0.667105 0.441304
@@ -346,18 +386,18 @@ make
 </code></pre></td></tr></table>
 </div>
 </div><p>我们可以看到在CMakeLists.txt中设置的名为<code>main</code>的可执行文件放在<code>build</code>目录下。现在项目目录结构如下</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
 </span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>project_folder
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">project_folder
       |-- pcd_write.cpp
       |-- CMakeLists.txt
       |-- build
@@ -366,20 +406,20 @@ make
                 ...
 </code></pre></td></tr></table>
 </div>
-</div><h3 id=总结 class=headerLink>
-<a href=#%e6%80%bb%e7%bb%93 class=header-mark></a>总结</h3><p>以上就是编译运行一个使用了PCL的项目的步骤。在不同项目中基本只要注意<code>CMakeLists.txt</code>填写正确的<code>源文件名</code>和<code>可执行文件名</code>。</p>
-<h2 id=point-cloud-library基础使用 class=headerLink>
-<a href=#point-cloud-library%e5%9f%ba%e7%a1%80%e4%bd%bf%e7%94%a8 class=header-mark></a>Point Cloud Library基础使用</h2><h3 id=pcd点云文件的读取 class=headerLink>
-<a href=#pcd%e7%82%b9%e4%ba%91%e6%96%87%e4%bb%b6%e7%9a%84%e8%af%bb%e5%8f%96 class=header-mark></a>pcd点云文件的读取</h3><p>PCL的pcd点云文件读写模块放在<code>pcl/io/pcd_io.h</code>中，记得include</p>
+</div><h3 id="总结" class="headerLink">
+    <a href="#%e6%80%bb%e7%bb%93" class="header-mark"></a>总结</h3><p>以上就是编译运行一个使用了PCL的项目的步骤。在不同项目中基本只要注意<code>CMakeLists.txt</code>填写正确的<code>源文件名</code>和<code>可执行文件名</code>。</p>
+<h2 id="point-cloud-library基础使用" class="headerLink">
+    <a href="#point-cloud-library%e5%9f%ba%e7%a1%80%e4%bd%bf%e7%94%a8" class="header-mark"></a>Point Cloud Library基础使用</h2><h3 id="pcd点云文件的读取" class="headerLink">
+    <a href="#pcd%e7%82%b9%e4%ba%91%e6%96%87%e4%bb%b6%e7%9a%84%e8%af%bb%e5%8f%96" class="header-mark"></a>pcd点云文件的读取</h3><p>PCL的pcd点云文件读写模块放在<code>pcl/io/pcd_io.h</code>中，记得include</p>
 <p>读取pcd文件的关键代码为</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
 </span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=n>pcl</span><span class=o>::</span><span class=n>PointCloud</span><span class=o>&lt;</span><span class=n>pcl</span><span class=o>::</span><span class=n>PointXYZ</span><span class=o>&gt;::</span><span class=n>Ptr</span> <span class=n>cloud</span><span class=p>(</span><span class=k>new</span> <span class=n>pcl</span><span class=o>::</span><span class=n>PointCloud</span><span class=o>&lt;</span><span class=n>pcl</span><span class=o>::</span><span class=n>PointXYZ</span><span class=o>&gt;</span><span class=p>);</span>
-<span class=n>pcl</span><span class=o>::</span><span class=n>io</span><span class=o>::</span><span class=n>loadPCDFile</span><span class=p>(</span><span class=s>&#34;pcd文件的路径&#34;</span><span class=p>,</span> <span class=o>*</span><span class=n>cloud</span><span class=p>);</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZ</span><span class="o">&gt;::</span><span class="n">Ptr</span> <span class="n">cloud</span><span class="p">(</span><span class="k">new</span> <span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZ</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="n">pcl</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">loadPCDFile</span><span class="p">(</span><span class="s">&#34;pcd文件的路径&#34;</span><span class="p">,</span> <span class="o">*</span><span class="n">cloud</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>第一行的代码创建一个点云类型为<code>pcl::PointXYZ</code>的名为<code>cloud</code>的空点云</p>
@@ -387,370 +427,370 @@ make
 <hr>
 <p>完整的文件如下</p>
 <p><strong>main.cpp</strong></p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
 </span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=cp>#include</span> <span class=cpf>&lt;iostream&gt;			 //标准C++库中的输入输出类相关头文件。</span><span class=cp>
-</span><span class=cp>#include</span> <span class=cpf>&lt;pcl/io/pcd_io.h&gt;	 //pcd 读写类相关的头文件。</span><span class=cp>
-</span><span class=cp>#include</span> <span class=cpf>&lt;pcl/point_types.h&gt; //PCL中支持的点类型头文件。</span><span class=cp>
-</span><span class=cp></span>
-<span class=kt>int</span> <span class=nf>main</span><span class=p>(</span><span class=kt>int</span> <span class=n>argc</span><span class=p>,</span> <span class=kt>char</span> <span class=o>**</span><span class=n>argv</span><span class=p>)</span>
-<span class=p>{</span>
-	<span class=n>pcl</span><span class=o>::</span><span class=n>PointCloud</span><span class=o>&lt;</span><span class=n>pcl</span><span class=o>::</span><span class=n>PointXYZI</span><span class=o>&gt;::</span><span class=n>Ptr</span> <span class=n>cloud</span><span class=p>(</span><span class=k>new</span> <span class=n>pcl</span><span class=o>::</span><span class=n>PointCloud</span><span class=o>&lt;</span><span class=n>pcl</span><span class=o>::</span><span class=n>PointXYZI</span><span class=o>&gt;</span><span class=p>);</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;			 //标准C++库中的输入输出类相关头文件。</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;pcl/io/pcd_io.h&gt;	 //pcd 读写类相关的头文件。</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;pcl/point_types.h&gt; //PCL中支持的点类型头文件。</span><span class="cp">
+</span><span class="cp"></span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZI</span><span class="o">&gt;::</span><span class="n">Ptr</span> <span class="n">cloud</span><span class="p">(</span><span class="k">new</span> <span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZI</span><span class="o">&gt;</span><span class="p">);</span>
 
-	<span class=k>if</span> <span class=p>(</span><span class=n>pcl</span><span class=o>::</span><span class=n>io</span><span class=o>::</span><span class=n>loadPCDFile</span><span class=p>(</span><span class=n>argv</span><span class=p>[</span><span class=mi>1</span><span class=p>],</span> <span class=o>*</span><span class=n>cloud</span><span class=p>)</span> <span class=o>==</span> <span class=o>-</span><span class=mi>1</span><span class=p>)</span>
-	<span class=p>{</span>
-		<span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;error input!&#34;</span> <span class=o>&lt;&lt;</span> <span class=n>endl</span><span class=p>;</span>
-		<span class=k>return</span> <span class=o>-</span><span class=mi>1</span><span class=p>;</span>
-	<span class=p>}</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">pcl</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">loadPCDFile</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">*</span><span class="n">cloud</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;error input!&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+		<span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+	<span class="p">}</span>
 
-	<span class=c1>// 输出点云信息
-</span><span class=c1></span>	<span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;原始点云中包含点数量：&#34;</span> <span class=o>&lt;&lt;</span> <span class=n>cloud</span><span class=o>-&gt;</span><span class=n>points</span><span class=p>.</span><span class=n>size</span><span class=p>()</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
-	<span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;height：&#34;</span> <span class=o>&lt;&lt;</span> <span class=n>cloud</span><span class=o>-&gt;</span><span class=n>height</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;</span><span class=se>\n</span><span class=s>width：&#34;</span> <span class=o>&lt;&lt;</span> <span class=n>cloud</span><span class=o>-&gt;</span><span class=n>width</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
+	<span class="c1">// 输出点云信息
+</span><span class="c1"></span>	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;原始点云中包含点数量：&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">cloud</span><span class="o">-&gt;</span><span class="n">points</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;height：&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">cloud</span><span class="o">-&gt;</span><span class="n">height</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">width：&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">cloud</span><span class="o">-&gt;</span><span class="n">width</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 
-	<span class=c1>// 输出各点信息
-</span><span class=c1></span>	<span class=k>for</span> <span class=p>(</span><span class=k>const</span> <span class=k>auto</span> <span class=o>&amp;</span><span class=nl>point</span> <span class=p>:</span> <span class=o>*</span><span class=n>cloud</span><span class=p>)</span>
-		<span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;    &#34;</span> <span class=o>&lt;&lt;</span> <span class=n>point</span><span class=p>.</span><span class=n>x</span>
-				  <span class=o>&lt;&lt;</span> <span class=s>&#34; &#34;</span> <span class=o>&lt;&lt;</span> <span class=n>point</span><span class=p>.</span><span class=n>y</span>
-				  <span class=o>&lt;&lt;</span> <span class=s>&#34; &#34;</span> <span class=o>&lt;&lt;</span> <span class=n>point</span><span class=p>.</span><span class=n>z</span>
-				  <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
+	<span class="c1">// 输出各点信息
+</span><span class="c1"></span>	<span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span> <span class="o">&amp;</span><span class="nl">point</span> <span class="p">:</span> <span class="o">*</span><span class="n">cloud</span><span class="p">)</span>
+		<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;    &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">point</span><span class="p">.</span><span class="n">x</span>
+				  <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">point</span><span class="p">.</span><span class="n">y</span>
+				  <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">point</span><span class="p">.</span><span class="n">z</span>
+				  <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
     
-	<span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
-<span class=p>}</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><strong>CMakeLists.txt</strong></p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
 </span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-cmake data-lang=cmake><span class=nb>cmake_minimum_required</span><span class=p>(</span><span class=s>VERSION</span> <span class=s>2.8</span> <span class=s>FATAL_ERROR</span><span class=p>)</span><span class=err>
-</span><span class=err>
-</span><span class=err></span><span class=nb>project</span><span class=p>(</span><span class=s>pcd_read</span><span class=p>)</span><span class=err>
-</span><span class=err>
-</span><span class=err></span><span class=nb>find_package</span><span class=p>(</span><span class=s>PCL</span> <span class=s>1.2</span> <span class=s>REQUIRED</span><span class=p>)</span><span class=err>
-</span><span class=err>
-</span><span class=err></span><span class=nb>include_directories</span><span class=p>(</span><span class=o>${</span><span class=nv>PCL_INCLUDE_DIRS</span><span class=o>}</span><span class=p>)</span><span class=err>
-</span><span class=err></span><span class=nb>link_directories</span><span class=p>(</span><span class=o>${</span><span class=nv>PCL_LIBRARY_DIRS</span><span class=o>}</span><span class=p>)</span><span class=err>
-</span><span class=err></span><span class=nb>add_definitions</span><span class=p>(</span><span class=o>${</span><span class=nv>PCL_DEFINITIONS</span><span class=o>}</span><span class=p>)</span><span class=err>
-</span><span class=err>
-</span><span class=err></span><span class=nb>add_executable</span> <span class=p>(</span><span class=s>pcd_read</span> <span class=s>main.cpp</span><span class=p>)</span><span class=err>
-</span><span class=err></span><span class=nb>target_link_libraries</span> <span class=p>(</span><span class=s>pcd_read</span> <span class=o>${</span><span class=nv>PCL_LIBRARIES</span><span class=o>}</span><span class=p>)</span><span class=err>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cmake" data-lang="cmake"><span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span> <span class="s">2.8</span> <span class="s">FATAL_ERROR</span><span class="p">)</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="nb">project</span><span class="p">(</span><span class="s">pcd_read</span><span class="p">)</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="nb">find_package</span><span class="p">(</span><span class="s">PCL</span> <span class="s">1.2</span> <span class="s">REQUIRED</span><span class="p">)</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="nb">include_directories</span><span class="p">(</span><span class="o">${</span><span class="nv">PCL_INCLUDE_DIRS</span><span class="o">}</span><span class="p">)</span><span class="err">
+</span><span class="err"></span><span class="nb">link_directories</span><span class="p">(</span><span class="o">${</span><span class="nv">PCL_LIBRARY_DIRS</span><span class="o">}</span><span class="p">)</span><span class="err">
+</span><span class="err"></span><span class="nb">add_definitions</span><span class="p">(</span><span class="o">${</span><span class="nv">PCL_DEFINITIONS</span><span class="o">}</span><span class="p">)</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="nb">add_executable</span> <span class="p">(</span><span class="s">pcd_read</span> <span class="s">main.cpp</span><span class="p">)</span><span class="err">
+</span><span class="err"></span><span class="nb">target_link_libraries</span> <span class="p">(</span><span class="s">pcd_read</span> <span class="o">${</span><span class="nv">PCL_LIBRARIES</span><span class="o">}</span><span class="p">)</span><span class="err">
 </span></code></pre></td></tr></table>
 </div>
 </div><hr>
 <p>在源代码中，下面这一行这样写是为了程序运行时从命令行中获取参数</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=kt>int</span> <span class=n>main</span><span class=p>(</span><span class=kt>int</span> <span class=n>argc</span><span class=p>,</span> <span class=kt>char</span> <span class=o>**</span><span class=n>argv</span><span class=p>)</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><code>argc</code>将包含参数数量，可执行文件本身占一个参数数量。</p>
 <p><code>argv</code>为参数数组，里面包含了所有的参数。</p>
-<p>当终端中执行命令行如下时，程序中<code>argc == 3</code>，<code>argv[0] == "./main"</code>，<code>argv[1] == "value1"</code></p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+<p>当终端中执行命令行如下时，程序中<code>argc == 3</code>，<code>argv[0] == &quot;./main&quot;</code>，<code>argv[1] == &quot;value1&quot;</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>./main value1 value2
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">./main value1 value2
 </code></pre></td></tr></table>
 </div>
 </div><p>读取pcd文件的源代码如下，可以直接在终端执行时通过修改命令行读取不同的pcd文件，避免文件路径写死在程序中，为了读不同的文件浪费时间重复编译。</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=n>pcl</span><span class=o>::</span><span class=n>io</span><span class=o>::</span><span class=n>loadPCDFile</span><span class=p>(</span><span class=n>argv</span><span class=p>[</span><span class=mi>1</span><span class=p>],</span> <span class=o>*</span><span class=n>cloud</span><span class=p>);</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="n">pcl</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">loadPCDFile</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">*</span><span class="n">cloud</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
 </div><hr>
 <p>编译完成后，终端执行命令行如下，就能够读取pcd文件了，文件路径根据实际修改</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>./pcd_read ~/pcl/pcdXYZ_files/cloud00000.pcd 
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">./pcd_read ~/pcl/pcdXYZ_files/cloud00000.pcd 
 </code></pre></td></tr></table>
 </div>
 </div><p>![image-20210604015912820](Point Cloud Library的基础入门及资料查找方法.assets/image-20210604015912820.png)</p>
-<h3 id=保存点云到pcd文件 class=headerLink>
-<a href=#%e4%bf%9d%e5%ad%98%e7%82%b9%e4%ba%91%e5%88%b0pcd%e6%96%87%e4%bb%b6 class=header-mark></a>保存点云到pcd文件</h3><p>PCL的pcd点云文件写入模块同样放在<code>pcl/io/pcd_io.h</code>中，记得include</p>
+<h3 id="保存点云到pcd文件" class="headerLink">
+    <a href="#%e4%bf%9d%e5%ad%98%e7%82%b9%e4%ba%91%e5%88%b0pcd%e6%96%87%e4%bb%b6" class="header-mark"></a>保存点云到pcd文件</h3><p>PCL的pcd点云文件写入模块同样放在<code>pcl/io/pcd_io.h</code>中，记得include</p>
 <p>PCL将点云写入pcd文件的代码如下，点云数据默认以二进制的格式写入pcd文件中，加快读写速度</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=n>pcl</span><span class=o>::</span><span class=n>io</span><span class=o>::</span><span class=n>savePCDFile</span><span class=p>(</span><span class=s>&#34;path_to_save_pcd_file&#34;</span><span class=p>,</span> <span class=o>*</span><span class=n>cloud</span><span class=p>);</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="n">pcl</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">savePCDFile</span><span class="p">(</span><span class="s">&#34;path_to_save_pcd_file&#34;</span><span class="p">,</span> <span class="o">*</span><span class="n">cloud</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>如果希望pcd文件中的点云数据以人类可读的格式保存，则使用如下代码</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=n>pcl</span><span class=o>::</span><span class=n>io</span><span class=o>::</span><span class=n>savePCDFileASCII</span><span class=p>(</span><span class=s>&#34;path_to_save_pcd_file&#34;</span><span class=p>,</span> <span class=o>*</span><span class=n>cloud</span><span class=p>);</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="n">pcl</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">savePCDFileASCII</span><span class="p">(</span><span class="s">&#34;path_to_save_pcd_file&#34;</span><span class="p">,</span> <span class="o">*</span><span class="n">cloud</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>完整示例代码</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
 </span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=cp>#include</span> <span class=cpf>&lt;iostream&gt;			 //标准C++库中的输入输出类相关头文件。</span><span class=cp>
-</span><span class=cp>#include</span> <span class=cpf>&lt;pcl/io/pcd_io.h&gt;	 //pcd 读写类相关的头文件。</span><span class=cp>
-</span><span class=cp>#include</span> <span class=cpf>&lt;pcl/point_types.h&gt; //PCL中支持的点类型头文件。</span><span class=cp>
-</span><span class=cp></span>
-<span class=kt>int</span> <span class=nf>main</span><span class=p>(</span><span class=kt>int</span> <span class=n>argc</span><span class=p>,</span> <span class=kt>char</span> <span class=o>**</span><span class=n>argv</span><span class=p>)</span>
-<span class=p>{</span>
-	<span class=n>pcl</span><span class=o>::</span><span class=n>PointCloud</span><span class=o>&lt;</span><span class=n>pcl</span><span class=o>::</span><span class=n>PointXYZI</span><span class=o>&gt;::</span><span class=n>Ptr</span> <span class=n>cloud</span><span class=p>(</span><span class=k>new</span> <span class=n>pcl</span><span class=o>::</span><span class=n>PointCloud</span><span class=o>&lt;</span><span class=n>pcl</span><span class=o>::</span><span class=n>PointXYZI</span><span class=o>&gt;</span><span class=p>);</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;			 //标准C++库中的输入输出类相关头文件。</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;pcl/io/pcd_io.h&gt;	 //pcd 读写类相关的头文件。</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;pcl/point_types.h&gt; //PCL中支持的点类型头文件。</span><span class="cp">
+</span><span class="cp"></span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZI</span><span class="o">&gt;::</span><span class="n">Ptr</span> <span class="n">cloud</span><span class="p">(</span><span class="k">new</span> <span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZI</span><span class="o">&gt;</span><span class="p">);</span>
 
-    <span class=c1>// pcd文件路径根据实际修改或直接写成从参数里读
-</span><span class=c1></span>	<span class=k>if</span> <span class=p>(</span><span class=n>pcl</span><span class=o>::</span><span class=n>io</span><span class=o>::</span><span class=n>loadPCDFile</span><span class=p>(</span><span class=s>&#34;input.pcd&#34;</span><span class=p>,</span> <span class=o>*</span><span class=n>cloud</span><span class=p>)</span> <span class=o>==</span> <span class=o>-</span><span class=mi>1</span><span class=p>)</span>
-	<span class=p>{</span>
-		<span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;error input!&#34;</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
-		<span class=k>return</span> <span class=o>-</span><span class=mi>1</span><span class=p>;</span>
-	<span class=p>}</span>
+    <span class="c1">// pcd文件路径根据实际修改或直接写成从参数里读
+</span><span class="c1"></span>	<span class="k">if</span> <span class="p">(</span><span class="n">pcl</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">loadPCDFile</span><span class="p">(</span><span class="s">&#34;input.pcd&#34;</span><span class="p">,</span> <span class="o">*</span><span class="n">cloud</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;error input!&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+		<span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+	<span class="p">}</span>
     
-	<span class=c1>// pcd文件路径根据实际修改或直接写成从参数里读
-</span><span class=c1></span>	<span class=n>pcl</span><span class=o>::</span><span class=n>io</span><span class=o>::</span><span class=n>savePCDFileASCII</span><span class=p>(</span><span class=s>&#34;output.pcd&#34;</span><span class=p>,</span> <span class=o>*</span><span class=n>cloud</span><span class=p>);</span>
+	<span class="c1">// pcd文件路径根据实际修改或直接写成从参数里读
+</span><span class="c1"></span>	<span class="n">pcl</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">savePCDFileASCII</span><span class="p">(</span><span class="s">&#34;output.pcd&#34;</span><span class="p">,</span> <span class="o">*</span><span class="n">cloud</span><span class="p">);</span>
     
-	<span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
-<span class=p>}</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id=显示点云 class=headerLink>
-<a href=#%e6%98%be%e7%a4%ba%e7%82%b9%e4%ba%91 class=header-mark></a>显示点云</h3><p>包含PCL完整可视化类的头文件为<code>pcl/visualization/pcl_visualizer.h</code></p>
+</div><h3 id="显示点云" class="headerLink">
+    <a href="#%e6%98%be%e7%a4%ba%e7%82%b9%e4%ba%91" class="header-mark"></a>显示点云</h3><p>包含PCL完整可视化类的头文件为<code>pcl/visualization/pcl_visualizer.h</code></p>
 <p>首先，我们通过下面的代码建立一个名为<code>viewer</code>的可视化类对象，该对象弹出的显示的窗口名为<code>Cloud Viewer</code></p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=n>pcl</span><span class=o>::</span><span class=n>visualization</span><span class=o>::</span><span class=n>PCLVisualizer</span><span class=o>::</span><span class=n>Ptr</span> <span class=n>viewer</span><span class=p>(</span><span class=k>new</span> <span class=n>pcl</span><span class=o>::</span><span class=n>visualization</span><span class=o>::</span><span class=n>PCLVisualizer</span><span class=p>(</span><span class=s>&#34;Cloud Viewer&#34;</span><span class=p>));</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="n">pcl</span><span class="o">::</span><span class="n">visualization</span><span class="o">::</span><span class="n">PCLVisualizer</span><span class="o">::</span><span class="n">Ptr</span> <span class="n">viewer</span><span class="p">(</span><span class="k">new</span> <span class="n">pcl</span><span class="o">::</span><span class="n">visualization</span><span class="o">::</span><span class="n">PCLVisualizer</span><span class="p">(</span><span class="s">&#34;Cloud Viewer&#34;</span><span class="p">));</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>我们现在有一个如下定义的一个名为<code>cloud</code>的点云对象</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=n>pcl</span><span class=o>::</span><span class=n>PointCloud</span><span class=o>&lt;</span><span class=n>pcl</span><span class=o>::</span><span class=n>PointXYZ</span><span class=o>&gt;::</span><span class=n>Ptr</span> <span class=n>cloud</span><span class=p>(</span><span class=k>new</span> <span class=n>pcl</span><span class=o>::</span><span class=n>PointCloud</span><span class=o>&lt;</span><span class=n>pcl</span><span class=o>::</span><span class=n>PointXYZ</span><span class=o>&gt;</span><span class=p>);</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZ</span><span class="o">&gt;::</span><span class="n">Ptr</span> <span class="n">cloud</span><span class="p">(</span><span class="k">new</span> <span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZ</span><span class="o">&gt;</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>然后通过以下代码，我们就可以将点云<code>cloud</code>显示在一个名为<code>Cloud Viewer</code>的窗口中，该点云在<code>viewer</code>中的id为<code>cloud1</code></p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=n>viewer</span><span class=o>-&gt;</span><span class=n>addPointCloud</span><span class=p>(</span><span class=n>cloud</span><span class=p>,</span> <span class=s>&#34;cloud1&#34;</span><span class=p>);</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="n">viewer</span><span class="o">-&gt;</span><span class="n">addPointCloud</span><span class="p">(</span><span class="n">cloud</span><span class="p">,</span> <span class="s">&#34;cloud1&#34;</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>如果想显示多个点云，要注意id不能重复，否则后面重复id的点云将不会显示</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
 </span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=n>viewer</span><span class=o>-&gt;</span><span class=n>addPointCloud</span><span class=p>(</span><span class=n>cloud1</span><span class=p>,</span> <span class=s>&#34;cloud1&#34;</span><span class=p>);</span>
-<span class=n>viewer</span><span class=o>-&gt;</span><span class=n>addPointCloud</span><span class=p>(</span><span class=n>cloud2</span><span class=p>,</span> <span class=s>&#34;cloud2&#34;</span><span class=p>);</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="n">viewer</span><span class="o">-&gt;</span><span class="n">addPointCloud</span><span class="p">(</span><span class="n">cloud1</span><span class="p">,</span> <span class="s">&#34;cloud1&#34;</span><span class="p">);</span>
+<span class="n">viewer</span><span class="o">-&gt;</span><span class="n">addPointCloud</span><span class="p">(</span><span class="n">cloud2</span><span class="p">,</span> <span class="s">&#34;cloud2&#34;</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>点云显示在窗口中后，程序会继续运行，运行完成后会直接退出，同时关闭点云显示窗口，这显然不是我们想要的</p>
 <p>使用PCL时可以通过下面的两种方法暂停程序，保持点云显示，直到在点云显示窗口中按<code>q</code>退出</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
 </span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=c1>// 两种方法二选一
-</span><span class=c1></span>
-<span class=c1>// 方法1，阻塞式，完全停止程序
-</span><span class=c1></span><span class=n>viewer</span><span class=o>-&gt;</span><span class=n>spin</span><span class=p>();</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="c1">// 两种方法二选一
+</span><span class="c1"></span>
+<span class="c1">// 方法1，阻塞式，完全停止程序
+</span><span class="c1"></span><span class="n">viewer</span><span class="o">-&gt;</span><span class="n">spin</span><span class="p">();</span>
 
-<span class=c1>// 方法2，非阻塞式，可以在里面添加其它操作
-</span><span class=c1></span><span class=k>while</span><span class=p>(</span><span class=n>viewer</span><span class=o>-&gt;</span><span class=n>wasStopped</span><span class=p>())</span>
-<span class=p>{</span>
-    <span class=c1>// 可如下添加其他操作
-</span><span class=c1></span>	<span class=n>viewer</span><span class=o>-&gt;</span><span class=n>spinOnce</span><span class=p>(</span><span class=mi>100</span><span class=p>);</span>
-    <span class=c1>// boost::this_thread::sleep(boost::posix_time::microseconds(100000));
-</span><span class=c1></span><span class=p>}</span>
+<span class="c1">// 方法2，非阻塞式，可以在里面添加其它操作
+</span><span class="c1"></span><span class="k">while</span><span class="p">(</span><span class="n">viewer</span><span class="o">-&gt;</span><span class="n">wasStopped</span><span class="p">())</span>
+<span class="p">{</span>
+    <span class="c1">// 可如下添加其他操作
+</span><span class="c1"></span>	<span class="n">viewer</span><span class="o">-&gt;</span><span class="n">spinOnce</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+    <span class="c1">// boost::this_thread::sleep(boost::posix_time::microseconds(100000));
+</span><span class="c1"></span><span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>有的代码用的是<code>system("pause");</code>来暂停程序，该方法只在Windows中有效，通用性差，不灵活，不建议使用</p>
+</div><p>有的代码用的是<code>system(&quot;pause&quot;);</code>来暂停程序，该方法只在Windows中有效，通用性差，不灵活，不建议使用</p>
 <hr>
 <p>完整代码如下</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span><span class=lnt>32
-</span><span class=lnt>33
-</span><span class=lnt>34
-</span><span class=lnt>35
-</span><span class=lnt>36
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
 </span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=cp>#include</span> <span class=cpf>&lt;iostream&gt;</span><span class=cp>
-</span><span class=cp>#include</span> <span class=cpf>&lt;pcl/io/pcd_io.h&gt;</span><span class=cp>
-</span><span class=cp>#include</span> <span class=cpf>&lt;pcl/point_types.h&gt;</span><span class=cp>
-</span><span class=cp>#include</span> <span class=cpf>&lt;pcl/visualization/pcl_visualizer.h&gt;</span><span class=cp>
-</span><span class=cp></span>
-<span class=c1>// 这里是为了方便统一调整点云类型
-</span><span class=c1></span><span class=k>typedef</span> <span class=n>pcl</span><span class=o>::</span><span class=n>PointXYZ</span> <span class=n>PointT</span><span class=p>;</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;pcl/io/pcd_io.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;pcl/point_types.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;pcl/visualization/pcl_visualizer.h&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="c1">// 这里是为了方便统一调整点云类型
+</span><span class="c1"></span><span class="k">typedef</span> <span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZ</span> <span class="n">PointT</span><span class="p">;</span>
 
-<span class=kt>int</span> <span class=nf>main</span><span class=p>(</span><span class=kt>int</span> <span class=n>argc</span><span class=p>,</span> <span class=kt>char</span> <span class=o>**</span><span class=n>argv</span><span class=p>)</span>
-<span class=p>{</span>
-  <span class=c1>// 定义点云对象
-</span><span class=c1></span>  <span class=n>pcl</span><span class=o>::</span><span class=n>PointCloud</span><span class=o>&lt;</span><span class=n>PointT</span><span class=o>&gt;::</span><span class=n>Ptr</span> <span class=n>cloud</span><span class=p>(</span><span class=k>new</span> <span class=n>pcl</span><span class=o>::</span><span class=n>PointCloud</span><span class=o>&lt;</span><span class=n>PointT</span><span class=o>&gt;</span><span class=p>);</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// 定义点云对象
+</span><span class="c1"></span>  <span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">PointT</span><span class="o">&gt;::</span><span class="n">Ptr</span> <span class="n">cloud</span><span class="p">(</span><span class="k">new</span> <span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">PointT</span><span class="o">&gt;</span><span class="p">);</span>
   
-  <span class=c1>// 从命令行参数中直接读取pcd文件路径，写入cloud
-</span><span class=c1></span>  <span class=n>pcl</span><span class=o>::</span><span class=n>io</span><span class=o>::</span><span class=n>loadPCDFile</span><span class=p>(</span><span class=n>argv</span><span class=p>[</span><span class=mi>1</span><span class=p>],</span> <span class=o>*</span><span class=n>cloud</span><span class=p>);</span>
+  <span class="c1">// 从命令行参数中直接读取pcd文件路径，写入cloud
+</span><span class="c1"></span>  <span class="n">pcl</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">loadPCDFile</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">*</span><span class="n">cloud</span><span class="p">);</span>
 
-  <span class=c1>// 定义可视化对象
-</span><span class=c1></span>  <span class=n>pcl</span><span class=o>::</span><span class=n>visualization</span><span class=o>::</span><span class=n>PCLVisualizer</span><span class=o>::</span><span class=n>Ptr</span> <span class=n>viewer</span><span class=p>(</span><span class=k>new</span> <span class=n>pcl</span><span class=o>::</span><span class=n>visualization</span><span class=o>::</span><span class=n>PCLVisualizer</span><span class=p>(</span><span class=s>&#34;Cloud Viewer&#34;</span><span class=p>));</span>
+  <span class="c1">// 定义可视化对象
+</span><span class="c1"></span>  <span class="n">pcl</span><span class="o">::</span><span class="n">visualization</span><span class="o">::</span><span class="n">PCLVisualizer</span><span class="o">::</span><span class="n">Ptr</span> <span class="n">viewer</span><span class="p">(</span><span class="k">new</span> <span class="n">pcl</span><span class="o">::</span><span class="n">visualization</span><span class="o">::</span><span class="n">PCLVisualizer</span><span class="p">(</span><span class="s">&#34;Cloud Viewer&#34;</span><span class="p">));</span>
 
-  <span class=c1>// --- 显示点云数据 ----
-</span><span class=c1></span>  <span class=c1>// &#34;cloud1&#34; 为显示id，默认cloud,显示多个点云时用默认会报警告。
-</span><span class=c1></span>  <span class=n>viewer</span><span class=o>-&gt;</span><span class=n>addPointCloud</span><span class=p>(</span><span class=n>cloud</span><span class=p>,</span> <span class=s>&#34;cloud1&#34;</span><span class=p>);</span>
+  <span class="c1">// --- 显示点云数据 ----
+</span><span class="c1"></span>  <span class="c1">// &#34;cloud1&#34; 为显示id，默认cloud,显示多个点云时用默认会报警告。
+</span><span class="c1"></span>  <span class="n">viewer</span><span class="o">-&gt;</span><span class="n">addPointCloud</span><span class="p">(</span><span class="n">cloud</span><span class="p">,</span> <span class="s">&#34;cloud1&#34;</span><span class="p">);</span>
 
-  <span class=c1>// 阻塞式暂停程序
-</span><span class=c1></span>  <span class=n>viewer</span><span class=o>-&gt;</span><span class=n>spin</span><span class=p>();</span>
+  <span class="c1">// 阻塞式暂停程序
+</span><span class="c1"></span>  <span class="n">viewer</span><span class="o">-&gt;</span><span class="n">spin</span><span class="p">();</span>
   
-  <span class=cm>/*
-</span><span class=cm>  // 非阻塞式，二选一
-</span><span class=cm>  while (!viewer.wasStopped())
-</span><span class=cm>  {
-</span><span class=cm>  	viewer-&gt;spinOnce(100);
-</span><span class=cm>  }
-</span><span class=cm>  */</span>
+  <span class="cm">/*
+</span><span class="cm">  // 非阻塞式，二选一
+</span><span class="cm">  while (!viewer.wasStopped())
+</span><span class="cm">  {
+</span><span class="cm">  	viewer-&gt;spinOnce(100);
+</span><span class="cm">  }
+</span><span class="cm">  */</span>
     
-  <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
-<span class=p>}</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id=point-cloud-library学习指南 class=headerLink>
-<a href=#point-cloud-library%e5%ad%a6%e4%b9%a0%e6%8c%87%e5%8d%97 class=header-mark></a>Point Cloud Library学习指南</h2><h3 id=中文学习资料 class=headerLink>
-<a href=#%e4%b8%ad%e6%96%87%e5%ad%a6%e4%b9%a0%e8%b5%84%e6%96%99 class=header-mark></a>中文学习资料</h3><p>PCL学习可以先看看<a href=https://www.zhihu.com/people/huang-zhong-qing- target=_blank rel="noopener noreffer">双愚</a>这位作者写的学习指南和学习笔记，是中文的，很详细清晰，很适合学习理解</p>
-<p><a href=https://zhuanlan.zhihu.com/p/268524083 target=_blank rel="noopener noreffer">https://zhuanlan.zhihu.com/p/268524083</a> 里面对Point Cloud Library整体框架、入门学习作了比较详细的介绍和总结</p>
-<p><a href=https://www.yuque.com/huangzhongqing/pcl target=_blank rel="noopener noreffer">https://www.yuque.com/huangzhongqing/pcl</a> 这里面是对PCL的学习总结，基本覆盖了正常操作需要的所有应用，对每个部分都有着较为详细的解释说明，而且包含了示例文件。我在学习时参考了很多</p>
-<h3 id=官方教程和文档 class=headerLink>
-<a href=#%e5%ae%98%e6%96%b9%e6%95%99%e7%a8%8b%e5%92%8c%e6%96%87%e6%a1%a3 class=header-mark></a>官方教程和文档</h3><p>官方也提供了PCL的使用指南，覆盖了PCL各个模块的使用，不过因为是全英文，刚学习时可能会比较难理解，但是官方教程保证了准确性和规范性，如果英语能力较好还是建议对照着读一读</p>
-<p><a href=https://pointclouds.org/documentation/tutorials/index.html target=_blank rel="noopener noreffer">https://pointclouds.org/documentation/tutorials/index.html</a></p>
+</div><h2 id="point-cloud-library学习指南" class="headerLink">
+    <a href="#point-cloud-library%e5%ad%a6%e4%b9%a0%e6%8c%87%e5%8d%97" class="header-mark"></a>Point Cloud Library学习指南</h2><h3 id="中文学习资料" class="headerLink">
+    <a href="#%e4%b8%ad%e6%96%87%e5%ad%a6%e4%b9%a0%e8%b5%84%e6%96%99" class="header-mark"></a>中文学习资料</h3><p>PCL学习可以先看看<a href="https://www.zhihu.com/people/huang-zhong-qing-" target="_blank" rel="noopener noreffer">双愚</a>这位作者写的学习指南和学习笔记，是中文的，很详细清晰，很适合学习理解</p>
+<p><a href="https://zhuanlan.zhihu.com/p/268524083" target="_blank" rel="noopener noreffer">https://zhuanlan.zhihu.com/p/268524083</a> 里面对Point Cloud Library整体框架、入门学习作了比较详细的介绍和总结</p>
+<p><a href="https://www.yuque.com/huangzhongqing/pcl" target="_blank" rel="noopener noreffer">https://www.yuque.com/huangzhongqing/pcl</a>  这里面是对PCL的学习总结，基本覆盖了正常操作需要的所有应用，对每个部分都有着较为详细的解释说明，而且包含了示例文件。我在学习时参考了很多</p>
+<h3 id="官方教程和文档" class="headerLink">
+    <a href="#%e5%ae%98%e6%96%b9%e6%95%99%e7%a8%8b%e5%92%8c%e6%96%87%e6%a1%a3" class="header-mark"></a>官方教程和文档</h3><p>官方也提供了PCL的使用指南，覆盖了PCL各个模块的使用，不过因为是全英文，刚学习时可能会比较难理解，但是官方教程保证了准确性和规范性，如果英语能力较好还是建议对照着读一读</p>
+<p><a href="https://pointclouds.org/documentation/tutorials/index.html" target="_blank" rel="noopener noreffer">https://pointclouds.org/documentation/tutorials/index.html</a></p>
 <p>当你想知道某个模块的完整功能使用说明，或是知道某个模块需要引入哪个头文件，或是某个方法的来源，都可以在官方提供的PCL的API的完整说明文档中找到答案。建议对模块有问题的时候，先到里面看一看</p>
-<p><a href=https://pointclouds.org/documentation/index.html target=_blank rel="noopener noreffer">https://pointclouds.org/documentation/index.html</a></p>
-<h3 id=pcl问题解决方法查找 class=headerLink>
-<a href=#pcl%e9%97%ae%e9%a2%98%e8%a7%a3%e5%86%b3%e6%96%b9%e6%b3%95%e6%9f%a5%e6%89%be class=header-mark></a>PCL问题解决方法查找</h3><p>遇到问题我们通常先直接搜索引擎找答案，不过PCL开发相关的中文文章和资料占比其实是比较小的，有时如果想更好地找到问题的解决方法，要用英语关键词去搜一下，看看英语的文章资料</p>
+<p><a href="https://pointclouds.org/documentation/index.html" target="_blank" rel="noopener noreffer">https://pointclouds.org/documentation/index.html</a></p>
+<h3 id="pcl问题解决方法查找" class="headerLink">
+    <a href="#pcl%e9%97%ae%e9%a2%98%e8%a7%a3%e5%86%b3%e6%96%b9%e6%b3%95%e6%9f%a5%e6%89%be" class="header-mark"></a>PCL问题解决方法查找</h3><p>遇到问题我们通常先直接搜索引擎找答案，不过PCL开发相关的中文文章和资料占比其实是比较小的，有时如果想更好地找到问题的解决方法，要用英语关键词去搜一下，看看英语的文章资料</p>
 <ol>
 <li>
 <p>百度</p>
@@ -769,47 +809,53 @@ make
 </li>
 </ol>
 </div>
-<div class=post-footer id=post-footer>
-<div class=post-info>
-<div class=post-info-line>
-<div class=post-info-mod>
-<span>更新于 2021-06-09</span>
+
+        <div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-06-09</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="#" onclick="return false;" title="分享到 Twitter" data-sharer="twitter" data-url="railzy.github.io/pcl-getstarted-searching/" data-title="Point Cloud Library的基础入门及资料查找方法"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Facebook" data-sharer="facebook" data-url="railzy.github.io/pcl-getstarted-searching/"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Hacker News" data-sharer="hackernews" data-url="railzy.github.io/pcl-getstarted-searching/" data-title="Point Cloud Library的基础入门及资料查找方法"><i class="fab fa-hacker-news fa-fw"></i></a><a href="#" onclick="return false;" title="分享到 Line" data-sharer="line" data-url="railzy.github.io/pcl-getstarted-searching/" data-title="Point Cloud Library的基础入门及资料查找方法"><i data-svg-src="/railzy.github.io/lib/simple-icons/icons/line.min.svg"></i></a><a href="#" onclick="return false;" title="分享到 微博" data-sharer="weibo" data-url="railzy.github.io/pcl-getstarted-searching/" data-title="Point Cloud Library的基础入门及资料查找方法"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="railzy.github.io/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+            <a href="railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/" class="next" rel="next" title="配置PCL开发环境到Virtualbox Ubuntu18.04虚拟机">配置PCL开发环境到Virtualbox Ubuntu18.04虚拟机<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
-<div class=post-info-license></div>
-</div>
-<div class=post-info-line>
-<div class=post-info-md></div>
-<div class=post-info-share>
-<span><a href=# onclick=return!1 title="分享到 Twitter" data-sharer=twitter data-url=railzy.github.io/pcl-getstarted-searching/ data-title="Point Cloud Library的基础入门及资料查找方法"><i class="fab fa-twitter fa-fw"></i></a><a href=# onclick=return!1 title="分享到 Facebook" data-sharer=facebook data-url=railzy.github.io/pcl-getstarted-searching/><i class="fab fa-facebook-square fa-fw"></i></a><a href=# onclick=return!1 title="分享到 Hacker News" data-sharer=hackernews data-url=railzy.github.io/pcl-getstarted-searching/ data-title="Point Cloud Library的基础入门及资料查找方法"><i class="fab fa-hacker-news fa-fw"></i></a><a href=# onclick=return!1 title="分享到 Line" data-sharer=line data-url=railzy.github.io/pcl-getstarted-searching/ data-title="Point Cloud Library的基础入门及资料查找方法"><i data-svg-src=/railzy.github.io/lib/simple-icons/icons/line.min.svg></i></a><a href=# onclick=return!1 title="分享到 微博" data-sharer=weibo data-url=railzy.github.io/pcl-getstarted-searching/ data-title="Point Cloud Library的基础入门及资料查找方法"><i class="fab fa-weibo fa-fw"></i></a></span>
-</div>
-</div>
-</div>
-<div class=post-info-more>
-<section class=post-tags></section>
-<section>
-<span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=railzy.github.io/>主页</a></span>
-</section>
-</div>
-<div class=post-nav>
-<a href=railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ class=next rel=next title="配置PCL开发环境到Virtualbox Ubuntu18.04虚拟机">配置PCL开发环境到Virtualbox Ubuntu18.04虚拟机<i class="fas fa-angle-right fa-fw"></i></a></div>
-</div>
-<div id=comments><div id=utterances></div><noscript>
-Please enable JavaScript to view the comments powered by <a href=https://utteranc.es/>Utterances</a>.
-</noscript></div></article></div>
-</main><footer class=footer>
-<div class=footer-container><div class=footer-line>
-由 <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.91.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href=https://github.com/HEIGE-PCloud/DoIt target=_blank rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
-</div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2021 - 2022</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://github.com/railzy target=_blank rel="noopener noreferrer">Ray</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div>
-<div class=footer-line></div>
-<div class=footer-line>
-</div>
-</div></footer></div>
-<div id=fixed-buttons><a href=#back-to-top id=back-to-top-button class=fixed-button title=回到顶部>
-<i class="fas fa-arrow-up fa-fw"></i>
-</a><a href=# id=view-comments class=fixed-button title=查看评论>
-<i class="fas fa-comment fa-fw"></i>
-</a>
-</div><div class=assets><script type=text/javascript src=/railzy.github.io/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/railzy.github.io/lib/algoliasearch/algoliasearch-lite.umd.min.js></script><script type=text/javascript src=/railzy.github.io/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/railzy.github.io/lib/topbar/topbar.min.js></script><script type=text/javascript src=/railzy.github.io/lib/pjax/pjax.min.js></script><script type=text/javascript src=/railzy.github.io/js/theme.min.js></script><script defer src=https://static.cloudflareinsights.com/beacon.min.js data-cf-beacon='{"token": "197a11e27af7420dbfb0c2cb0bfcd59b"}'></script></div>
-<div class=pjax-assets><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:99999},comment:{utterances:{darkTheme:"github-dark",issueTerm:"pathname",label:"",lightTheme:"github-light",repo:"railzy/utterances-comments"}},search:{algoliaAppID:"04OECJ8HSB",algoliaIndex:"index_zh-cn",algoliaSearchKey:"df2e1cfa849a723887a33a30b3a3c0df",highlightTag:"em",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:50,type:"algolia"},sharerjs:!0}</script><script type=text/javascript src=/railzy.github.io/js/utterances.min.js defer></script><script type=text/javascript src=/railzy.github.io/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/railzy.github.io/lib/sharer/sharer.min.js></script><script type=text/javascript src=/railzy.github.io/js/jump-to-top.js></script></div>
+<div id="comments"><div id="utterances"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
+            </noscript></div></article></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.91.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/railzy" target="_blank" rel="noopener noreferrer">Ray</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+            <div class="footer-line"></div>
+            <div class="footer-line">
+            </div>
+        </div></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><script type="text/javascript" src="/railzy.github.io/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/railzy.github.io/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/railzy.github.io/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/railzy.github.io/lib/topbar/topbar.min.js"></script><script type="text/javascript" src="/railzy.github.io/lib/pjax/pjax.min.js"></script><script type="text/javascript" src="/railzy.github.io/js/theme.min.js"></script><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "197a11e27af7420dbfb0c2cb0bfcd59b"}'></script></div>
+
+<div class="pjax-assets"><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":99999},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"pathname","label":"","lightTheme":"github-light","repo":"railzy/utterances-comments"}},"search":{"algoliaAppID":"04OECJ8HSB","algoliaIndex":"index_zh-cn","algoliaSearchKey":"df2e1cfa849a723887a33a30b3a3c0df","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"sharerjs":true};</script><script type="text/javascript" src="/railzy.github.io/js/utterances.min.js" defer></script><script type="text/javascript" src="/railzy.github.io/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/railzy.github.io/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/railzy.github.io/js/jump-to-top.js"></script></div>
 </body>
+
 </html>
