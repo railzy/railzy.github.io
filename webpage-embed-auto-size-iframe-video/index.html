@@ -1,0 +1,319 @@
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=robots content="noodp">
+<title class=pjax-title>将自适应宽高大小的iframe视频嵌入博客网页 - Ray 的小站</title><meta name=Description content="Ray 零散笔记的聚集地"><meta property="og:title" content="将自适应宽高大小的iframe视频嵌入博客网页">
+<meta property="og:description" content="想将视频嵌入到博客网页中，但是发现博客网站或生成器没有提供包装好的方法。在经过搜索后，发现可以尝试使用直接插入 html 代码的方法在博客网页中嵌入视频">
+<meta property="og:type" content="article">
+<meta property="og:url" content="railzy.github.io/webpage-embed-auto-size-iframe-video/"><meta property="og:image" content="/images/avatar.webp"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-12-05T23:14:12+08:00">
+<meta property="article:modified_time" content="2022-01-01T21:33:40+08:00"><meta property="og:site_name" content="Ray 的小站">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="/images/avatar.webp">
+<meta name=twitter:title content="将自适应宽高大小的iframe视频嵌入博客网页">
+<meta name=twitter:description content="想将视频嵌入到博客网页中，但是发现博客网站或生成器没有提供包装好的方法。在经过搜索后，发现可以尝试使用直接插入 html 代码的方法在博客网页中嵌入视频">
+<meta name=application-name content="Ray 的小站">
+<meta name=apple-mobile-web-app-title content="Ray 的小站">
+<meta name=theme-color content="#f8f8f8"><meta name=msapplication-TileColor content="#da532c"><link rel=canonical href=railzy.github.io/webpage-embed-auto-size-iframe-video/><link rel=prev href=railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/><link rel=stylesheet href=/railzy.github.io/lib/normalize/normalize.min.css><link rel=stylesheet href=/railzy.github.io/css/style.min.css><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/railzy.github.io/lib/fontawesome-free/all.min.css>
+<noscript><link rel=stylesheet href=/railzy.github.io/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/railzy.github.io/lib/animate/animate.min.css>
+<noscript><link rel=stylesheet href=/railzy.github.io/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"将自适应宽高大小的iframe视频嵌入博客网页","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"railzy.github.io\/webpage-embed-auto-size-iframe-video\/"},"image":["\/images\/Apple-Devices-Preview.png"],"genre":"posts","wordcount":1147,"url":"railzy.github.io\/webpage-embed-auto-size-iframe-video\/","datePublished":"2021-12-05T23:14:12+08:00","dateModified":"2022-01-01T21:33:40+08:00","publisher":{"@type":"Organization","name":"Ray"},"author":{"@type":"Person","name":"Ray"},"description":""}</script></head>
+<body header-desktop=fixed header-mobile=fixed><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a)}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let metaColors={light:'#f8f8f8',dark:'#252627',black:'#000000'};getMeta('theme-color').content=metaColors[document.body.getAttribute('theme')]</script>
+<div id=back-to-top></div>
+<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=railzy.github.io/ title="Ray 的小站">Ray 的小站</a>
+</div>
+<div class=menu>
+<div class=menu-inner><a class=menu-item href=/railzy.github.io/posts/> 所有文章 </a><a class=menu-item href=/railzy.github.io/tags/> 标签 </a><a class=menu-item href=/railzy.github.io/categories/> 分类 </a><a class=menu-item href=/railzy.github.io/about/> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
+<a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-desktop title=搜索>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=# onclick=return!1 class="search-button search-clear" id=search-clear-desktop title=清空>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-desktop>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</span><a href=# onclick=return!1 class="menu-item theme-select" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i>
+<select class=color-theme-select id=theme-select-desktop title=切换主题><option value=light>浅色</option><option value=dark>深色</option><option value=black>黑色</option><option value=auto>跟随系统</option></select>
+</a></div>
+</div>
+</div>
+</header><header class=mobile id=header-mobile>
+<div class=header-container>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=railzy.github.io/ title="Ray 的小站">Ray 的小站</a>
+</div>
+<div class=menu-toggle id=menu-toggle-mobile>
+<span></span><span></span><span></span>
+</div>
+</div>
+<div class=menu id=menu-mobile><div class=search-wrapper>
+<div class="search mobile" id=search-mobile>
+<input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
+<a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-mobile title=搜索>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=# onclick=return!1 class="search-button search-clear" id=search-clear-mobile title=清空>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-mobile>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</div>
+<a href=# onclick=return!1 class=search-cancel id=search-cancel-mobile>
+取消
+</a>
+</div><a class=menu-item href=/railzy.github.io/posts/ title>所有文章</a><a class=menu-item href=/railzy.github.io/tags/ title>标签</a><a class=menu-item href=/railzy.github.io/categories/ title>分类</a><a class=menu-item href=/railzy.github.io/about/ title>关于</a><a href=# onclick=return!1 class="menu-item theme-select" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i>
+<select class=color-theme-select id=theme-select-mobile title=切换主题><option value=light>浅色</option><option value=dark>深色</option><option value=black>黑色</option><option value=auto>跟随系统</option></select>
+</a></div>
+</div>
+</header>
+<div class="search-dropdown desktop">
+<div id=search-dropdown-desktop></div>
+</div>
+<div class="search-dropdown mobile">
+<div id=search-dropdown-mobile></div>
+</div>
+<main class=main>
+<div class=container><div class=toc id=toc-auto>
+<h2 class=toc-title>目录</h2>
+<div class="toc-content always-active" id=toc-content-auto><nav id=TableOfContents>
+<ul>
+<li><a href=#实现嵌入自适应视频-html-代码>实现嵌入自适应视频 HTML 代码</a></li>
+<li><a href=#例子>例子</a></li>
+<li><a href=#篇幅压缩>篇幅压缩</a></li>
+<li><a href=#方法评价>方法评价</a></li>
+<li><a href=#碎碎念>碎碎念</a></li>
+</ul>
+</nav></div>
+</div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle","normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC","true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">将自适应宽高大小的iframe视频嵌入博客网页</h1><div class=post-meta>
+<div class=post-meta-line>
+<span class=post-author><i class="author fas fa-user-circle fa-fw"></i><a href=https://github.com/railzy title=Author target=_blank rel="noopener noreffer author" class=author>Ray</a>
+</span></div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-12-05>2021-12-05</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2022-01-01>2022-01-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1147 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+</div><div class="details toc" id=toc-static kept>
+<div class="details-summary toc-title">
+<span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span>
+</div>
+<div class="details-content toc-content" id=toc-content-static></div>
+</div><div class=content id=content><p>想将视频嵌入到博客网页中，但是发现博客网站或生成器没有提供包装好的方法。在经过搜索后，发现可以尝试使用直接插入 html 代码的方法在博客网页中嵌入视频</p>
+<h2 id=实现嵌入自适应视频-html-代码 class=headerLink>
+<a href=#%e5%ae%9e%e7%8e%b0%e5%b5%8c%e5%85%a5%e8%87%aa%e9%80%82%e5%ba%94%e8%a7%86%e9%a2%91-html-%e4%bb%a3%e7%a0%81 class=header-mark></a>实现嵌入自适应视频 HTML 代码</h2><p>视频网站通常会提供用于嵌入视频的 iframe 标签 html 代码，将该代码嵌入网页中并实现视频显示大小自适应的完整代码如下，在 html 文件或 markdown (需要解析器支持) 等支持 html 代码的地方都可以使用。</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=c>&lt;!-- 
+</span><span class=c>  定义 iframe-container 的 CSS 样式
+</span><span class=c>  插入多个视频时也只需要定义一次
+</span><span class=c>  也可以放在引入的 CSS 文件中
+</span><span class=c>  iframe-container 可任意改名，前后一致即可 
+</span><span class=c>  --&gt;</span>  
+<span class=p>&lt;</span><span class=nt>style</span> <span class=na>type</span><span class=o>=</span><span class=s>&#39;text/css&#39;</span><span class=p>&gt;</span>
+<span class=p>.</span><span class=nc>iframe-container</span> <span class=p>{</span>
+  <span class=c>/* 
+</span><span class=c>  padding-top 为高/宽的值
+</span><span class=c>  16:9 为 9/16=56.25%
+</span><span class=c>  */</span>
+  <span class=k>padding-top</span><span class=p>:</span> <span class=mf>56.25</span><span class=kt>%</span><span class=p>;</span>
+  <span class=k>position</span><span class=p>:</span> <span class=kc>relative</span><span class=p>;</span>
+<span class=p>}</span>
+<span class=p>.</span><span class=nc>iframe-container</span> <span class=nt>iframe</span> <span class=p>{</span>
+   <span class=k>position</span><span class=p>:</span> <span class=kc>absolute</span><span class=p>;</span>
+   <span class=k>height</span><span class=p>:</span> <span class=mi>100</span><span class=kt>%</span><span class=p>;</span>
+   <span class=k>width</span><span class=p>:</span> <span class=mi>100</span><span class=kt>%</span><span class=p>;</span>
+   <span class=k>top</span><span class=p>:</span> <span class=mi>0</span><span class=p>;</span>
+   <span class=k>left</span><span class=p>:</span> <span class=mi>0</span><span class=p>;</span>
+<span class=p>}</span>
+<span class=p>&lt;/</span><span class=nt>style</span><span class=p>&gt;</span>
+
+<span class=c>&lt;!--将视频网站的嵌入代码用 iframe-container 的 div 标签包裹起来--&gt;</span>
+<span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;iframe-container&#34;</span><span class=p>&gt;</span>
+  <span class=c>&lt;!--这里放入网站提供的 iframe 代码
+</span><span class=c>  &lt;iframe&gt;  &lt;/iframe&gt;
+</span><span class=c>  --&gt;</span>
+<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=例子 class=headerLink>
+<a href=#%e4%be%8b%e5%ad%90 class=header-mark></a>例子</h2><p>以 bilibili 为例，Hugo 原生并没有提供插入 bilibili 视频的 shortcode。因此我们需要自己手动插入视频。</p>
+<p>我们在 bilibili 的视频页面的<code>分享</code>按钮中找到提供的嵌入代码</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>iframe</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;//player.bilibili.com/player.html?aid=722153828&amp;bvid=BV1KS4y197BN&amp;cid=455022263&amp;page=1&#34;</span> <span class=na>scrolling</span><span class=o>=</span><span class=s>&#34;no&#34;</span> <span class=na>border</span><span class=o>=</span><span class=s>&#34;0&#34;</span> <span class=na>frameborder</span><span class=o>=</span><span class=s>&#34;no&#34;</span> <span class=na>framespacing</span><span class=o>=</span><span class=s>&#34;0&#34;</span> <span class=na>allowfullscreen</span><span class=o>=</span><span class=s>&#34;true&#34;</span><span class=p>&gt;</span> <span class=p>&lt;/</span><span class=nt>iframe</span><span class=p>&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>现在直接将代码直接放入内容中，效果如下。可以发现虽然视频成功嵌入了，但显示效果不好，这显然不是我们想要的。</p>
+<iframe src="//player.bilibili.com/player.html?aid=722153828&bvid=BV1KS4y197BN&cid=455022263&page=1" scrolling=no border=0 frameborder=no framespacing=0 allowfullscreen></iframe>
+<p>继续完善 HTML 代码，放入文章内容中，让我们再看看效果</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>style</span> <span class=na>type</span><span class=o>=</span><span class=s>&#39;text/css&#39;</span><span class=p>&gt;</span>
+<span class=p>.</span><span class=nc>iframe-container</span> <span class=p>{</span>
+  <span class=k>padding-top</span><span class=p>:</span> <span class=mf>56.25</span><span class=kt>%</span><span class=p>;</span>
+  <span class=k>position</span><span class=p>:</span> <span class=kc>relative</span><span class=p>;</span>
+<span class=p>}</span>
+<span class=p>.</span><span class=nc>iframe-container</span> <span class=nt>iframe</span> <span class=p>{</span>
+   <span class=k>position</span><span class=p>:</span> <span class=kc>absolute</span><span class=p>;</span>
+   <span class=k>height</span><span class=p>:</span> <span class=mi>100</span><span class=kt>%</span><span class=p>;</span>
+   <span class=k>width</span><span class=p>:</span> <span class=mi>100</span><span class=kt>%</span><span class=p>;</span>
+   <span class=k>top</span><span class=p>:</span> <span class=mi>0</span><span class=p>;</span>
+   <span class=k>left</span><span class=p>:</span> <span class=mi>0</span><span class=p>;</span>
+<span class=p>}</span>
+<span class=p>&lt;/</span><span class=nt>style</span><span class=p>&gt;</span>
+
+<span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;iframe-container&#34;</span><span class=p>&gt;</span>
+  <span class=p>&lt;</span><span class=nt>iframe</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;//player.bilibili.com/player.html?aid=722153828&amp;bvid=BV1KS4y197BN&amp;cid=455022263&amp;page=1&#34;</span> <span class=na>scrolling</span><span class=o>=</span><span class=s>&#34;no&#34;</span> <span class=na>border</span><span class=o>=</span><span class=s>&#34;0&#34;</span> <span class=na>frameborder</span><span class=o>=</span><span class=s>&#34;no&#34;</span> <span class=na>framespacing</span><span class=o>=</span><span class=s>&#34;0&#34;</span> <span class=na>allowfullscreen</span><span class=o>=</span><span class=s>&#34;true&#34;</span><span class=p>&gt;</span> <span class=p>&lt;/</span><span class=nt>iframe</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><style type=text/css>.iframe-container{padding-top:56.25%;position:relative}.iframe-container iframe{position:absolute;height:100%;width:100%;top:0;left:0}</style>
+<div class=iframe-container>
+<iframe src="//player.bilibili.com/player.html?aid=722153828&bvid=BV1KS4y197BN&cid=455022263&page=1&high_quality=1&danmaku=0" scrolling=no border=0 frameborder=no framespacing=0 allowfullscreen></iframe>
+</div>
+<p>可以发现，现在视频显示占满网页，宽度与高度的比例固定为设定好的 16:9，能够跟随网页显示变化自动调整显示尺寸。这样，无论是在桌面端还是移动端，都能有良好的显示效果了。</p>
+<h2 id=篇幅压缩 class=headerLink>
+<a href=#%e7%af%87%e5%b9%85%e5%8e%8b%e7%bc%a9 class=header-mark></a>篇幅压缩</h2><p>为了缩减对源文件篇幅的占用，可以去除无用的空格和换行符。</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>style</span> <span class=na>type</span><span class=o>=</span><span class=s>&#39;text/css&#39;</span><span class=p>&gt;.</span><span class=nc>iframe-container</span> <span class=p>{</span><span class=k>padding-top</span><span class=p>:</span> <span class=mf>56.25</span><span class=kt>%</span><span class=p>;</span><span class=k>position</span><span class=p>:</span> <span class=kc>relative</span><span class=p>;}.</span><span class=nc>iframe-container</span> <span class=nt>iframe</span> <span class=p>{</span><span class=k>position</span><span class=p>:</span> <span class=kc>absolute</span><span class=p>;</span><span class=k>height</span><span class=p>:</span> <span class=mi>100</span><span class=kt>%</span><span class=p>;</span><span class=k>width</span><span class=p>:</span> <span class=mi>100</span><span class=kt>%</span><span class=p>;</span><span class=k>top</span><span class=p>:</span> <span class=mi>0</span><span class=p>;</span><span class=k>left</span><span class=p>:</span> <span class=mi>0</span><span class=p>;}&lt;/</span><span class=nt>style</span><span class=p>&gt;&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;iframe-container&#34;</span><span class=p>&gt;&lt;</span><span class=nt>iframe</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;//player.bilibili.com/player.html?bvid=BV1KS4y197BN&amp;page=1&amp;high_quality=1&amp;danmaku=0&#34;</span> <span class=na>scrolling</span><span class=o>=</span><span class=s>&#34;no&#34;</span> <span class=na>border</span><span class=o>=</span><span class=s>&#34;0&#34;</span> <span class=na>frameborder</span><span class=o>=</span><span class=s>&#34;no&#34;</span> <span class=na>framespacing</span><span class=o>=</span><span class=s>&#34;0&#34;</span> <span class=na>allowfullscreen</span><span class=o>=</span><span class=s>&#34;true&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>iframe</span><span class=p>&gt;&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>只插入一个视频时， CSS 也可以写到 div 和 iframe 标签内。(虽然也没节约多少长度)</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>div</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;padding-top: 56.25%;position: relative;&#34;</span><span class=p>&gt;&lt;</span><span class=nt>iframe</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;//player.bilibili.com/player.html?bvid=BV1KS4y197BN&amp;page=1&amp;high_quality=1&amp;danmaku=0&#34;</span> <span class=na>scrolling</span><span class=o>=</span><span class=s>&#34;no&#34;</span> <span class=na>border</span><span class=o>=</span><span class=s>&#34;0&#34;</span> <span class=na>frameborder</span><span class=o>=</span><span class=s>&#34;no&#34;</span> <span class=na>framespacing</span><span class=o>=</span><span class=s>&#34;0&#34;</span> <span class=na>allowfullscreen</span><span class=o>=</span><span class=s>&#34;true&#34;</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;position: absolute;height: 100%;width: 100%;top: 0;left: 0;&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>iframe</span><span class=p>&gt;&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>使用哪一种可以根据个人喜好选择。</p>
+<h2 id=方法评价 class=headerLink>
+<a href=#%e6%96%b9%e6%b3%95%e8%af%84%e4%bb%b7 class=header-mark></a>方法评价</h2><p><strong>优点</strong></p>
+<ul>
+<li>通用性高，不依赖额外插件</li>
+<li>迁移时文章内容一般不需要另外处理即可保持不变</li>
+</ul>
+<p><strong>缺点</strong></p>
+<ul>
+<li>使用不太方便</li>
+<li>内容不直观</li>
+<li>占用 markdown 源文件内容篇幅多(虽然可以通过去除无用空格和换行符缓解)</li>
+</ul>
+<h2 id=碎碎念 class=headerLink>
+<a href=#%e7%a2%8e%e7%a2%8e%e5%bf%b5 class=header-mark></a>碎碎念</h2><p>吐槽下 bilibili。</p>
+<p>虽然 bilibili 提供了嵌入视频代码，但给的质量挺抠的，用复制的代码默认播最低画质 360p，只有手动在 src 地址后加上 <code>high_quality=1</code> 参数才会默认播高画质，而这画质最高也只给 720p，点 1080p 就自动跳转到 bilibili 自己的网站内了。</p>
+<p>另外在桌面端显示时，页面尺寸小就变成手机页面，没法使用进度条和弹幕开关等控制栏，而页面尺寸大就固定显示进度条和发弹幕底栏，没啥用又占空间，一点又跳到 bilibili 自己的网站去了。体验实在是一般。</p>
+<p>人家 YouTube 嵌入就好很多，清晰度没搞限制，网络好就自动给你选最好的，控制栏不占空间，页面尺寸变化能很好地适应，可以自动读取 YouTube 账号登陆状态并交互。基本可以直接正常播放使用。</p>
+<p>放个视频来对比一下</p>
+<div class=iframe-container>
+<iframe width=885 height=498 src=https://www.youtube.com/embed/FXYUjJrGMjA title="YouTube video player" frameborder=0 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div></div>
+<div class=post-footer id=post-footer>
+<div class=post-info>
+<div class=post-info-line>
+<div class=post-info-mod>
+<span>更新于 2022-01-01</span>
+</div>
+<div class=post-info-license></div>
+</div>
+<div class=post-info-line>
+<div class=post-info-md></div>
+<div class=post-info-share>
+<span><a href=# onclick=return!1 title="分享到 Twitter" data-sharer=twitter data-url=railzy.github.io/webpage-embed-auto-size-iframe-video/ data-title=将自适应宽高大小的iframe视频嵌入博客网页><i class="fab fa-twitter fa-fw"></i></a><a href=# onclick=return!1 title="分享到 Facebook" data-sharer=facebook data-url=railzy.github.io/webpage-embed-auto-size-iframe-video/><i class="fab fa-facebook-square fa-fw"></i></a><a href=# onclick=return!1 title="分享到 Hacker News" data-sharer=hackernews data-url=railzy.github.io/webpage-embed-auto-size-iframe-video/ data-title=将自适应宽高大小的iframe视频嵌入博客网页><i class="fab fa-hacker-news fa-fw"></i></a><a href=# onclick=return!1 title="分享到 Line" data-sharer=line data-url=railzy.github.io/webpage-embed-auto-size-iframe-video/ data-title=将自适应宽高大小的iframe视频嵌入博客网页><i data-svg-src=/railzy.github.io/lib/simple-icons/icons/line.min.svg></i></a><a href=# onclick=return!1 title="分享到 微博" data-sharer=weibo data-url=railzy.github.io/webpage-embed-auto-size-iframe-video/ data-title=将自适应宽高大小的iframe视频嵌入博客网页><i class="fab fa-weibo fa-fw"></i></a></span>
+</div>
+</div>
+</div>
+<div class=post-info-more>
+<section class=post-tags></section>
+<section>
+<span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=railzy.github.io/>主页</a></span>
+</section>
+</div>
+<div class=post-nav><a href=railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ class=prev rel=prev title="配置PCL开发环境到Virtualbox Ubuntu18.04虚拟机"><i class="fas fa-angle-left fa-fw"></i>配置PCL开发环境到Virtualbox Ubuntu18.04虚拟机</a></div>
+</div>
+<div id=comments><div id=utterances></div><noscript>
+Please enable JavaScript to view the comments powered by <a href=https://utteranc.es/>Utterances</a>.
+</noscript></div></article></div>
+</main><footer class=footer>
+<div class=footer-container><div class=footer-line>
+由 <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.91.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href=https://github.com/HEIGE-PCloud/DoIt target=_blank rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
+</div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2021 - 2022</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://github.com/railzy target=_blank rel="noopener noreferrer">Ray</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div>
+<div class=footer-line></div>
+<div class=footer-line>
+</div>
+</div></footer></div>
+<div id=fixed-buttons><a href=#back-to-top id=back-to-top-button class=fixed-button title=回到顶部>
+<i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title=查看评论>
+<i class="fas fa-comment fa-fw"></i>
+</a>
+</div><div class=assets><script type=text/javascript src=/railzy.github.io/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/railzy.github.io/lib/algoliasearch/algoliasearch-lite.umd.min.js></script><script type=text/javascript src=/railzy.github.io/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/railzy.github.io/lib/topbar/topbar.min.js></script><script type=text/javascript src=/railzy.github.io/lib/pjax/pjax.min.js></script><script type=text/javascript src=/railzy.github.io/js/theme.min.js></script><script defer src=https://static.cloudflareinsights.com/beacon.min.js data-cf-beacon='{"token": "197a11e27af7420dbfb0c2cb0bfcd59b"}'></script></div>
+<div class=pjax-assets><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:99999},comment:{utterances:{darkTheme:"github-dark",issueTerm:"pathname",label:"",lightTheme:"github-light",repo:"railzy/utterances-comments"}},search:{algoliaAppID:"04OECJ8HSB",algoliaIndex:"index_zh-cn",algoliaSearchKey:"df2e1cfa849a723887a33a30b3a3c0df",highlightTag:"em",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:50,type:"algolia"},sharerjs:!0}</script><script type=text/javascript src=/railzy.github.io/js/utterances.min.js defer></script><script type=text/javascript src=/railzy.github.io/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/railzy.github.io/lib/sharer/sharer.min.js></script><script type=text/javascript src=/railzy.github.io/js/jump-to-top.js></script></div>
+</body>
+</html>
