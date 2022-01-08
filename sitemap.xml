@@ -1,14 +1,1 @@
-<urlset
-    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-    xmlns:xhtml="http://www.w3.org/1999/xhtml"
-    ><url>
-            <loc>railzy.github.io/about/</loc><lastmod>2022-01-08T19:02:46&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>railzy.github.io/posts/</loc><lastmod>2022-01-01T21:33:40&#43;08:00</lastmod><changefreq>daily</changefreq><priority>1</priority></url><url>
-            <loc>railzy.github.io/</loc><lastmod>2022-01-01T21:33:40&#43;08:00</lastmod><changefreq>daily</changefreq><priority>1</priority></url><url>
-            <loc>railzy.github.io/webpage-embed-auto-size-iframe-video/</loc><lastmod>2022-01-01T21:33:40&#43;08:00</lastmod><changefreq>daily</changefreq><priority>1</priority></url><url>
-            <loc>railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/</loc><lastmod>2021-06-10T15:38:13&#43;08:00</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url><url>
-            <loc>railzy.github.io/pcl-getstarted-searching/</loc><lastmod>2021-06-09T21:40:22&#43;08:00</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url><url>
-            <loc>railzy.github.io/authors/</loc><changefreq>daily</changefreq><priority>0.5</priority></url><url>
-            <loc>railzy.github.io/categories/</loc><changefreq>daily</changefreq><priority>0.5</priority></url><url>
-            <loc>railzy.github.io/series/</loc><changefreq>daily</changefreq><priority>0.5</priority></url><url>
-            <loc>railzy.github.io/tags/</loc><changefreq>daily</changefreq><priority>0.5</priority></url></urlset>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml"><url><loc>https://railzy.github.io/about/</loc><lastmod>2022-01-08T19:02:46+08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url><loc>https://railzy.github.io/posts/</loc><lastmod>2022-01-01T21:33:40+08:00</lastmod><changefreq>daily</changefreq><priority>1</priority></url><url><loc>https://railzy.github.io/</loc><lastmod>2022-01-01T21:33:40+08:00</lastmod><changefreq>daily</changefreq><priority>1</priority></url><url><loc>https://railzy.github.io/webpage-embed-auto-size-iframe-video/</loc><lastmod>2022-01-01T21:33:40+08:00</lastmod><changefreq>daily</changefreq><priority>1</priority></url><url><loc>https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/</loc><lastmod>2021-06-10T15:38:13+08:00</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url><url><loc>https://railzy.github.io/pcl-getstarted-searching/</loc><lastmod>2021-06-09T21:40:22+08:00</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url><url><loc>https://railzy.github.io/authors/</loc><changefreq>daily</changefreq><priority>0.5</priority></url><url><loc>https://railzy.github.io/categories/</loc><changefreq>daily</changefreq><priority>0.5</priority></url><url><loc>https://railzy.github.io/series/</loc><changefreq>daily</changefreq><priority>0.5</priority></url><url><loc>https://railzy.github.io/tags/</loc><changefreq>daily</changefreq><priority>0.5</priority></url></urlset>
