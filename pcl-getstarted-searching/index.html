@@ -17,7 +17,7 @@
 <meta name=apple-mobile-web-app-title content="Ray 的小站">
 <meta name=theme-color content="#f8f8f8"><meta name=msapplication-TileColor content="#da532c"><link rel=canonical href=https://railzy.github.io/pcl-getstarted-searching/><link rel=next href=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/fontawesome-free/all.min.css>
 <noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/animate/animate.min.css>
-<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Point Cloud Library的基础入门及资料查找方法","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/railzy.github.io\/pcl-getstarted-searching\/"},"image":["https:\/\/railzy.github.io\/images\/Apple-Devices-Preview.png"],"genre":"posts","wordcount":3676,"url":"https:\/\/railzy.github.io\/pcl-getstarted-searching\/","datePublished":"2021-06-03T20:22:21+08:00","dateModified":"2021-06-09T21:40:22+08:00","publisher":{"@type":"Organization","name":"Ray"},"author":{"@type":"Person","name":"Ray"},"description":""}</script></head>
+<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Point Cloud Library的基础入门及资料查找方法","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/railzy.github.io\/pcl-getstarted-searching\/"},"image":["https:\/\/railzy.github.io\/images\/Apple-Devices-Preview.png"],"genre":"posts","wordcount":3677,"url":"https:\/\/railzy.github.io\/pcl-getstarted-searching\/","datePublished":"2021-06-03T20:22:21+08:00","dateModified":"2021-06-09T21:40:22+08:00","publisher":{"@type":"Organization","name":"Ray"},"author":{"@type":"Person","name":"Ray"},"description":""}</script></head>
 <body header-desktop=fixed header-mobile=fixed><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a)}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let metaColors={light:'#f8f8f8',dark:'#252627',black:'#000000'};getMeta('theme-color').content=metaColors[document.body.getAttribute('theme')]</script>
 <div id=back-to-top></div>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
@@ -114,7 +114,7 @@
 <div class=post-meta-line>
 <span class=post-author><i class="author fas fa-user-circle fa-fw"></i><a href=https://github.com/railzy title=Author target=_blank rel="noopener noreffer author" class=author>Ray</a>
 </span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-06-03>2021-06-03</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2021-06-09>2021-06-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3676 字&nbsp;
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-06-03>2021-06-03</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2021-06-09>2021-06-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3677 字&nbsp;
 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 8 分钟&nbsp;</div>
 </div><div class="details toc" id=toc-static kept>
 <div class="details-summary toc-title">
@@ -378,7 +378,7 @@ make
 </span><span class=lnt>2
 </span></code></pre></td>
 <td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-C++ data-lang=C++><span class=n>pcl</span><span class=o>::</span><span class=n>PointCloud</span><span class=o>&lt;</span><span class=n>pcl</span><span class=o>::</span><span class=n>PointXYZ</span><span class=o>&gt;::</span><span class=n>Ptr</span> <span class=n>cloud</span><span class=p>(</span><span class=k>new</span> <span class=n>pcl</span><span class=o>::</span><span class=n>PointCloud</span><span class=o>&lt;</span><span class=n>pcl</span><span class=o>::</span><span class=n>PointXYZ</span><span class=o>&gt;</span><span class=p>);</span>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=n>pcl</span><span class=o>::</span><span class=n>PointCloud</span><span class=o>&lt;</span><span class=n>pcl</span><span class=o>::</span><span class=n>PointXYZ</span><span class=o>&gt;::</span><span class=n>Ptr</span> <span class=n>cloud</span><span class=p>(</span><span class=k>new</span> <span class=n>pcl</span><span class=o>::</span><span class=n>PointCloud</span><span class=o>&lt;</span><span class=n>pcl</span><span class=o>::</span><span class=n>PointXYZ</span><span class=o>&gt;</span><span class=p>);</span>
 <span class=n>pcl</span><span class=o>::</span><span class=n>io</span><span class=o>::</span><span class=n>loadPCDFile</span><span class=p>(</span><span class=s>&#34;pcd文件的路径&#34;</span><span class=p>,</span> <span class=o>*</span><span class=n>cloud</span><span class=p>);</span>
 </code></pre></td></tr></table>
 </div>
@@ -418,7 +418,7 @@ make
 </span><span class=lnt>27
 </span></code></pre></td>
 <td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-C++ data-lang=C++><span class=cp>#include</span> <span class=cpf>&lt;iostream&gt;			 //标准C++库中的输入输出类相关头文件。</span><span class=cp>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;iostream&gt;			 //标准C++库中的输入输出类相关头文件。</span><span class=cp>
 </span><span class=cp>#include</span> <span class=cpf>&lt;pcl/io/pcd_io.h&gt;	 //pcd 读写类相关的头文件。</span><span class=cp>
 </span><span class=cp>#include</span> <span class=cpf>&lt;pcl/point_types.h&gt; //PCL中支持的点类型头文件。</span><span class=cp>
 </span><span class=cp></span>
@@ -485,20 +485,27 @@ make
 <pre tabindex=0 class=chroma><code><span class=lnt>1
 </span></code></pre></td>
 <td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-C++ data-lang=C++><span class=kt>int</span> <span class=n>main</span><span class=p>(</span><span class=kt>int</span> <span class=n>argc</span><span class=p>,</span> <span class=kt>char</span> <span class=o>**</span><span class=n>argv</span><span class=p>)</span>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=kt>int</span> <span class=n>main</span><span class=p>(</span><span class=kt>int</span> <span class=n>argc</span><span class=p>,</span> <span class=kt>char</span> <span class=o>**</span><span class=n>argv</span><span class=p>)</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><code>argc</code>将包含参数数量，可执行文件本身占一个参数数量。</p>
 <p><code>argv</code>为参数数组，里面包含了所有的参数。</p>
 <p>当终端中执行命令行如下时，程序中<code>argc == 3</code>，<code>argv[0] == "./main"</code>，<code>argv[1] == "value1"</code></p>
-<p><code>./main value1 value2</code></p>
-<p>读取pcd文件的源代码如下，可以直接在终端执行时通过修改命令行读取不同的pcd文件，避免文件路径写死在程序中，为了读不同的文件浪费时间重复编译。</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
 </span></code></pre></td>
 <td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-C++ data-lang=C++><span class=n>pcl</span><span class=o>::</span><span class=n>io</span><span class=o>::</span><span class=n>loadPCDFile</span><span class=p>(</span><span class=n>argv</span><span class=p>[</span><span class=mi>1</span><span class=p>],</span> <span class=o>*</span><span class=n>cloud</span><span class=p>);</span>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>./main value1 value2
+</code></pre></td></tr></table>
+</div>
+</div><p>读取pcd文件的源代码如下，可以直接在终端执行时通过修改命令行读取不同的pcd文件，避免文件路径写死在程序中，为了读不同的文件浪费时间重复编译。</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=n>pcl</span><span class=o>::</span><span class=n>io</span><span class=o>::</span><span class=n>loadPCDFile</span><span class=p>(</span><span class=n>argv</span><span class=p>[</span><span class=mi>1</span><span class=p>],</span> <span class=o>*</span><span class=n>cloud</span><span class=p>);</span>
 </code></pre></td></tr></table>
 </div>
 </div><hr>
@@ -520,7 +527,7 @@ make
 <pre tabindex=0 class=chroma><code><span class=lnt>1
 </span></code></pre></td>
 <td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-C++ data-lang=C++><span class=n>pcl</span><span class=o>::</span><span class=n>io</span><span class=o>::</span><span class=n>savePCDFile</span><span class=p>(</span><span class=s>&#34;path_to_save_pcd_file&#34;</span><span class=p>,</span> <span class=o>*</span><span class=n>cloud</span><span class=p>);</span>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=n>pcl</span><span class=o>::</span><span class=n>io</span><span class=o>::</span><span class=n>savePCDFile</span><span class=p>(</span><span class=s>&#34;path_to_save_pcd_file&#34;</span><span class=p>,</span> <span class=o>*</span><span class=n>cloud</span><span class=p>);</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>如果希望pcd文件中的点云数据以人类可读的格式保存，则使用如下代码</p>
@@ -529,7 +536,7 @@ make
 <pre tabindex=0 class=chroma><code><span class=lnt>1
 </span></code></pre></td>
 <td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-C++ data-lang=C++><span class=n>pcl</span><span class=o>::</span><span class=n>io</span><span class=o>::</span><span class=n>savePCDFileASCII</span><span class=p>(</span><span class=s>&#34;path_to_save_pcd_file&#34;</span><span class=p>,</span> <span class=o>*</span><span class=n>cloud</span><span class=p>);</span>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=n>pcl</span><span class=o>::</span><span class=n>io</span><span class=o>::</span><span class=n>savePCDFileASCII</span><span class=p>(</span><span class=s>&#34;path_to_save_pcd_file&#34;</span><span class=p>,</span> <span class=o>*</span><span class=n>cloud</span><span class=p>);</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>完整示例代码</p>
@@ -557,7 +564,7 @@ make
 </span><span class=lnt>20
 </span></code></pre></td>
 <td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-C++ data-lang=C++><span class=cp>#include</span> <span class=cpf>&lt;iostream&gt;			 //标准C++库中的输入输出类相关头文件。</span><span class=cp>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;iostream&gt;			 //标准C++库中的输入输出类相关头文件。</span><span class=cp>
 </span><span class=cp>#include</span> <span class=cpf>&lt;pcl/io/pcd_io.h&gt;	 //pcd 读写类相关的头文件。</span><span class=cp>
 </span><span class=cp>#include</span> <span class=cpf>&lt;pcl/point_types.h&gt; //PCL中支持的点类型头文件。</span><span class=cp>
 </span><span class=cp></span>
@@ -637,7 +644,7 @@ make
 </span><span class=lnt>12
 </span></code></pre></td>
 <td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=c1>// 两种方法二选一
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=c1>// 两种方法二选一
 </span><span class=c1></span>
 <span class=c1>// 方法1，阻塞式，完全停止程序
 </span><span class=c1></span><span class=n>viewer</span><span class=o>-&gt;</span><span class=n>spin</span><span class=p>();</span>
@@ -694,7 +701,7 @@ make
 </span><span class=lnt>36
 </span></code></pre></td>
 <td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=cp>#include</span> <span class=cpf>&lt;iostream&gt;</span><span class=cp>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&lt;iostream&gt;</span><span class=cp>
 </span><span class=cp>#include</span> <span class=cpf>&lt;pcl/io/pcd_io.h&gt;</span><span class=cp>
 </span><span class=cp>#include</span> <span class=cpf>&lt;pcl/point_types.h&gt;</span><span class=cp>
 </span><span class=cp>#include</span> <span class=cpf>&lt;pcl/visualization/pcl_visualizer.h&gt;</span><span class=cp>
