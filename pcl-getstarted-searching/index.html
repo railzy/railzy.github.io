@@ -17,7 +17,7 @@
 <meta name=apple-mobile-web-app-title content="Ray 的小站">
 <meta name=theme-color content="#f8f8f8"><meta name=msapplication-TileColor content="#da532c"><link rel=canonical href=https://railzy.github.io/pcl-getstarted-searching/><link rel=next href=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/fontawesome-free/all.min.css>
 <noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/animate/animate.min.css>
-<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Point Cloud Library的基础入门及资料查找方法","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/railzy.github.io\/pcl-getstarted-searching\/"},"image":["https:\/\/railzy.github.io\/images\/Apple-Devices-Preview.png"],"genre":"posts","wordcount":3734,"url":"https:\/\/railzy.github.io\/pcl-getstarted-searching\/","datePublished":"2021-06-03T20:22:21+08:00","dateModified":"2021-06-09T21:40:22+08:00","publisher":{"@type":"Organization","name":"Ray"},"author":{"@type":"Person","name":"Ray"},"description":""}</script></head>
+<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Point Cloud Library的基础入门及资料查找方法","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/railzy.github.io\/pcl-getstarted-searching\/"},"image":["https:\/\/railzy.github.io\/images\/Apple-Devices-Preview.png"],"genre":"posts","wordcount":3677,"url":"https:\/\/railzy.github.io\/pcl-getstarted-searching\/","datePublished":"2021-06-03T20:22:21+08:00","dateModified":"2021-06-09T21:40:22+08:00","publisher":{"@type":"Organization","name":"Ray"},"author":{"@type":"Person","name":"Ray"},"description":""}</script></head>
 <body header-desktop=fixed header-mobile=fixed><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a)}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let metaColors={light:'#f8f8f8',dark:'#252627',black:'#000000'};getMeta('theme-color').content=metaColors[document.body.getAttribute('theme')]</script>
 <div id=back-to-top></div>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
@@ -114,7 +114,7 @@
 <div class=post-meta-line>
 <span class=post-author><i class="author fas fa-user-circle fa-fw"></i><a href=https://github.com/railzy title=Author target=_blank rel="noopener noreffer author" class=author>Ray</a>
 </span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-06-03>2021-06-03</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2021-06-09>2021-06-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3734 字&nbsp;
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-06-03>2021-06-03</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2021-06-09>2021-06-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3677 字&nbsp;
 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 8 分钟&nbsp;</div>
 </div><div class="details toc" id=toc-static kept>
 <div class="details-summary toc-title">
@@ -518,7 +518,7 @@ make
 <pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>./pcd_read ~/pcl/pcdXYZ_files/cloud00000.pcd 
 </code></pre></td></tr></table>
 </div>
-</div><p>![image-20210604015912820](Point Cloud Library的基础入门及资料查找方法.assets/image-20210604015912820.png)</p>
+</div><p><img class=lazyload data-src=image-20210604015912820.png data-srcset="/pcl-getstarted-searching/image-20210604015912820.png, image-20210604015912820.png 1.5x, /pcl-getstarted-searching/image-20210604015912820.png 2x" data-sizes=auto alt=/pcl-getstarted-searching/image-20210604015912820.png title=image-20210604015912820></p>
 <h3 id=保存点云到pcd文件 class=headerLink>
 <a href=#%e4%bf%9d%e5%ad%98%e7%82%b9%e4%ba%91%e5%88%b0pcd%e6%96%87%e4%bb%b6 class=header-mark></a>保存点云到pcd文件</h3><p>PCL的pcd点云文件写入模块同样放在<code>pcl/io/pcd_io.h</code>中，记得include</p>
 <p>PCL将点云写入pcd文件的代码如下，点云数据默认以二进制的格式写入pcd文件中，加快读写速度</p>
