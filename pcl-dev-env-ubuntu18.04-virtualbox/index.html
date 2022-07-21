@@ -3,8 +3,8 @@
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=robots content="noodp">
-<title class=pjax-title>配置PCL开发环境到Virtualbox Ubuntu18.04虚拟机 - Ray 的小站</title><meta name=Description content="Ray 零散笔记的聚集地"><meta property="og:title" content="配置PCL开发环境到Virtualbox Ubuntu18.04虚拟机">
-<meta property="og:description" content="写在前面Why Ubuntu Point Cloud Library也可以在Windows中安装使用，但是在Ubuntu中安装配置比较方便，不需要像在Windows上一样手动">
+<title>配置PCL开发环境到Virtualbox Ubuntu18.04虚拟机 - Ray 的小站</title><meta name=Description content="Ray 零散笔记的聚集地"><meta property="og:title" content="配置PCL开发环境到Virtualbox Ubuntu18.04虚拟机">
+<meta property="og:description" content="写在前面 Why Ubuntu Point Cloud Library也可以在Windows中安装使用，但是在Ubuntu中安装配置比较方便，不需要像在Windows上一样手动添加">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/"><meta property="og:image" content="https://railzy.github.io/images/avatar.webp"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2021-06-04T20:22:21+08:00">
@@ -12,14 +12,12 @@
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://railzy.github.io/images/avatar.webp">
 <meta name=twitter:title content="配置PCL开发环境到Virtualbox Ubuntu18.04虚拟机">
-<meta name=twitter:description content="写在前面Why Ubuntu Point Cloud Library也可以在Windows中安装使用，但是在Ubuntu中安装配置比较方便，不需要像在Windows上一样手动">
+<meta name=twitter:description content="写在前面 Why Ubuntu Point Cloud Library也可以在Windows中安装使用，但是在Ubuntu中安装配置比较方便，不需要像在Windows上一样手动添加">
 <meta name=application-name content="Ray 的小站">
-<meta name=apple-mobile-web-app-title content="Ray 的小站">
-<meta name=theme-color content="#f8f8f8"><meta name=msapplication-TileColor content="#da532c"><link rel=canonical href=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/><link rel=prev href=https://railzy.github.io/pcl-getstarted-searching/><link rel=next href=https://railzy.github.io/webpage-embed-auto-size-iframe-video/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/fontawesome-free/all.min.css>
-<noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/animate/animate.min.css>
-<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"配置PCL开发环境到Virtualbox Ubuntu18.04虚拟机","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/railzy.github.io\/pcl-dev-env-ubuntu18.04-virtualbox\/"},"image":["https:\/\/railzy.github.io\/images\/Apple-Devices-Preview.png"],"genre":"posts","wordcount":5797,"url":"https:\/\/railzy.github.io\/pcl-dev-env-ubuntu18.04-virtualbox\/","datePublished":"2021-06-04T20:22:21+08:00","dateModified":"2021-06-10T15:38:13+08:00","publisher":{"@type":"Organization","name":"Ray"},"author":{"@type":"Person","name":"Ray"},"description":""}</script></head>
-<body header-desktop=fixed header-mobile=fixed><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a),document.documentElement.style.setProperty('color-scheme',a==='light'?'light':'dark')}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let metaColors={light:'#f8f8f8',dark:'#252627',black:'#000000'};getMeta('theme-color').content=metaColors[document.body.getAttribute('theme')]</script>
-<div id=back-to-top></div>
+<meta name=apple-mobile-web-app-title content="Ray 的小站"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel=canonical href=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/><link rel=prev href=https://railzy.github.io/pcl-getstarted-searching/><link rel=next href=https://railzy.github.io/webpage-embed-auto-size-iframe-video/><link rel=stylesheet href=/css/style.min.css><link rel=preload href=/lib/fontawesome-free/all.min.css as=style onload="this.onload=null,this.rel='stylesheet'">
+<noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload href=/lib/animate/animate.min.css as=style onload="this.onload=null,this.rel='stylesheet'">
+<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"配置PCL开发环境到Virtualbox Ubuntu18.04虚拟机","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/railzy.github.io\/pcl-dev-env-ubuntu18.04-virtualbox\/"},"image":["https:\/\/railzy.github.io\/images\/Apple-Devices-Preview.png"],"genre":"posts","wordcount":5790,"url":"https:\/\/railzy.github.io\/pcl-dev-env-ubuntu18.04-virtualbox\/","datePublished":"2021-06-04T20:22:21+08:00","dateModified":"2021-06-10T15:38:13+08:00","publisher":{"@type":"Organization","name":"Ray"},"author":{"@type":"Person","name":"Ray"},"description":""}</script></head>
+<body data-header-desktop=fixed data-header-mobile=fixed><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':'auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark')&&document.body.setAttribute('theme','dark')</script>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
 <div class=header-wrapper>
 <div class=header-title>
@@ -28,18 +26,17 @@
 <div class=menu>
 <div class=menu-inner><a class=menu-item href=/posts/> 所有文章 </a><a class=menu-item href=/tags/> 标签 </a><a class=menu-item href=/categories/> 分类 </a><a class=menu-item href=/about/> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
 <input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
-<a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-desktop title=搜索>
-<i class="fas fa-search fa-fw"></i>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索>
+<i class="fas fa-search fa-fw" aria-hidden=true></i>
 </a>
-<a href=# onclick=return!1 class="search-button search-clear" id=search-clear-desktop title=清空>
-<i class="fas fa-times-circle fa-fw"></i>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空>
+<i class="fas fa-times-circle fa-fw" aria-hidden=true></i>
 </a>
 <span class="search-button search-loading" id=search-loading-desktop>
-<i class="fas fa-spinner fa-fw fa-spin"></i>
+<i class="fas fa-spinner fa-fw fa-spin" aria-hidden=true></i>
 </span>
-</span><a href=# onclick=return!1 class="menu-item theme-select" title=切换主题>
-<i class="fas fa-adjust fa-fw"></i>
-<select class=color-theme-select id=theme-select-desktop title=切换主题><option value=light>浅色</option><option value=dark>深色</option><option value=black>黑色</option><option value=auto>跟随系统</option></select>
+</span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw" aria-hidden=true></i>
 </a></div>
 </div>
 </div>
@@ -56,116 +53,40 @@
 <div class=menu id=menu-mobile><div class=search-wrapper>
 <div class="search mobile" id=search-mobile>
 <input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
-<a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-mobile title=搜索>
-<i class="fas fa-search fa-fw"></i>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索>
+<i class="fas fa-search fa-fw" aria-hidden=true></i>
 </a>
-<a href=# onclick=return!1 class="search-button search-clear" id=search-clear-mobile title=清空>
-<i class="fas fa-times-circle fa-fw"></i>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空>
+<i class="fas fa-times-circle fa-fw" aria-hidden=true></i>
 </a>
 <span class="search-button search-loading" id=search-loading-mobile>
-<i class="fas fa-spinner fa-fw fa-spin"></i>
+<i class="fas fa-spinner fa-fw fa-spin" aria-hidden=true></i>
 </span>
 </div>
-<a href=# onclick=return!1 class=search-cancel id=search-cancel-mobile>
+<a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>
 取消
 </a>
-</div><a class=menu-item href=/posts/ title>所有文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/categories/ title>分类</a><a class=menu-item href=/about/ title>关于</a><a href=# onclick=return!1 class="menu-item theme-select" title=切换主题>
-<i class="fas fa-adjust fa-fw"></i>
-<select class=color-theme-select id=theme-select-mobile title=切换主题><option value=light>浅色</option><option value=dark>深色</option><option value=black>黑色</option><option value=auto>跟随系统</option></select>
+</div><a class=menu-item href=/posts/ title>所有文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/categories/ title>分类</a><a class=menu-item href=/about/ title>关于</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw" aria-hidden=true></i>
 </a></div>
 </div>
-</header>
-<div class="search-dropdown desktop">
+</header><div class="search-dropdown desktop">
 <div id=search-dropdown-desktop></div>
 </div>
 <div class="search-dropdown mobile">
 <div id=search-dropdown-mobile></div>
-</div>
-<main class=main>
+</div><main class=main>
 <div class=container><div class=toc id=toc-auto>
 <h2 class=toc-title>目录</h2>
-<div class="toc-content always-active" id=toc-content-auto><nav id=TableOfContents>
-<ul>
-<li><a href=#写在前面>写在前面</a>
-<ul>
-<li><a href=#why-ubuntu>Why Ubuntu</a></li>
-<li><a href=#why-虚拟机>Why 虚拟机</a></li>
-</ul>
-</li>
-<li><a href=#virtualbox虚拟机管理器的安装>VirtualBox虚拟机管理器的安装</a>
-<ul>
-<li><a href=#安装包下载>安装包下载</a></li>
-<li><a href=#windows安装步骤>Windows安装步骤</a></li>
-</ul>
-</li>
-<li><a href=#在虚拟机中安装ubuntu1804>在虚拟机中安装Ubuntu18.04</a>
-<ul>
-<li><a href=#ubuntu-desktop镜像下载>Ubuntu-desktop镜像下载</a></li>
-<li><a href=#修改虚拟机存储位置可选>修改虚拟机存储位置（可选）</a></li>
-<li><a href=#新建虚拟电脑>新建虚拟电脑</a></li>
-<li><a href=#安装ubuntu1804>安装Ubuntu18.04</a></li>
-</ul>
-</li>
-<li><a href=#ubuntu1804设置调整>Ubuntu18.04设置调整</a>
-<ul>
-<li><a href=#调整屏幕大小>调整屏幕大小</a>
-<ul>
-<li><a href=#常规设置>常规设置</a></li>
-<li><a href=#自动调整分辨率>自动调整分辨率</a></li>
-</ul>
-</li>
-<li><a href=#调整字体大小>调整字体大小</a></li>
-<li><a href=#修改软件包下载源>修改软件包下载源</a></li>
-<li><a href=#关闭自动熄屏锁定>关闭自动熄屏锁定</a></li>
-<li><a href=#关闭更新ubuntu大版本更新提示>关闭更新Ubuntu大版本更新提示</a></li>
-</ul>
-</li>
-<li><a href=#虚拟机与主机交互>虚拟机与主机交互</a>
-<ul>
-<li><a href=#安装增强功能>安装增强功能</a></li>
-<li><a href=#共享文件夹>共享文件夹</a></li>
-<li><a href=#共享粘贴板及拖放>共享粘贴板及拖放</a></li>
-<li><a href=#网络通讯>网络通讯</a>
-<ul>
-<li><a href=#ip通信>IP通信</a></li>
-<li><a href=#端口转发>端口转发</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href=#point-cloud-library-的安装>Point Cloud Library 的安装</a></li>
-<li><a href=#配置visual-studio-code>配置Visual Studio Code</a>
-<ul>
-<li><a href=#本地安装>本地安装</a>
-<ul>
-<li><a href=#安装>安装</a></li>
-<li><a href=#安装扩展程序>安装扩展程序</a></li>
-<li><a href=#配置visual-studio-code-1>配置Visual Studio Code</a></li>
-</ul>
-</li>
-<li><a href=#远程开发进阶>远程开发(进阶)</a>
-<ul>
-<li><a href=#ubuntu安装ssh-server>Ubuntu安装ssh-server</a></li>
-<li><a href=#windows生成密钥>Windows生成密钥</a></li>
-<li><a href=#发送公钥到ssh服务端上>发送公钥到ssh服务端上</a></li>
-<li><a href=#修改ssh-config-files>修改SSH config files</a></li>
-<li><a href=#vscode进行远程开发>VSCode进行远程开发</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</nav></div>
-</div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle","normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC","true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">配置PCL开发环境到Virtualbox Ubuntu18.04虚拟机</h1><div class=post-meta>
-<div class=post-meta-line>
-<span class=post-author><i class="author fas fa-user-circle fa-fw"></i><a href=https://github.com/railzy title=Author target=_blank rel="noopener noreffer author" class=author>Ray</a>
-</span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-06-04>2021-06-04</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2021-06-10>2021-06-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5797 字&nbsp;
-<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 12 分钟&nbsp;</div>
-</div><div class="details toc" id=toc-static kept>
+<div class="toc-content always-active" id=toc-content-auto></div>
+</div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">配置PCL开发环境到Virtualbox Ubuntu18.04虚拟机</h1><div class=post-meta>
+<div class=post-meta-line><span class=post-author><a href=https://github.com/railzy title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw" aria-hidden=true></i>Ray</a></span></div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw" aria-hidden=true></i>&nbsp;<time datetime=2021-06-04>2021-06-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden=true></i>&nbsp;约 5790 字&nbsp;
+<i class="far fa-clock fa-fw" aria-hidden=true></i>&nbsp;预计阅读 12 分钟&nbsp;</div>
+</div><div class="details toc" id=toc-static data-kept>
 <div class="details-summary toc-title">
 <span>目录</span>
-<span><i class="details-icon fas fa-angle-right"></i></span>
+<span><i class="details-icon fas fa-angle-right" aria-hidden=true></i></span>
 </div>
 <div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
 <ul>
@@ -239,17 +160,9 @@
 </li>
 </ul>
 </nav></div>
-</div><div class=content id=content><div class="details admonition warning open">
-<div class="details-summary admonition-title">
-<i class="icon fas fa-exclamation-triangle fa-fwwarning"></i>警告<i class="details-icon fas fa-angle-right fa-fw"></i>
-</div>
-<div class=details-content>
-<div class=admonition-content>
-本文最后更新于 <span class=timeago datetime=2021-06-10T15:38:13 title="June 10, 2021">2021-06-10</span>，文中内容可能已过时。</div>
-</div>
-</div><h2 id=写在前面 class=headerLink>
-<a href=#%e5%86%99%e5%9c%a8%e5%89%8d%e9%9d%a2 class=header-mark></a>写在前面</h2><h3 id=why-ubuntu class=headerLink>
-<a href=#why-ubuntu class=header-mark></a>Why Ubuntu</h3><ul>
+</div><div class=content id=content><h2 id=写在前面>写在前面</h2>
+<h3 id=why-ubuntu>Why Ubuntu</h3>
+<ul>
 <li>
 <p>Point Cloud Library也<strong>可以</strong>在Windows中安装使用，但是在Ubuntu中安装配置比较方便，不需要像在Windows上一样手动添加到系统环境中，不容易出现错误，且网上可参考内容较多，因此我个人选择用Ubuntu。当然，Ubuntu的配置也会遇到问题。自行取舍。</p>
 </li>
@@ -269,282 +182,360 @@
 <p>直接使用CMakeLists.txt和cmake指令编译PCL项目，不用像在Visual Studio上一样修改大量的设置。</p>
 </li>
 </ul>
-<h3 id=why-虚拟机 class=headerLink>
-<a href=#why-%e8%99%9a%e6%8b%9f%e6%9c%ba class=header-mark></a>Why 虚拟机</h3><p>经常可以看到，一些有用的项目指定了运行系统为Linux，而我们日常使用的电脑系统通常为Windows或macOS。使用虚拟机即在我们现有的系统中再创建一个虚拟的电脑，我们可以在其中装需要的系统来使用指定系统的项目，免去了另外专门购置一台电脑的烦恼。</p>
+<h3 id=why-虚拟机>Why 虚拟机</h3>
+<p>经常可以看到，一些有用的项目指定了运行系统为Linux，而我们日常使用的电脑系统通常为Windows或macOS。使用虚拟机即在我们现有的系统中再创建一个虚拟的电脑，我们可以在其中装需要的系统来使用指定系统的项目，免去了另外专门购置一台电脑的烦恼。</p>
 <p>在参考其他人的项目时，往往会看到里面注明了运行环境，如<code>Ubuntu16.04</code>，<code>Ubuntu18.04</code>等，如果直接在未经测试的系统版本环境上使用这些项目，有时会出现难以预料的未知错误。创建多个虚拟机，在不同虚拟机中配置不同的系统，方便我们保持系统环境与项目要求的相一致，减少不明bug。</p>
 <p>当然，虚拟机也会带来一些内部性能下降问题和硬件通讯不便的问题，不过在普通的工作学习中不会有太大感觉。</p>
-<h2 id=virtualbox虚拟机管理器的安装 class=headerLink>
-<a href=#virtualbox%e8%99%9a%e6%8b%9f%e6%9c%ba%e7%ae%a1%e7%90%86%e5%99%a8%e7%9a%84%e5%ae%89%e8%a3%85 class=header-mark></a>VirtualBox虚拟机管理器的安装</h2><h3 id=安装包下载 class=headerLink>
-<a href=#%e5%ae%89%e8%a3%85%e5%8c%85%e4%b8%8b%e8%bd%bd class=header-mark></a>安装包下载</h3><p>本次教程采用的虚拟机管理器为VirtualBox。VirtualBox是一个比较常用的开源免费的虚拟机管理器，功能基本满足常见的需求。</p>
+<h2 id=virtualbox虚拟机管理器的安装>VirtualBox虚拟机管理器的安装</h2>
+<h3 id=安装包下载>安装包下载</h3>
+<p>本次教程采用的虚拟机管理器为VirtualBox。VirtualBox是一个比较常用的开源免费的虚拟机管理器，功能基本满足常见的需求。</p>
 <p>官网下载地址在下面，可以自行根据所使用系统下载安装包，Windows选择Windows hosts，macOS选择OS X hosts。</p>
 <p><a href=https://www.virtualbox.org/wiki/Downloads target=_blank rel="noopener noreffer">https://www.virtualbox.org/wiki/Downloads</a></p>
 <p>演示的安装包版本为VirtualBox 6.1.18</p>
-<h3 id=windows安装步骤 class=headerLink>
-<a href=#windows%e5%ae%89%e8%a3%85%e6%ad%a5%e9%aa%a4 class=header-mark></a>Windows安装步骤</h3><p>双击打开安装包，点下一步</p>
+<h3 id=windows安装步骤>Windows安装步骤</h3>
+<p>双击打开安装包，点下一步</p>
 <p>
 <div class=fiximg style=max-width:617px>
-<div class=fiximg__container style=padding-bottom:78.1199%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602203152966-1622637129343.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602203152966-1622637129343.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602203152966-1622637129343.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602203152966-1622637129343.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602203152966-1622637129343.png title=image-20210602203152966></div>
+<div class=fiximg__container style=padding-bottom:78.1199%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602203152966-1622637129343.png alt=image-20210602203152966>
+</div>
 </div>
 </p>
 <p>点击<code>浏览</code>，自行选择安装位置。功能全选或保持默认即可。完成后点下一步。</p>
 <p>
 <div class=fiximg style=max-width:617px>
-<div class=fiximg__container style=padding-bottom:78.1199%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602203512793.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602203512793.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602203512793.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602203512793.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602203512793.png title=image-20210602203512793></div>
+<div class=fiximg__container style=padding-bottom:78.1199%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602203512793.png alt=image-20210602203512793>
+</div>
 </div>
 </p>
 <p><code>注册文件关联</code>建议选择，其他保持默认或根据需要自行选择。点下一步。</p>
 <p>
 <div class=fiximg style=max-width:617px>
-<div class=fiximg__container style=padding-bottom:78.1199%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602203627747.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602203627747.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602203627747.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602203627747.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602203627747.png title=image-20210602203627747></div>
+<div class=fiximg__container style=padding-bottom:78.1199%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602203627747.png alt=image-20210602203627747>
+</div>
 </div>
 </p>
 <p>点“是”，开始安装。等待安装完成。</p>
 <p>
 <div class=fiximg style=max-width:619px>
-<div class=fiximg__container style=padding-bottom:78.1906%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602203824757.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602203824757.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602203824757.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602203824757.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602203824757.png title=image-20210602203824757></div>
+<div class=fiximg__container style=padding-bottom:78.1906%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602203824757.png alt=image-20210602203824757>
+</div>
 </div>
 </p>
 <p>安装完成后，打开
 <div class=fiximg style=max-width:100px>
-<div class=fiximg__container style=padding-bottom:114%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602211824815.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602211824815.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602211824815.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602211824815.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602211824815.png title=image-20210602211824815></div>
+<div class=fiximg__container style=padding-bottom:114%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602211824815.png alt=image-20210602211824815>
+</div>
 </div>
 就能进入VirtualBox管理器界面。</p>
 <p>
 <div class=fiximg style=max-width:1064px>
-<div class=fiximg__container style=padding-bottom:52.0677%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603111026981.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603111026981.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603111026981.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603111026981.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603111026981.png title=image-20210603111026981></div>
+<div class=fiximg__container style=padding-bottom:52.0677%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603111026981.png alt=image-20210603111026981>
+</div>
 </div>
 </p>
-<h2 id=在虚拟机中安装ubuntu1804 class=headerLink>
-<a href=#%e5%9c%a8%e8%99%9a%e6%8b%9f%e6%9c%ba%e4%b8%ad%e5%ae%89%e8%a3%85ubuntu1804 class=header-mark></a>在虚拟机中安装Ubuntu18.04</h2><p>比较多的Point Cloud Library项目都是在Ubuntu18.04上开发的，因此建议直接使用18.04保持环境一致性，不要还没入门就在处理bug上纠结。我在Ubuntu20.04中使用一些Ubuntu18.04开发的项目时就出现了错误，于是转用18.04。</p>
+<h2 id=在虚拟机中安装ubuntu1804>在虚拟机中安装Ubuntu18.04</h2>
+<p>比较多的Point Cloud Library项目都是在Ubuntu18.04上开发的，因此建议直接使用18.04保持环境一致性，不要还没入门就在处理bug上纠结。我在Ubuntu20.04中使用一些Ubuntu18.04开发的项目时就出现了错误，于是转用18.04。</p>
 <p>其他版本的Ubuntu安装过程大同小异，也可以参考下面的步骤。</p>
-<h3 id=ubuntu-desktop镜像下载 class=headerLink>
-<a href=#ubuntu-desktop%e9%95%9c%e5%83%8f%e4%b8%8b%e8%bd%bd class=header-mark></a>Ubuntu-desktop镜像下载</h3><p>Ubuntu18.04官方下载地址 <a href=https://releases.ubuntu.com/18.04/ target=_blank rel="noopener noreffer">https://releases.ubuntu.com/18.04/</a></p>
+<h3 id=ubuntu-desktop镜像下载>Ubuntu-desktop镜像下载</h3>
+<p>Ubuntu18.04官方下载地址 <a href=https://releases.ubuntu.com/18.04/ target=_blank rel="noopener noreffer">https://releases.ubuntu.com/18.04/</a></p>
 <p>可以直接点击<a href=https://releases.ubuntu.com/18.04/ubuntu-18.04.5-desktop-amd64.iso target=_blank rel="noopener noreffer">ubuntu-18.04.5-desktop-amd64.iso</a>下载，也可以下载<a href=https://releases.ubuntu.com/18.04/ubuntu-18.04.5-desktop-amd64.iso.torrent target=_blank rel="noopener noreffer">ubuntu-18.04.5-desktop-amd64.iso.torrent</a>种子使用BT下载。直接下载速度可能较慢，而作为热门资源使用BT下载可能较快。</p>
 <p>注意下载desktop版的镜像，不要用server的。</p>
 <p>Ubuntu最新版的下载地址在 <a href=https://ubuntu.com/download/desktop target=_blank rel="noopener noreffer">https://ubuntu.com/download/desktop</a> 。如果想自己学习尝试也可以下载使用试试。</p>
-<h3 id=修改虚拟机存储位置可选 class=headerLink>
-<a href=#%e4%bf%ae%e6%94%b9%e8%99%9a%e6%8b%9f%e6%9c%ba%e5%ad%98%e5%82%a8%e4%bd%8d%e7%bd%ae%e5%8f%af%e9%80%89 class=header-mark></a>修改虚拟机存储位置（可选）</h3><p>虚拟机需要使用较多的存储空间，我运行PCL项目使用的虚拟机占用了21.3G的空间，如果使用快照功能则所需空间更大。</p>
+<h3 id=修改虚拟机存储位置可选>修改虚拟机存储位置（可选）</h3>
+<p>虚拟机需要使用较多的存储空间，我运行PCL项目使用的虚拟机占用了21.3G的空间，如果使用快照功能则所需空间更大。</p>
 <p>因此，建议把虚拟机存储位置移动到空间较为充足的位置。</p>
 <p>点击<code>管理</code>→<code>全局设定</code></p>
 <p>
 <div class=fiximg style=max-width:1063px>
-<div class=fiximg__container style=padding-bottom:52.0226%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602213235372.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602213235372.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602213235372.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602213235372.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602213235372.png title=image-20210602213235372></div>
+<div class=fiximg__container style=padding-bottom:52.0226%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602213235372.png alt=image-20210602213235372>
+</div>
 </div>
 </p>
 <p>在<code>默认虚拟电脑位置</code>里点<code>其它</code>，自行选择喜欢的存储空间充足的位置。点<code>OK</code>保存。</p>
 <p>
 <div class=fiximg style=max-width:512px>
-<div class=fiximg__container style=padding-bottom:78.7109%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602213418022.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602213418022.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602213418022.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602213418022.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602213418022.png title=image-20210602213418022></div>
+<div class=fiximg__container style=padding-bottom:78.7109%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602213418022.png alt=image-20210602213418022>
+</div>
 </div>
 </p>
-<h3 id=新建虚拟电脑 class=headerLink>
-<a href=#%e6%96%b0%e5%bb%ba%e8%99%9a%e6%8b%9f%e7%94%b5%e8%84%91 class=header-mark></a>新建虚拟电脑</h3><p>点击<code>控制</code>→<code>新建</code>。或<code>工具</code>→<code>新建</code>。</p>
+<h3 id=新建虚拟电脑>新建虚拟电脑</h3>
+<p>点击<code>控制</code>→<code>新建</code>。或<code>工具</code>→<code>新建</code>。</p>
 <p>
 <div class=fiximg style=max-width:1063px>
-<div class=fiximg__container style=padding-bottom:52.0226%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602214106805.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602214106805.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602214106805.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602214106805.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602214106805.png title=image-20210602214106805></div>
+<div class=fiximg__container style=padding-bottom:52.0226%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602214106805.png alt=image-20210602214106805>
+</div>
 </div>
 </p>
 <p>选择<code>专家模式</code></p>
 <p>
 <div class=fiximg style=max-width:570px>
-<div class=fiximg__container style=padding-bottom:77.5439%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602214734606.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602214734606.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602214734606.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602214734606.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602214734606.png title=image-20210602214734606></div>
+<div class=fiximg__container style=padding-bottom:77.5439%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602214734606.png alt=image-20210602214734606>
+</div>
 </div>
 </p>
 <p><code>名称</code>根据喜好输入，类型选择<code>Linux</code>，版本选择<code>Ubuntu (64-bit)</code>。内存我一般设置4096MB即4GB，具体使用可根据自身情况进行调整。虚拟硬盘选择<code>现在创建虚拟硬盘</code>。设置完成后点击<code>创建</code>。</p>
 <p>
 <div class=fiximg style=max-width:645px>
-<div class=fiximg__container style=padding-bottom:88.6822%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602214938088.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602214938088.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602214938088.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602214938088.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602214938088.png title=image-20210602214938088></div>
+<div class=fiximg__container style=padding-bottom:88.6822%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602214938088.png alt=image-20210602214938088>
+</div>
 </div>
 </p>
 <p>弹出创建虚拟硬盘界面。虚拟硬盘文件位置可以默认自动生成，也可以按喜好调整。文件大小可以设置大点，40GB左右，因为选择动态分配创建的虚拟硬盘文件会自动根据内容调整大小，而不是直接占据设置的大小，大小设大点可以避免虚拟机内空间不足时扩容遇到的设置麻烦。设置完成后点击<code>创建</code>。</p>
 <p>
 <div class=fiximg style=max-width:585px>
-<div class=fiximg__container style=padding-bottom:91.1111%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602215415437.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602215415437.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602215415437.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602215415437.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602215415437.png title=image-20210602215415437></div>
+<div class=fiximg__container style=padding-bottom:91.1111%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602215415437.png alt=image-20210602215415437>
+</div>
 </div>
 </p>
 <p>我们可以看到左侧出现刚刚创建的虚拟电脑。</p>
 <p>
 <div class=fiximg style=max-width:1064px>
-<div class=fiximg__container style=padding-bottom:52.0677%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602220815796.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602220815796.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602220815796.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602220815796.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602220815796.png title=image-20210602220815796></div>
+<div class=fiximg__container style=padding-bottom:52.0677%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602220815796.png alt=image-20210602220815796>
+</div>
 </div>
 </p>
 <p>在<code>设置</code>里还可以对虚拟机性能作一些调整，可自行查看，注意有些选项要虚拟机关机时才可以调整。</p>
-<h3 id=安装ubuntu1804 class=headerLink>
-<a href=#%e5%ae%89%e8%a3%85ubuntu1804 class=header-mark></a>安装Ubuntu18.04</h3><p>选择刚刚创建的虚拟机，点击<code>启动</code>。弹出选择启动盘窗口。点击选择虚拟光盘文件按钮。</p>
+<h3 id=安装ubuntu1804>安装Ubuntu18.04</h3>
+<p>选择刚刚创建的虚拟机，点击<code>启动</code>。弹出选择启动盘窗口。点击选择虚拟光盘文件按钮。</p>
 <p>
 <div class=fiximg style=max-width:637px>
-<div class=fiximg__container style=padding-bottom:89.168%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602225027100.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602225027100.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602225027100.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602225027100.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602225027100.png title=image-20210602225027100></div>
+<div class=fiximg__container style=padding-bottom:89.168%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602225027100.png alt=image-20210602225027100>
+</div>
 </div>
 </p>
 <p>点击<code>注册</code>按钮，选择前面下载的Ubuntu desktop的iso镜像。</p>
 <p>
 <div class=fiximg style=max-width:644px>
-<div class=fiximg__container style=padding-bottom:61.8012%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602225223158.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602225223158.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602225223158.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602225223158.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602225223158.png title=image-20210602225223158></div>
+<div class=fiximg__container style=padding-bottom:61.8012%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602225223158.png alt=image-20210602225223158>
+</div>
 </div>
 </p>
 <p>点击<code>ubuntu-18.04.5-desktop-amd64.iso</code>，点击<code>选择</code></p>
 <p>
 <div class=fiximg style=max-width:641px>
-<div class=fiximg__container style=padding-bottom:62.2465%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602225428712.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602225428712.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602225428712.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602225428712.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602225428712.png title=image-20210602225428712></div>
+<div class=fiximg__container style=padding-bottom:62.2465%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602225428712.png alt=image-20210602225428712>
+</div>
 </div>
 </p>
 <p>回到此界面，确认选择了正确的镜像，点击<code>启动</code></p>
 <p>
 <div class=fiximg style=max-width:313px>
-<div class=fiximg__container style=padding-bottom:106.3898%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602230132524.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602230132524.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602230132524.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602230132524.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602230132524.png title=image-20210602230132524></div>
+<div class=fiximg__container style=padding-bottom:106.3898%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602230132524.png alt=image-20210602230132524>
+</div>
 </div>
 </p>
 <p>开始安装，左侧找到并选择<code>中文(简体)</code>，然后点击安装Ubuntu</p>
 <p>屏幕上方可能有VirtualBox的一些提示，阅读后可以关掉，不影响</p>
 <p>
 <div class=fiximg style=max-width:801px>
-<div class=fiximg__container style=padding-bottom:86.1423%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602232735237.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602232735237.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602232735237.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602232735237.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602232735237.png title=image-20210602232735237></div>
+<div class=fiximg__container style=padding-bottom:86.1423%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602232735237.png alt=image-20210602232735237>
+</div>
 </div>
 </p>
 <p>一般键盘布局默认即可，点<code>继续</code></p>
 <p>
 <div class=fiximg style=max-width:801px>
-<div class=fiximg__container style=padding-bottom:86.1423%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602233009641.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602233009641.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602233009641.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602233009641.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602233009641.png title=image-20210602233009641></div>
+<div class=fiximg__container style=padding-bottom:86.1423%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602233009641.png alt=image-20210602233009641>
+</div>
 </div>
 </p>
 <p>选择<code>正常安装</code>，<code>安装Ubuntu时下载更新</code>可选可不选，不选可节约安装过程时间。点击<code>继续</code></p>
 <p>
 <div class=fiximg style=max-width:801px>
-<div class=fiximg__container style=padding-bottom:86.1423%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602233046690.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602233046690.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602233046690.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602233046690.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602233046690.png title=image-20210602233046690></div>
+<div class=fiximg__container style=padding-bottom:86.1423%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602233046690.png alt=image-20210602233046690>
+</div>
 </div>
 </p>
 <p>安装类型默认选择清除整个磁盘并安装Ubuntu即可，其它选项不清楚就保持不变。然后点击<code>现在安装</code></p>
 <p>
 <div class=fiximg style=max-width:801px>
-<div class=fiximg__container style=padding-bottom:86.1423%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602233232457.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602233232457.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602233232457.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602233232457.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602233232457.png title=image-20210602233232457></div>
+<div class=fiximg__container style=padding-bottom:86.1423%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602233232457.png alt=image-20210602233232457>
+</div>
 </div>
 </p>
 <p>点<code>继续</code></p>
 <p>
 <div class=fiximg style=max-width:801px>
-<div class=fiximg__container style=padding-bottom:86.1423%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602233450239.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602233450239.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602233450239.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602233450239.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602233450239.png title=image-20210602233450239></div>
+<div class=fiximg__container style=padding-bottom:86.1423%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602233450239.png alt=image-20210602233450239>
+</div>
 </div>
 </p>
 <p>输入Shanghai，选择，点<code>继续</code></p>
 <p>
 <div class=fiximg style=max-width:801px>
-<div class=fiximg__container style=padding-bottom:86.1423%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602233721572.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602233721572.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602233721572.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602233721572.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602233721572.png title=image-20210602233721572></div>
+<div class=fiximg__container style=padding-bottom:86.1423%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602233721572.png alt=image-20210602233721572>
+</div>
 </div>
 </p>
 <p><code>您的姓名</code>处可按喜好输入用户名，下面会自动填写，密码也可按喜好输入。填写完后点<code>继续</code></p>
 <p><strong>这里的用户名和密码一定要记好!!!</strong></p>
 <p>
 <div class=fiximg style=max-width:801px>
-<div class=fiximg__container style=padding-bottom:86.1423%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602233850269.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602233850269.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602233850269.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602233850269.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602233850269.png title=image-20210602233850269></div>
+<div class=fiximg__container style=padding-bottom:86.1423%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602233850269.png alt=image-20210602233850269>
+</div>
 </div>
 </p>
 <p>接下来进入漫长的等待安装完成阶段，安装过程中最好保持网络通畅</p>
 <p>
 <div class=fiximg style=max-width:801px>
-<div class=fiximg__container style=padding-bottom:86.1423%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602234526780.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602234526780.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210602234526780.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602234526780.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602234526780.png title=image-20210602234526780></div>
+<div class=fiximg__container style=padding-bottom:86.1423%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210602234526780.png alt=image-20210602234526780>
+</div>
 </div>
 </p>
 <p>安装完毕，重启。按Enter</p>
 <p>
 <div class=fiximg style=max-width:801px>
-<div class=fiximg__container style=padding-bottom:86.1423%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603001131749.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603001131749.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603001131749.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603001131749.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603001131749.png title=image-20210603001131749></div>
+<div class=fiximg__container style=padding-bottom:86.1423%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603001131749.png alt=image-20210603001131749>
+</div>
 </div>
 </p>
 <p>重启完成，确认开机提示，完成安装</p>
 <p><strong>注意不要确认升级到20.04!!!</strong></p>
 <p>
 <div class=fiximg style=max-width:801px>
-<div class=fiximg__container style=padding-bottom:86.1423%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603002228687.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603002228687.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603002228687.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603002228687.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603002228687.png title=image-20210603002228687></div>
+<div class=fiximg__container style=padding-bottom:86.1423%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603002228687.png alt=image-20210603002228687>
+</div>
 </div>
 </p>
-<h2 id=ubuntu1804设置调整 class=headerLink>
-<a href=#ubuntu1804%e8%ae%be%e7%bd%ae%e8%b0%83%e6%95%b4 class=header-mark></a>Ubuntu18.04设置调整</h2><h3 id=调整屏幕大小 class=headerLink>
-<a href=#%e8%b0%83%e6%95%b4%e5%b1%8f%e5%b9%95%e5%a4%a7%e5%b0%8f class=header-mark></a>调整屏幕大小</h3><h4 id=常规设置 class=headerLink>
-<a href=#%e5%b8%b8%e8%a7%84%e8%ae%be%e7%bd%ae class=header-mark></a>常规设置</h4><p>找到<code>设置</code>，进入。找到并进入<code>设备</code>，点击<code>分辨率</code>，选择喜欢的分辨率，点击窗口右上角<code>应用</code>。虚拟机窗口大小会相应变化。觉得合适的话点击<code>保存更改</code></p>
+<h2 id=ubuntu1804设置调整>Ubuntu18.04设置调整</h2>
+<h3 id=调整屏幕大小>调整屏幕大小</h3>
+<h4 id=常规设置>常规设置</h4>
+<p>找到<code>设置</code>，进入。找到并进入<code>设备</code>，点击<code>分辨率</code>，选择喜欢的分辨率，点击窗口右上角<code>应用</code>。虚拟机窗口大小会相应变化。觉得合适的话点击<code>保存更改</code></p>
 <p>注意设置窗口右侧可能被遮挡，按住设置窗口上边框并拖动即可。</p>
 <p>
 <div class=fiximg style=max-width:830px>
-<div class=fiximg__container style=padding-bottom:83.1325%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603003128307.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603003128307.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603003128307.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603003128307.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603003128307.png title=image-20210603003128307></div>
+<div class=fiximg__container style=padding-bottom:83.1325%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603003128307.png alt=image-20210603003128307>
+</div>
 </div>
 </p>
-<h4 id=自动调整分辨率 class=headerLink>
-<a href=#%e8%87%aa%e5%8a%a8%e8%b0%83%e6%95%b4%e5%88%86%e8%be%a8%e7%8e%87 class=header-mark></a>自动调整分辨率</h4><p><strong>**需要VirtualBox增强功能</strong>，见<a href=#%e8%99%9a%e6%8b%9f%e6%9c%ba%e4%b8%8e%e4%b8%bb%e6%9c%ba%e4%ba%a4%e4%ba%92 rel>虚拟机与主机交互</a>中<a href=#%e5%ae%89%e8%a3%85%e5%a2%9e%e5%bc%ba%e5%8a%9f%e8%83%bd rel>增强功能安装</a>部分</p>
+<h4 id=自动调整分辨率>自动调整分辨率</h4>
+<p><strong>**需要VirtualBox增强功能</strong>，见<a href=#%e8%99%9a%e6%8b%9f%e6%9c%ba%e4%b8%8e%e4%b8%bb%e6%9c%ba%e4%ba%a4%e4%ba%92 rel>虚拟机与主机交互</a>中<a href=#%e5%ae%89%e8%a3%85%e5%a2%9e%e5%bc%ba%e5%8a%9f%e8%83%bd rel>增强功能安装</a>部分</p>
 <p>安装增强功能后，可以在打开虚拟机后在窗口上方的“视图”菜单中选择“自动调整显示尺寸”，调整外侧窗口大小后内部Ubuntu虚拟机分辨率自动调整</p>
 <p>
 <div class=fiximg style=max-width:551px>
-<div class=fiximg__container style=padding-bottom:101.2704%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210608170001946.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210608170001946.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210608170001946.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210608170001946.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210608170001946.png title=image-20210608170001946></div>
+<div class=fiximg__container style=padding-bottom:101.2704%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210608170001946.png alt=image-20210608170001946>
+</div>
 </div>
 </p>
-<h3 id=调整字体大小 class=headerLink>
-<a href=#%e8%b0%83%e6%95%b4%e5%ad%97%e4%bd%93%e5%a4%a7%e5%b0%8f class=header-mark></a>调整字体大小</h3><p>Ubuntu并没有自带内容放大到125%，可能看起来字体比较小，比较吃力，可以调大点</p>
+<h3 id=调整字体大小>调整字体大小</h3>
+<p>Ubuntu并没有自带内容放大到125%，可能看起来字体比较小，比较吃力，可以调大点</p>
 <p><code>设置</code>→<code>通用辅助功能</code>→<code>大号文本</code></p>
 <p>
 <div class=fiximg style=max-width:978px>
-<div class=fiximg__container style=padding-bottom:72.5971%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603201529932.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603201529932.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603201529932.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603201529932.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603201529932.png title=image-20210603201529932></div>
+<div class=fiximg__container style=padding-bottom:72.5971%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603201529932.png alt=image-20210603201529932>
+</div>
 </div>
 </p>
-<h3 id=修改软件包下载源 class=headerLink>
-<a href=#%e4%bf%ae%e6%94%b9%e8%bd%af%e4%bb%b6%e5%8c%85%e4%b8%8b%e8%bd%bd%e6%ba%90 class=header-mark></a>修改软件包下载源</h3><p>默认的Ubuntu软件包下载源速度有时比较慢，换成阿里云的镜像源或者清华的镜像源通常会比较快。</p>
+<h3 id=修改软件包下载源>修改软件包下载源</h3>
+<p>默认的Ubuntu软件包下载源速度有时比较慢，换成阿里云的镜像源或者清华的镜像源通常会比较快。</p>
 <p>在应用程序菜单中进入<code>软件和更新</code>，在<code>Ubuntu 软件</code>选项卡中的<code>下载自</code>点击<code>其他站点</code></p>
 <p>
 <div class=fiximg style=max-width:1283px>
-<div class=fiximg__container style=padding-bottom:69.3687%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603100955486.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603100955486.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603100955486.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603100955486.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603100955486.png title=image-20210603100955486></div>
+<div class=fiximg__container style=padding-bottom:69.3687%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603100955486.png alt=image-20210603100955486>
+</div>
 </div>
 </p>
 <p>可以看到，有很多不同的服务器供选择。<code>mirrors.aliyun.com</code>就是阿里云的源，<code>mirrors.tuna.tsinghua.edu.cn</code>就是清华的源，其他镜像源的效果和速度也可以自行尝试。协议一般直接选择http。</p>
 <p>
 <div class=fiximg style=max-width:1283px>
-<div class=fiximg__container style=padding-bottom:69.3687%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603101258776.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603101258776.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603101258776.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603101258776.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603101258776.png title=image-20210603101258776></div>
+<div class=fiximg__container style=padding-bottom:69.3687%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603101258776.png alt=image-20210603101258776>
+</div>
 </div>
 </p>
-<h3 id=关闭自动熄屏锁定 class=headerLink>
-<a href=#%e5%85%b3%e9%97%ad%e8%87%aa%e5%8a%a8%e7%86%84%e5%b1%8f%e9%94%81%e5%ae%9a class=header-mark></a>关闭自动熄屏锁定</h3><p>进入<code>设置</code>→<code>电源</code>。空白屏幕选<code>从不</code>，自动挂起全部改为关闭。</p>
+<h3 id=关闭自动熄屏锁定>关闭自动熄屏锁定</h3>
+<p>进入<code>设置</code>→<code>电源</code>。空白屏幕选<code>从不</code>，自动挂起全部改为关闭。</p>
 <p>
 <div class=fiximg style=max-width:1283px>
-<div class=fiximg__container style=padding-bottom:69.3687%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603094003560.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603094003560.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603094003560.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603094003560.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603094003560.png title=image-20210603094003560></div>
+<div class=fiximg__container style=padding-bottom:69.3687%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603094003560.png alt=image-20210603094003560>
+</div>
 </div>
 </p>
-<h3 id=关闭更新ubuntu大版本更新提示 class=headerLink>
-<a href=#%e5%85%b3%e9%97%ad%e6%9b%b4%e6%96%b0ubuntu%e5%a4%a7%e7%89%88%e6%9c%ac%e6%9b%b4%e6%96%b0%e6%8f%90%e7%a4%ba class=header-mark></a>关闭更新Ubuntu大版本更新提示</h3><p>避免提示从18.04升级到20.04</p>
+<h3 id=关闭更新ubuntu大版本更新提示>关闭更新Ubuntu大版本更新提示</h3>
+<p>避免提示从18.04升级到20.04</p>
 <p>在应用程序菜单中找到<code>软件和更新</code>，点击<code>更新</code>，有新版本时通知我中选择<code>从不</code>，认证账户密码，确定。</p>
 <p>
 <div class=fiximg style=max-width:1283px>
-<div class=fiximg__container style=padding-bottom:69.3687%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603100602793.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603100602793.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603100602793.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603100602793.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603100602793.png title=image-20210603100602793></div>
+<div class=fiximg__container style=padding-bottom:69.3687%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603100602793.png alt=image-20210603100602793>
+</div>
 </div>
 </p>
-<h2 id=虚拟机与主机交互 class=headerLink>
-<a href=#%e8%99%9a%e6%8b%9f%e6%9c%ba%e4%b8%8e%e4%b8%bb%e6%9c%ba%e4%ba%a4%e4%ba%92 class=header-mark></a>虚拟机与主机交互</h2><p>这些内容不是都必须的，可自行选择是否设置</p>
-<h3 id=安装增强功能 class=headerLink>
-<a href=#%e5%ae%89%e8%a3%85%e5%a2%9e%e5%bc%ba%e5%8a%9f%e8%83%bd class=header-mark></a>安装增强功能</h3><p>（仅第一次使用要执行此步骤）</p>
+<h2 id=虚拟机与主机交互>虚拟机与主机交互</h2>
+<p>这些内容不是都必须的，可自行选择是否设置</p>
+<h3 id=安装增强功能>安装增强功能</h3>
+<p>（仅第一次使用要执行此步骤）</p>
 <p>首先点击<code>设备</code>→<code>安装增强功能</code>，弹出类似下图界面，点<code>运行</code>，认证账户密码进行安装</p>
 <p>
 <div class=fiximg style=max-width:378px>
-<div class=fiximg__container style=padding-bottom:80.4233%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603133120488.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603133120488.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603133120488.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603133120488.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603133120488.png title=image-20210603133120488></div>
+<div class=fiximg__container style=padding-bottom:80.4233%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603133120488.png alt=image-20210603133120488>
+</div>
 </div>
 </p>
 <p>
 <div class=fiximg style=max-width:638px>
-<div class=fiximg__container style=padding-bottom:29.4671%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/1212465-20181023172629987-1114710788.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/1212465-20181023172629987-1114710788.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/1212465-20181023172629987-1114710788.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/1212465-20181023172629987-1114710788.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/1212465-20181023172629987-1114710788.png title=img></div>
+<div class=fiximg__container style=padding-bottom:29.4671%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/1212465-20181023172629987-1114710788.png alt=img>
+</div>
 </div>
 </p>
 <p>完成安装</p>
 <p>
 <div class=fiximg style=max-width:720px>
-<div class=fiximg__container style=padding-bottom:64.0278%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/1212465-20181023201217652-772412919.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/1212465-20181023201217652-772412919.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/1212465-20181023201217652-772412919.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/1212465-20181023201217652-772412919.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/1212465-20181023201217652-772412919.png title=img></div>
+<div class=fiximg__container style=padding-bottom:64.0278%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/1212465-20181023201217652-772412919.png alt=img>
+</div>
 </div>
 </p>
-<h3 id=共享文件夹 class=headerLink>
-<a href=#%e5%85%b1%e4%ba%ab%e6%96%87%e4%bb%b6%e5%a4%b9 class=header-mark></a>共享文件夹</h3><p>（需要先安装增强功能）</p>
+<h3 id=共享文件夹>共享文件夹</h3>
+<p>（需要先安装增强功能）</p>
 <p>点击<code>设备</code>→<code>共享文件夹</code></p>
 <p>
 <div class=fiximg style=max-width:575px>
-<div class=fiximg__container style=padding-bottom:54.4348%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603132320213.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603132320213.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603132320213.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603132320213.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603132320213.png title=image-20210603132320213></div>
+<div class=fiximg__container style=padding-bottom:54.4348%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603132320213.png alt=image-20210603132320213>
+</div>
 </div>
 </p>
 <p>点击<code>添加共享文件夹</code>按钮</p>
 <p>
 <div class=fiximg style=max-width:882px>
-<div class=fiximg__container style=padding-bottom:64.7392%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603132450511.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603132450511.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603132450511.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603132450511.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603132450511.png title=image-20210603132450511></div>
+<div class=fiximg__container style=padding-bottom:64.7392%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603132450511.png alt=image-20210603132450511>
+</div>
 </div>
 </p>
 <p>共享文件夹路径选择主机电脑上的文件夹</p>
@@ -554,13 +545,17 @@
 <p>填写完成后确定</p>
 <p>
 <div class=fiximg style=max-width:348px>
-<div class=fiximg__container style=padding-bottom:73.8506%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603135828271.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603135828271.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603135828271.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603135828271.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603135828271.png title=image-20210603135828271></div>
+<div class=fiximg__container style=padding-bottom:73.8506%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603135828271.png alt=image-20210603135828271>
+</div>
 </div>
 </p>
 <p>可以发现<code>喜欢的文件夹名称</code>出现在了Ubuntu虚拟机文件中的<code>主目录</code>下</p>
 <p>
 <div class=fiximg style=max-width:896px>
-<div class=fiximg__container style=padding-bottom:63.2812%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603140111198.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603140111198.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603140111198.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603140111198.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603140111198.png title=image-20210603140111198></div>
+<div class=fiximg__container style=padding-bottom:63.2812%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603140111198.png alt=image-20210603140111198>
+</div>
 </div>
 </p>
 <p>**必须!**打开虚拟机终端，输入下面的指令，获取共享文件夹权限，重启虚拟机</p>
@@ -575,51 +570,65 @@
 </div><p>共享文件夹设置成功，里面文件完全相同</p>
 <p>
 <div class=fiximg style=max-width:1028px>
-<div class=fiximg__container style=padding-bottom:58.7549%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603140427989.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603140427989.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603140427989.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603140427989.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603140427989.png title=image-20210603140427989></div>
+<div class=fiximg__container style=padding-bottom:58.7549%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603140427989.png alt=image-20210603140427989>
+</div>
 </div>
 </p>
 <p>注意：对于虚拟机来说，在共享文件夹中进行操作可能遇到奇怪的权限问题，因此建议只将共享文件夹用于文件传输，不要在里面编译或运行可执行文件</p>
-<h3 id=共享粘贴板及拖放 class=headerLink>
-<a href=#%e5%85%b1%e4%ba%ab%e7%b2%98%e8%b4%b4%e6%9d%bf%e5%8f%8a%e6%8b%96%e6%94%be class=header-mark></a>共享粘贴板及拖放</h3><p>在VirtualBox管理器中打开虚拟机设置</p>
+<h3 id=共享粘贴板及拖放>共享粘贴板及拖放</h3>
+<p>在VirtualBox管理器中打开虚拟机设置</p>
 <p>进入<code>常规</code>→<code>高级</code>，共享粘贴板和拖放选择双向，确定，重启</p>
 <p>
 <div class=fiximg style=max-width:889px>
-<div class=fiximg__container style=padding-bottom:64.342%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603141402691.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603141402691.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603141402691.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603141402691.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603141402691.png title=image-20210603141402691></div>
+<div class=fiximg__container style=padding-bottom:64.342%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603141402691.png alt=image-20210603141402691>
+</div>
 </div>
 </p>
 <p>之后主机和虚拟机文字可以直接复制粘贴，可以直接从主机拖放文件进入虚拟机</p>
-<h3 id=网络通讯 class=headerLink>
-<a href=#%e7%bd%91%e7%bb%9c%e9%80%9a%e8%ae%af class=header-mark></a>网络通讯</h3><h4 id=ip通信 class=headerLink>
-<a href=#ip%e9%80%9a%e4%bf%a1 class=header-mark></a>IP通信</h4><p>虚拟机完全关机（不是休眠），VirtualBox管理器里打开虚拟机设置</p>
+<h3 id=网络通讯>网络通讯</h3>
+<h4 id=ip通信>IP通信</h4>
+<p>虚拟机完全关机（不是休眠），VirtualBox管理器里打开虚拟机设置</p>
 <p>打开<code>网络</code>选项卡</p>
 <p><code>网卡1</code>设置Host-Only网络，混杂模式选全部允许</p>
 <p>
 <div class=fiximg style=max-width:879px>
-<div class=fiximg__container style=padding-bottom:65.0739%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603144826905.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603144826905.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603144826905.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603144826905.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603144826905.png title=image-20210603144826905></div>
+<div class=fiximg__container style=padding-bottom:65.0739%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603144826905.png alt=image-20210603144826905>
+</div>
 </div>
 </p>
 <p>网卡2设置NAT网络</p>
 <p>
 <div class=fiximg style=max-width:879px>
-<div class=fiximg__container style=padding-bottom:65.0739%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603144920793.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603144920793.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603144920793.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603144920793.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603144920793.png title=image-20210603144920793></div>
+<div class=fiximg__container style=padding-bottom:65.0739%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603144920793.png alt=image-20210603144920793>
+</div>
 </div>
 </p>
 <p>打开VirtualBox管理器<code>管理</code>→<code>主机网络管理器</code></p>
 <p>
 <div class=fiximg style=max-width:1062px>
-<div class=fiximg__container style=padding-bottom:52.0716%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603145028804.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603145028804.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603145028804.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603145028804.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603145028804.png title=image-20210603145028804></div>
+<div class=fiximg__container style=padding-bottom:52.0716%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603145028804.png alt=image-20210603145028804>
+</div>
 </div>
 </p>
 <p>记住这里的IPv4地址</p>
 <p>
 <div class=fiximg style=max-width:897px>
-<div class=fiximg__container style=padding-bottom:49.3868%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603145158385.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603145158385.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603145158385.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603145158385.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603145158385.png title=image-20210603145158385></div>
+<div class=fiximg__container style=padding-bottom:49.3868%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603145158385.png alt=image-20210603145158385>
+</div>
 </div>
 </p>
 <p>打开虚拟机，进入虚拟机内设置→网络</p>
 <p>
 <div class=fiximg style=max-width:976px>
-<div class=fiximg__container style=padding-bottom:72.9508%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603145910603.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603145910603.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603145910603.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603145910603.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603145910603.png title=image-20210603145910603></div>
+<div class=fiximg__container style=padding-bottom:72.9508%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603145910603.png alt=image-20210603145910603>
+</div>
 </div>
 </p>
 <p>设置第一个网卡，IPv4方式改为手动，地址填写<code>192.168.56.x</code>，192.168.56这个前缀必须与VirtualBox Host-Only Ethernet Adapter的IPv4地址前缀一致，<code>x</code>可以在2~254里挑个喜欢的，但不能与已存在的重复。</p>
@@ -627,23 +636,29 @@
 <p>设置完成后点应用</p>
 <p>
 <div class=fiximg style=max-width:556px>
-<div class=fiximg__container style=padding-bottom:99.2806%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603150223628.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603150223628.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603150223628.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603150223628.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603150223628.png title=image-20210603150223628></div>
+<div class=fiximg__container style=padding-bottom:99.2806%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603150223628.png alt=image-20210603150223628>
+</div>
 </div>
 </p>
 <p>设置完成后，主机可通过刚刚设置的<code>192.168.56.x</code>地址访问虚拟机，虚拟机可以通过<code>192.168.56.1</code>访问主机</p>
-<h4 id=端口转发 class=headerLink>
-<a href=#%e7%ab%af%e5%8f%a3%e8%bd%ac%e5%8f%91 class=header-mark></a>端口转发</h4><p>VirtualBox管理器里打开虚拟机设置→网络</p>
+<h4 id=端口转发>端口转发</h4>
+<p>VirtualBox管理器里打开虚拟机设置→网络</p>
 <p>在连接方式为NAT的网卡中打开高级，设置端口转发，可根据需要自行设置</p>
 <p>
 <div class=fiximg style=max-width:1533px>
-<div class=fiximg__container style=padding-bottom:30.7893%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603145414783.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603145414783.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603145414783.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603145414783.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603145414783.png title=image-20210603145414783></div>
+<div class=fiximg__container style=padding-bottom:30.7893%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603145414783.png alt=image-20210603145414783>
+</div>
 </div>
 </p>
-<h2 id=point-cloud-library-的安装 class=headerLink>
-<a href=#point-cloud-library-%e7%9a%84%e5%ae%89%e8%a3%85 class=header-mark></a>Point Cloud Library 的安装</h2><p>在应用程序菜单中找到<code>终端</code>，打开</p>
+<h2 id=point-cloud-library-的安装>Point Cloud Library 的安装</h2>
+<p>在应用程序菜单中找到<code>终端</code>，打开</p>
 <p>
 <div class=fiximg style=max-width:105px>
-<div class=fiximg__container style=padding-bottom:113.3333%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603111216452.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603111216452.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603111216452.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603111216452.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603111216452.png title=image-20210603111216452></div>
+<div class=fiximg__container style=padding-bottom:113.3333%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603111216452.png alt=image-20210603111216452>
+</div>
 </div>
 </p>
 <p>输入</p>
@@ -659,7 +674,9 @@
 <p>其中<code>sudo</code>指令表示作为管理员运行指令。</p>
 <p>
 <div class=fiximg style=max-width:748px>
-<div class=fiximg__container style=padding-bottom:68.1818%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603111500037.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603111500037.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603111500037.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603111500037.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603111500037.png title=image-20210603111500037></div>
+<div class=fiximg__container style=padding-bottom:68.1818%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603111500037.png alt=image-20210603111500037>
+</div>
 </div>
 </p>
 <p>接下来开始安装Point Cloud Library库。我们需要安装下面几个软件包</p>
@@ -709,13 +726,17 @@ sudo apt install pcl-tools
 </div>
 </div><p>
 <div class=fiximg style=max-width:761px>
-<div class=fiximg__container style=padding-bottom:67.6741%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603112511074.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603112511074.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603112511074.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603112511074.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603112511074.png title=image-20210603112511074></div>
+<div class=fiximg__container style=padding-bottom:67.6741%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603112511074.png alt=image-20210603112511074>
+</div>
 </div>
 </p>
 <p>等待直到全部安装完成，如果报错，重新执行上面的指令</p>
 <p>
 <div class=fiximg style=max-width:766px>
-<div class=fiximg__container style=padding-bottom:69.3211%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603124503301.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603124503301.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603124503301.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603124503301.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603124503301.png title=image-20210603124503301></div>
+<div class=fiximg__container style=padding-bottom:69.3211%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603124503301.png alt=image-20210603124503301>
+</div>
 </div>
 </p>
 <p>输入下面的指令，执行。pcl_logo.pcd为点云示例文件，运行时要根据实际输入正确的路径</p>
@@ -730,14 +751,16 @@ sudo apt install pcl-tools
 </div><p>成功打开pcd文件，证明安装成功</p>
 <p>
 <div class=fiximg style=max-width:1283px>
-<div class=fiximg__container style=padding-bottom:69.3687%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603143310948.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603143310948.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603143310948.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603143310948.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603143310948.png title=image-20210603143310948></div>
+<div class=fiximg__container style=padding-bottom:69.3687%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603143310948.png alt=image-20210603143310948>
+</div>
 </div>
 </p>
-<h2 id=配置visual-studio-code class=headerLink>
-<a href=#%e9%85%8d%e7%bd%aevisual-studio-code class=header-mark></a>配置Visual Studio Code</h2><p>VSCode是一个轻量级的代码编辑器，挺好用的</p>
-<h3 id=本地安装 class=headerLink>
-<a href=#%e6%9c%ac%e5%9c%b0%e5%ae%89%e8%a3%85 class=header-mark></a>本地安装</h3><h4 id=安装 class=headerLink>
-<a href=#%e5%ae%89%e8%a3%85 class=header-mark></a>安装</h4><ul>
+<h2 id=配置visual-studio-code>配置Visual Studio Code</h2>
+<p>VSCode是一个轻量级的代码编辑器，挺好用的</p>
+<h3 id=本地安装>本地安装</h3>
+<h4 id=安装>安装</h4>
+<ul>
 <li><em>更新于2021年6月4日19点02分</em></li>
 </ul>
 <p><del>Ubuntu虚拟机中应用程序菜单打开<code>Ubuntu 软件</code>，搜索Visual Studio Code，安装。第一个就是</del></p>
@@ -794,32 +817,42 @@ sudo apt update
 <p>安装完成，打开</p>
 <p>
 <div class=fiximg style=max-width:144px>
-<div class=fiximg__container style=padding-bottom:106.25%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603152638829.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603152638829.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603152638829.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603152638829.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603152638829.png title=image-20210603152638829></div>
+<div class=fiximg__container style=padding-bottom:106.25%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603152638829.png alt=image-20210603152638829>
+</div>
 </div>
 </p>
-<h4 id=安装扩展程序 class=headerLink>
-<a href=#%e5%ae%89%e8%a3%85%e6%89%a9%e5%b1%95%e7%a8%8b%e5%ba%8f class=header-mark></a>安装扩展程序</h4><p>点击扩展，安装Chinese (Simplified)语言，安装C/C++扩展，安装CMake，安装CMake Tools</p>
+<h4 id=安装扩展程序>安装扩展程序</h4>
+<p>点击扩展，安装Chinese (Simplified)语言，安装C/C++扩展，安装CMake，安装CMake Tools</p>
 <p>
 <div class=fiximg style=max-width:1392px>
-<div class=fiximg__container style=padding-bottom:64.727%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603152728756.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603152728756.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603152728756.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603152728756.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603152728756.png title=image-20210603152728756></div>
+<div class=fiximg__container style=padding-bottom:64.727%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603152728756.png alt=image-20210603152728756>
+</div>
 </div>
 </p>
 <p>
 <div class=fiximg style=max-width:1442px>
-<div class=fiximg__container style=padding-bottom:68.6546%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603161354741.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603161354741.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603161354741.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603161354741.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603161354741.png title=image-20210603161354741></div>
+<div class=fiximg__container style=padding-bottom:68.6546%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603161354741.png alt=image-20210603161354741>
+</div>
 </div>
 </p>
-<h4 id=配置visual-studio-code-1 class=headerLink>
-<a href=#%e9%85%8d%e7%bd%aevisual-studio-code-1 class=header-mark></a>配置Visual Studio Code</h4><p>打开存放项目的文件夹</p>
+<h4 id=配置visual-studio-code-1>配置Visual Studio Code</h4>
+<p>打开存放项目的文件夹</p>
 <p>
 <div class=fiximg style=max-width:332px>
-<div class=fiximg__container style=padding-bottom:129.5181%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603162246803.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603162246803.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603162246803.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603162246803.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603162246803.png title=image-20210603162246803></div>
+<div class=fiximg__container style=padding-bottom:129.5181%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603162246803.png alt=image-20210603162246803>
+</div>
 </div>
 </p>
 <p>在项目文件夹根目录创建一个叫<code>.vscode</code>的文件夹，该文件夹内的文件用于设定此项目中VSCode及其扩展软件的功能及行为</p>
 <p>
 <div class=fiximg style=max-width:364px>
-<div class=fiximg__container style=padding-bottom:139.2857%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603162707937.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603162707937.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210603162707937.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603162707937.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603162707937.png title=image-20210603162707937></div>
+<div class=fiximg__container style=padding-bottom:139.2857%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210603162707937.png alt=image-20210603162707937>
+</div>
 </div>
 </p>
 <p>在<code>.vscode</code>里面创建<code>c_cpp_properties.json</code>该文件用于提供智能补全功能</p>
@@ -903,11 +936,11 @@ sudo apt update
 </code></pre></td></tr></table>
 </div>
 </div><p>这样就配置好了基本的编辑环境，更多的设置可自行搜索</p>
-<h3 id=远程开发进阶 class=headerLink>
-<a href=#%e8%bf%9c%e7%a8%8b%e5%bc%80%e5%8f%91%e8%bf%9b%e9%98%b6 class=header-mark></a>远程开发(进阶)</h3><p>除了在Ubuntu中安装VSCode直接本地开发以外，还可以通过ssh连接到Ubuntu，进行远程开发</p>
+<h3 id=远程开发进阶>远程开发(进阶)</h3>
+<p>除了在Ubuntu中安装VSCode直接本地开发以外，还可以通过ssh连接到Ubuntu，进行远程开发</p>
 <p>VSCode中内置了<code>Remote - SSH</code>扩展程序，安装后即可ssh连接到Ubuntu虚拟机，打开项目工作区进行开发。开发体验基本相同，且输入体验和显示效果更加舒服，符合日常习惯。不过终端执行命令不支持直接远程弹出图形显示窗口，如果想要看到图形效果建议直接在虚拟机内执行命令。</p>
-<h4 id=ubuntu安装ssh-server class=headerLink>
-<a href=#ubuntu%e5%ae%89%e8%a3%85ssh-server class=header-mark></a>Ubuntu安装ssh-server</h4><p>一般输入下面的命令安装完即可，无需额外设置</p>
+<h4 id=ubuntu安装ssh-server>Ubuntu安装ssh-server</h4>
+<p>一般输入下面的命令安装完即可，无需额外设置</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -916,8 +949,8 @@ sudo apt update
 <pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>sudo apt install openssh-server
 </code></pre></td></tr></table>
 </div>
-</div><h4 id=windows生成密钥 class=headerLink>
-<a href=#windows%e7%94%9f%e6%88%90%e5%af%86%e9%92%a5 class=header-mark></a>Windows生成密钥</h4><p><strong>**默认Windows里已经装了Git</strong></p>
+</div><h4 id=windows生成密钥>Windows生成密钥</h4>
+<p><strong>**默认Windows里已经装了Git</strong></p>
 <p>可参考git的教程</p>
 <p><a href=https://git-scm.com/book/zh/v2/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5 target=_blank rel="noopener noreffer">https://git-scm.com/book/zh/v2/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5</a></p>
 <p>打开Git Bash，输入下面的命令生成公钥和私钥</p>
@@ -946,8 +979,8 @@ key_name.pub
 </div>
 </div><p>key_name是私钥，不要给别人</p>
 <p>key_name.pub是公钥，要传输到服务器上</p>
-<h4 id=发送公钥到ssh服务端上 class=headerLink>
-<a href=#%e5%8f%91%e9%80%81%e5%85%ac%e9%92%a5%e5%88%b0ssh%e6%9c%8d%e5%8a%a1%e7%ab%af%e4%b8%8a class=header-mark></a>发送公钥到ssh服务端上</h4><div class=highlight><div class=chroma>
+<h4 id=发送公钥到ssh服务端上>发送公钥到ssh服务端上</h4>
+<div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
 </span></code></pre></td>
@@ -956,8 +989,8 @@ key_name.pub
 </code></pre></td></tr></table>
 </div>
 </div><p>这里UserName是服务器上的用户名，AddressOfServer是服务器地址，可以是IP或域名</p>
-<h4 id=修改ssh-config-files class=headerLink>
-<a href=#%e4%bf%ae%e6%94%b9ssh-config-files class=header-mark></a>修改SSH config files</h4><p>SSH config files位于<code>C:/Users/你的用户名/.ssh/config</code>，在里面加入如下内容</p>
+<h4 id=修改ssh-config-files>修改SSH config files</h4>
+<p>SSH config files位于<code>C:/Users/你的用户名/.ssh/config</code>，在里面加入如下内容</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -972,32 +1005,33 @@ key_name.pub
     IdentityFile 对应本地私钥的路径
 </code></pre></td></tr></table>
 </div>
-</div><h4 id=vscode进行远程开发 class=headerLink>
-<a href=#vscode%e8%bf%9b%e8%a1%8c%e8%bf%9c%e7%a8%8b%e5%bc%80%e5%8f%91 class=header-mark></a>VSCode进行远程开发</h4><p>VSCode安装好<code>Remote - SSH</code>扩展</p>
+</div><h4 id=vscode进行远程开发>VSCode进行远程开发</h4>
+<p>VSCode安装好<code>Remote - SSH</code>扩展</p>
 <p>
 <div class=fiximg style=max-width:974px>
-<div class=fiximg__container style=padding-bottom:21.0472%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210604212949269.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210604212949269.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210604212949269.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210604212949269.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210604212949269.png title=image-20210604212949269></div>
+<div class=fiximg__container style=padding-bottom:21.0472%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210604212949269.png alt=image-20210604212949269>
+</div>
 </div>
 </p>
 <p>打开VSCode远程资源管理器，看到在SSH config files里设置好的服务端，鼠标放上面点击按钮，打开一个新的远程开发窗口，完成</p>
 <p>
 <div class=fiximg style=max-width:272px>
-<div class=fiximg__container style=padding-bottom:156.6176%><img class=lazyload data-src=ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210604213234042.png data-srcset="/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210604213234042.png, ubuntu%e8%99%9a%e6%8b%9f%e6%9c%bapcl%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e7%9a%84%e9%85%8d%e7%bd%ae.assets/image-20210604213234042.png 1.5x, /pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210604213234042.png 2x" data-sizes=auto alt=/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210604213234042.png title=image-20210604213234042></div>
+<div class=fiximg__container style=padding-bottom:156.6176%>
+<img loading=lazy src=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ubuntu%E8%99%9A%E6%8B%9F%E6%9C%BApcl%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE.assets/image-20210604213234042.png alt=image-20210604213234042>
+</div>
 </div>
 </p>
-</div>
-<div class=post-footer id=post-footer>
+</div><div class=post-footer id=post-footer>
 <div class=post-info>
 <div class=post-info-line>
 <div class=post-info-mod>
 <span>更新于 2021-06-10</span>
-</div>
-<div class=post-info-license></div>
-</div>
+</div></div>
 <div class=post-info-line>
 <div class=post-info-md></div>
 <div class=post-info-share>
-<span><a href=# onclick=return!1 title="分享到 Twitter" data-sharer=twitter data-url=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ data-title="配置PCL开发环境到Virtualbox Ubuntu18.04虚拟机"><i class="fab fa-twitter fa-fw"></i></a><a href=# onclick=return!1 title="分享到 Facebook" data-sharer=facebook data-url=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/><i class="fab fa-facebook-square fa-fw"></i></a><a href=# onclick=return!1 title="分享到 Hacker News" data-sharer=hackernews data-url=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ data-title="配置PCL开发环境到Virtualbox Ubuntu18.04虚拟机"><i class="fab fa-hacker-news fa-fw"></i></a><a href=# onclick=return!1 title="分享到 Line" data-sharer=line data-url=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ data-title="配置PCL开发环境到Virtualbox Ubuntu18.04虚拟机"><i data-svg-src=/lib/simple-icons/icons/line.min.svg></i></a><a href=# onclick=return!1 title="分享到 微博" data-sharer=weibo data-url=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ data-title="配置PCL开发环境到Virtualbox Ubuntu18.04虚拟机"><i class="fab fa-weibo fa-fw"></i></a></span>
+<span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ data-title="配置PCL开发环境到Virtualbox Ubuntu18.04虚拟机"><i class="fab fa-twitter fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/><i class="fab fa-facebook-square fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="分享到 Hacker News" data-sharer=hackernews data-url=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ data-title="配置PCL开发环境到Virtualbox Ubuntu18.04虚拟机"><i class="fab fa-hacker-news fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ data-title="配置PCL开发环境到Virtualbox Ubuntu18.04虚拟机"><i data-svg-src=/lib/simple-icons/icons/line.min.svg aria-hidden=true></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://railzy.github.io/pcl-dev-env-ubuntu18.04-virtualbox/ data-title="配置PCL开发环境到Virtualbox Ubuntu18.04虚拟机"><i class="fab fa-weibo fa-fw" aria-hidden=true></i></a></span>
 </div>
 </div>
 </div>
@@ -1007,26 +1041,21 @@ key_name.pub
 <span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span>
 </section>
 </div>
-<div class=post-nav><a href=/pcl-getstarted-searching/ class=prev rel=prev title="Point Cloud Library的基础入门及资料查找方法"><i class="fas fa-angle-left fa-fw"></i>Point Cloud Library的基础入门及资料查找方法</a>
-<a href=/webpage-embed-auto-size-iframe-video/ class=next rel=next title=将自适应宽高大小的iframe视频嵌入博客网页>将自适应宽高大小的iframe视频嵌入博客网页<i class="fas fa-angle-right fa-fw"></i></a></div>
+<div class=post-nav><a href=/pcl-getstarted-searching/ class=prev rel=prev title="Point Cloud Library的基础入门及资料查找方法"><i class="fas fa-angle-left fa-fw" aria-hidden=true></i>Point Cloud Library的基础入门及资料查找方法</a>
+<a href=/webpage-embed-auto-size-iframe-video/ class=next rel=next title=将自适应宽高大小的iframe视频嵌入博客网页>将自适应宽高大小的iframe视频嵌入博客网页<i class="fas fa-angle-right fa-fw" aria-hidden=true></i></a></div>
 </div>
-<div id=comments><div id=utterances></div><noscript>
-Please enable JavaScript to view the comments powered by <a href=https://utteranc.es/>Utterances</a>.
+<div id=comments><div id=utterances class=comment></div><noscript>
+Please enable JavaScript to view the comments powered by <a href=https://utteranc.es/>utterances</a>.
 </noscript></div></article></div>
 </main><footer class=footer>
-<div class=footer-container><div class=footer-line>
-由 <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.91.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href=https://github.com/HEIGE-PCloud/DoIt target=_blank rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
-</div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2021 - 2022</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://github.com/railzy target=_blank rel="noopener noreferrer">Ray</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div>
-<div class=footer-line></div>
-<div class=footer-line>
+<div class=footer-container><div class=footer-line>由 <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.91.2">Hugo</a> 强力驱动 | 主题 - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden=true></i> LoveIt</a>
+</div><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright fa-fw" aria-hidden=true></i><span itemprop=copyrightYear>2021 - 2022</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://github.com/railzy target=_blank>Ray</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div>
 </div>
-</div></footer></div>
-<div id=fixed-buttons><a href=#back-to-top id=back-to-top-button class=fixed-button title=回到顶部>
-<i class="fas fa-arrow-up fa-fw"></i>
+</footer></div>
+<div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部>
+<i class="fas fa-arrow-up fa-fw" aria-hidden=true></i>
 </a><a href=# id=view-comments class=fixed-button title=查看评论>
-<i class="fas fa-comment fa-fw"></i>
+<i class="fas fa-comment fa-fw" aria-hidden=true></i>
 </a>
-</div><div class=assets><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/algoliasearch/algoliasearch-lite.umd.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/topbar/topbar.min.js></script><script type=text/javascript src=/lib/pjax/pjax.min.js></script><script type=text/javascript src=/js/theme.min.js defer></script><script defer src=https://static.cloudflareinsights.com/beacon.min.js data-cf-beacon='{"token": "197a11e27af7420dbfb0c2cb0bfcd59b"}'></script></div>
-<div class=pjax-assets><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:99999},comment:{utterances:{darkTheme:"github-dark",issueTerm:"pathname",label:"",lightTheme:"github-light",repo:"railzy/utterances-comments"}},search:{algoliaAppID:"04OECJ8HSB",algoliaIndex:"index_zh-cn",algoliaSearchKey:"df2e1cfa849a723887a33a30b3a3c0df",highlightTag:"em",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:50,type:"algolia"},sharerjs:!0}</script><script type=text/javascript src=/js/utterances.min.js defer></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript src=/js/jump-to-top.js></script></div>
-</body>
+</div><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/algoliasearch/algoliasearch-lite.umd.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:99999},comment:{utterances:{darkTheme:"github-dark",issueTerm:"pathname",label:"",lightTheme:"github-light",repo:"railzy/utterances-comments"}},search:{algoliaAppID:"04OECJ8HSB",algoliaIndex:"index_zh-cn",algoliaSearchKey:"df2e1cfa849a723887a33a30b3a3c0df",highlightTag:"em",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:50,type:"algolia"}}</script><script type=text/javascript src=/js/theme.min.js></script></body>
 </html>
