@@ -45,7 +45,7 @@ function initSelectTheme() {
         if (theme !== "auto") {
           setColorTheme(theme);
         } else {
-          window.localStorage && localStorage.setItem("theme", "auto");
+          window.localStorage && localStorage.removeItem("theme");
           if (
             window.matchMedia &&
             window.matchMedia("(prefers-color-scheme: dark)").matches
