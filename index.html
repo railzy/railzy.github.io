@@ -24,7 +24,7 @@
 <a href=/ title="Ray 的小站">Ray 的小站</a>
 </div>
 <div class=menu>
-<div class=menu-inner><a class=menu-item href=/posts/> 所有文章 </a><a class=menu-item href=/tags/> 标签 </a><a class=menu-item href=/categories/> 分类 </a><a class=menu-item href=/about/> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<div class=menu-inner><a class=menu-item href=/posts/> 所有文章 </a><a class=menu-item href=/tags/> 标签 </a><a class=menu-item href=/about/> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
 <input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
 <a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-desktop title=搜索>
 <i class="fas fa-search fa-fw"></i>
@@ -67,7 +67,7 @@
 <a href=# onclick=return!1 class=search-cancel id=search-cancel-mobile>
 取消
 </a>
-</div><a class=menu-item href=/posts/ title>所有文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/categories/ title>分类</a><a class=menu-item href=/about/ title>关于</a><a href=# onclick=return!1 class="menu-item theme-select" title=切换主题>
+</div><a class=menu-item href=/posts/ title>所有文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/about/ title>关于</a><a href=# onclick=return!1 class="menu-item theme-select" title=切换主题>
 <i class="fas fa-adjust fa-fw"></i>
 <select class=color-theme-select id=theme-select-mobile title=切换主题><option value=light>总是浅色</option><option value=dark>总是深色</option><option value=auto>跟随系统</option></select>
 </a></div>
@@ -82,17 +82,25 @@
 <main class=main>
 <div class=container><div class="page home" data-home=posts><div class=home-profile><div class=home-avatar><a href=/posts/ title=所有文章><img class=lazyload src=/svg/loading.min.svg data-src=/images/bard.png data-srcset="/images/bard.png, /images/bard.png 1.5x, /images/bard.png 2x" data-sizes=auto alt=/images/bard.png title=/images/bard.png width=400 height=400></a></div><div class=home-subtitle>Ray 零散笔记的聚集地</div><div class=links><a href=/index.xml title=RSS target=_blank rel="noopener noreffer me"><i class="fas fa-rss fa-fw" aria-hidden=true></i></a></div></div>
 <article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline">
+<a href=/hugo-gitinfo-from-chinese-path-posts/>解决Hugo文章路径含中文时无法获取GitInfo的问题</a>
+</h1><div class=post-meta><span class=post-author><a href=https://github.com/railzy title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw" aria-hidden=true></i>Ray</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2022-10-03>2022-10-03</time></span></div><div class=content>为了偷懒不用每篇文章都手动设置修改时间，我尝试使用 Hugo 内置的读取 GitInfo 的功能，在 lastmod 属性为空的情况下自动读取 git commit date 作为 lastmod 属性。 初步尝试 根据官方文档，</div><div class=post-footer>
+<a href=/hugo-gitinfo-from-chinese-path-posts/>阅读全文</a><div class=post-tags>
+<i class="fas fa-tags fa-fw" aria-hidden=true></i>&nbsp;<a href=/tags/hugo/>Hugo</a>,&nbsp;<a href=/tags/git/>Git</a></div></div>
+</article><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline">
 <a href=/webpage-embed-auto-size-iframe-video/>将自适应宽高大小的iframe视频嵌入博客网页</a>
 </h1><div class=post-meta><span class=post-author><a href=https://github.com/railzy title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw" aria-hidden=true></i>Ray</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2021-12-05>2021-12-05</time></span></div><div class=content><p>想将视频嵌入到博客网页中，但是发现博客网站或生成器没有提供包装好的方法。在经过搜索后，发现可以尝试使用直接插入 html 代码的方法在博客网页中嵌入视频</p></div><div class=post-footer>
-<a href=/webpage-embed-auto-size-iframe-video/>阅读全文</a></div>
+<a href=/webpage-embed-auto-size-iframe-video/>阅读全文</a><div class=post-tags>
+<i class="fas fa-tags fa-fw" aria-hidden=true></i>&nbsp;<a href=/tags/html/>html</a>,&nbsp;<a href=/tags/iframe/>iframe</a></div></div>
 </article><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline">
 <a href=/pcl-dev-env-ubuntu18.04-virtualbox/>配置PCL开发环境到Virtualbox Ubuntu18.04虚拟机</a>
 </h1><div class=post-meta><span class=post-author><a href=https://github.com/railzy title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw" aria-hidden=true></i>Ray</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2021-06-04>2021-06-04</time></span></div><div class=content>写在前面 Why Ubuntu Point Cloud Library也可以在Windows中安装使用，但是在Ubuntu中安装配置比较方便，不需要像在Windows上一样手动添加</div><div class=post-footer>
-<a href=/pcl-dev-env-ubuntu18.04-virtualbox/>阅读全文</a></div>
+<a href=/pcl-dev-env-ubuntu18.04-virtualbox/>阅读全文</a><div class=post-tags>
+<i class="fas fa-tags fa-fw" aria-hidden=true></i>&nbsp;<a href=/tags/ubuntu/>Ubuntu</a>,&nbsp;<a href=/tags/pcl/>PCL</a>,&nbsp;<a href=/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/>虚拟机</a>,&nbsp;<a href=/tags/vscode/>VSCode</a></div></div>
 </article><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline">
 <a href=/pcl-getstarted-searching/>Point Cloud Library的基础入门及资料查找方法</a>
 </h1><div class=post-meta><span class=post-author><a href=https://github.com/railzy title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw" aria-hidden=true></i>Ray</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2021-06-03>2021-06-03</time></span></div><div class=content>Point Cloud Library项目的编译使用 官方教程源地址： https://pointclouds.org/documentation/tutorials/using_pcl_pcl_config.html 官方教程中提供了各平台比较通用的项目编译方法，这里作简单的翻译补充。 创建cpp文件和CMa</div><div class=post-footer>
-<a href=/pcl-getstarted-searching/>阅读全文</a></div>
+<a href=/pcl-getstarted-searching/>阅读全文</a><div class=post-tags>
+<i class="fas fa-tags fa-fw" aria-hidden=true></i>&nbsp;<a href=/tags/pcl/>PCL</a>,&nbsp;<a href=/tags/c++/>C++</a></div></div>
 </article></div></div>
 </main><footer class=footer>
 <div class=footer-container><div class=footer-line>由 <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.91.2">Hugo</a> 强力驱动 | 主题 - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden=true></i> LoveIt</a>
@@ -104,5 +112,5 @@
 </a><a href=# id=view-comments class=fixed-button title=查看评论>
 <i class="fas fa-comment fa-fw" aria-hidden=true></i>
 </a>
-</div><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/algoliasearch/algoliasearch-lite.umd.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript src=/js/custom.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:99999},search:{algoliaAppID:"04OECJ8HSB",algoliaIndex:"index_zh-cn",algoliaSearchKey:"df2e1cfa849a723887a33a30b3a3c0df",highlightTag:"em",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:50,type:"algolia"}}</script><script type=text/javascript src=/js/theme.min.js></script></body>
+</div><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/algoliasearch/algoliasearch-lite.umd.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/js/custom.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:99999},search:{algoliaAppID:"04OECJ8HSB",algoliaIndex:"index_zh-cn",algoliaSearchKey:"df2e1cfa849a723887a33a30b3a3c0df",highlightTag:"em",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:50,type:"algolia"}}</script><script type=text/javascript src=/js/theme.min.js></script></body>
 </html>
