@@ -95,3 +95,5 @@ if (
   }
 }
 // 监听暗色、亮色切换End
+
+mediumZoom('[data-zoomable]',{background:"var(--color-backdrop)"})
