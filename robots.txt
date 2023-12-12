@@ -58,4 +58,4 @@ Disallow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://railzy.github.io/sitemap.xml
+Sitemap: https://ray233.pages.dev/sitemap.xml
