@@ -1,27 +1,27 @@
-// /**
-//  * Set the color theme
-//  * @param {string} theme
-//  */
-// function setColorTheme(theme) {
-//   // set body attribute for CSS selector
-//   document.body.setAttribute("theme", theme);
-//   // set root color scheme
-//   // https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme
-//   document.documentElement.style.setProperty(
-//     "color-scheme",
-//     theme === "light" ? "light" : "dark"
-//   );
-//   // save to local storage
-//   window.localStorage && localStorage.setItem("theme", theme);
-//   // set window.isDark for js
-//   window.isDark = !(theme === "light");
-// }
+/**
+ * Set the color theme
+ * @param {string} theme
+ */
+function setColorTheme(theme) {
+  // set body attribute for CSS selector
+  document.body.setAttribute("theme", theme);
+  // set root color scheme
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme
+  document.documentElement.style.setProperty(
+    "color-scheme",
+    theme === "light" ? "light" : "dark"
+  );
+  // save to local storage
+  window.localStorage && localStorage.setItem("theme", theme);
+  // set window.isDark for js
+  window.isDark = !(theme === "light");
+}
 
-// // window.switchThemeEventSet = new Set();
+// window.switchThemeEventSet = new Set();
 
-// /**
-//  * Initialize the select theme button.
-//  */
+/**
+ * Initialize the select theme button.
+ */
 function initSelectTheme() {
   Array.from(document.getElementsByClassName("color-theme-select")).forEach(
     (themeSelect) => {

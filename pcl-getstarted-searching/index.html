@@ -1,79 +1,48 @@
-<!doctype html><html lang=zh-CN><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title>Point Cloud Library的基础入门及资料查找方法 - Ray 的小站</title><meta name=Description content="Ray 的笔记仓库"><meta property="og:url" content="https://ray233.pages.dev/pcl-getstarted-searching/">
-<meta property="og:site_name" content="Ray 的小站"><meta property="og:title" content="Point Cloud Library的基础入门及资料查找方法"><meta property="og:description" content=" Point Cloud Library项目的编译使用官方教程源地址： https://pointclouds.org/documentation/tutorials/using_pcl_pcl_config.html
-官方教程中提供了各平台比较通用的项目编译方法，这里作简单的翻译补充。"><meta property="og:locale" content="zh_CN"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-06-03T20:22:21+08:00"><meta property="article:modified_time" content="2021-06-09T21:40:22+08:00"><meta property="article:tag" content="PCL"><meta property="article:tag" content="C++"><meta property="og:image" content="https://ray233.pages.dev/images/avatar.webp"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://ray233.pages.dev/images/avatar.webp"><meta name=twitter:title content="Point Cloud Library的基础入门及资料查找方法"><meta name=twitter:description content=" Point Cloud Library项目的编译使用官方教程源地址： https://pointclouds.org/documentation/tutorials/using_pcl_pcl_config.html
-官方教程中提供了各平台比较通用的项目编译方法，这里作简单的翻译补充。"><meta name=application-name content="Ray 的小站"><meta name=apple-mobile-web-app-title content="Ray 的小站"><meta name=theme-color content="#f8f8f8"><meta name=msapplication-TileColor content="#da532c"><link rel=canonical href=https://ray233.pages.dev/pcl-getstarted-searching/><link rel=next href=https://ray233.pages.dev/pcl-dev-env-ubuntu18.04-virtualbox/><link rel=stylesheet href=/css/main.min.css><link rel=stylesheet href=/css/style.min.css><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Point Cloud Library的基础入门及资料查找方法","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://ray233.pages.dev/pcl-getstarted-searching/"},"image":["https://ray233.pages.dev/images/Apple-Devices-Preview.png"],"genre":"posts","keywords":["PCL","C++"],"wordcount":3493,"url":"https://ray233.pages.dev/pcl-getstarted-searching/","datePublished":"2021-06-03T20:22:21+08:00","dateModified":"2021-06-09T21:40:22+08:00","publisher":{"@type":"Organization","name":"Ray"},"author":{"@type":"Person","name":"Ray","url":"https://github.com/railzy"},"description":""}</script></head><body data-instant-intensity=viewport><script type=text/javascript>function setTheme(e){document.body.setAttribute("theme",e),document.documentElement.className=e,document.documentElement.style.setProperty("color-scheme",e==="light"?"light":"dark"),e==="light"?document.documentElement.classList.remove("tw-dark"):document.documentElement.classList.add("tw-dark"),window.theme=e,window.isDark=window.theme!=="light"}function saveTheme(e){window.localStorage&&localStorage.setItem("theme",e)}function getMeta(e){const t=document.getElementsByTagName("meta");for(let n=0;n<t.length;n++)if(t[n].getAttribute("name")===e)return t[n];return""}if(window.localStorage&&localStorage.getItem("theme")){let e=localStorage.getItem("theme");e==="light"||e==="dark"?setTheme(e):setTheme(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}else"auto"==="light"||"auto"==="dark"?(setTheme("auto"),saveTheme("auto")):(saveTheme("auto"),setTheme(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"));let metaColors={light:"#f8f8f8",dark:"#161b22"};getMeta("theme-color").content=metaColors[document.body.getAttribute("theme")],window.switchThemeEventSet=new Set</script><div id=back-to-top></div><div id=mask></div><div class=wrapper><header class="desktop print:!tw-hidden" id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title="Ray 的小站">Ray 的小站</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>所有文章 </a><a class=menu-item href=/tags/>标签 </a><a class=menu-item href=/about/>关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<!doctype html><html lang=zh-CN><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title>Point Cloud Library的基础入门及资料查找方法 - Ray 的小站</title><meta name=Description content="Ray 的笔记仓库"><meta property="og:title" content="Point Cloud Library的基础入门及资料查找方法">
+<meta property="og:description" content="Point Cloud Library项目的编译使用 官方教程源地址： https://pointclouds.org/documentation/tutorials/using_pcl_pcl_config.html 官方教程中提供了各平台比较通用的项目编译方法，这里作简单的翻译补充。 创建cpp文件和CMa"><meta property="og:type" content="article"><meta property="og:url" content="https://ray233.pages.dev/pcl-getstarted-searching/"><meta property="og:image" content="https://ray233.pages.dev/images/avatar.webp"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-06-03T20:22:21+08:00"><meta property="article:modified_time" content="2021-06-09T21:40:22+08:00"><meta property="og:site_name" content="Ray 的小站"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://ray233.pages.dev/images/avatar.webp"><meta name=twitter:title content="Point Cloud Library的基础入门及资料查找方法"><meta name=twitter:description content="Point Cloud Library项目的编译使用 官方教程源地址： https://pointclouds.org/documentation/tutorials/using_pcl_pcl_config.html 官方教程中提供了各平台比较通用的项目编译方法，这里作简单的翻译补充。 创建cpp文件和CMa"><meta name=application-name content="Ray 的小站"><meta name=apple-mobile-web-app-title content="Ray 的小站"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel=canonical href=https://ray233.pages.dev/pcl-getstarted-searching/><link rel=next href=https://ray233.pages.dev/pcl-dev-env-ubuntu18.04-virtualbox/><link rel=stylesheet href=/css/style.min.css><link rel=preload href=/lib/fontawesome-free/all.min.css as=style onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload href=/lib/animate/animate.min.css as=style onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Point Cloud Library的基础入门及资料查找方法","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/ray233.pages.dev\/pcl-getstarted-searching\/"},"image":["https:\/\/ray233.pages.dev\/images\/Apple-Devices-Preview.png"],"genre":"posts","keywords":"PCL, C\u002b\u002b","wordcount":3669,"url":"https:\/\/ray233.pages.dev\/pcl-getstarted-searching\/","datePublished":"2021-06-03T20:22:21+08:00","dateModified":"2021-06-09T21:40:22+08:00","publisher":{"@type":"Organization","name":"Ray"},"author":{"@type":"Person","name":"Ray"},"description":""}</script></head><body data-header-desktop=fixed data-header-mobile=fixed><script type=text/javascript>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":"auto"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"auto"==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title="Ray 的小站">Ray 的小站</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>所有文章 </a><a class=menu-item href=/tags/>标签 </a><a class=menu-item href=/about/>关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
 <input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
-<button class="search-button search-toggle" id=search-toggle-desktop title=搜索>
-<svg class="icon" viewBox="0 0 512 512"><path d="M505 442.7 405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9.0 208 0S0 93.1.0 208s93.1 208 208 208c48.3.0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9.0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7.0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7.0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
-</button>
-<button class="search-button search-clear" id=search-clear-desktop title=清空>
-<svg class="icon" viewBox="0 0 512 512"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3.0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3.0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3.0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3.0 17L312 256l65.6 65.1z"/></svg>
-</button>
-<span class="search-button search-loading tw-animate-spin" id=search-loading-desktop><svg class="icon" viewBox="0 0 512 512"><path d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51.0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51.0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49.0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51.0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156.0c-26.51.0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51.0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"/></svg>
-</span></span><button class="menu-item theme-select" aria-label=切换主题>
-<svg class="icon" viewBox="0 0 512 512"><path d="M8 256c0 136.966 111.033 248 248 248s248-111.034 248-248S392.966 8 256 8 8 119.033 8 256zm248 184V72c101.705.0 184 82.311 184 184 0 101.705-82.311 184-184 184z"/></svg>
-<select class=color-theme-select id=theme-select-desktop aria-label=切换主题><option value=light>浅色</option><option value=dark>深色</option><option value=auto>跟随系统</option></select></button></div></div></div></header><header class="mobile print:!tw-hidden" id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="Ray 的小站">Ray 的小站</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
-<button class="search-button search-toggle tw-h-10" id=search-toggle-mobile title=搜索>
-<svg class="icon" viewBox="0 0 512 512"><path d="M505 442.7 405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9.0 208 0S0 93.1.0 208s93.1 208 208 208c48.3.0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9.0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7.0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7.0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
-</button>
-<button class="search-button search-clear" id=search-clear-mobile title=清空>
-<svg class="icon" viewBox="0 0 512 512"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3.0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3.0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3.0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3.0 17L312 256l65.6 65.1z"/></svg>
-</button>
-<span class="search-button search-loading tw-animate-spin" id=search-loading-mobile><svg class="icon" viewBox="0 0 512 512"><path d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51.0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51.0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49.0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51.0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156.0c-26.51.0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51.0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"/></svg></span></div><button class=search-cancel id=search-cancel-mobile>
-取消</button></div><a class=menu-item href=/posts/ title>所有文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/about/ title>关于</a><button class="menu-item theme-select tw-w-full" aria-label=切换主题>
-<svg class="icon" viewBox="0 0 512 512"><path d="M8 256c0 136.966 111.033 248 248 248s248-111.034 248-248S392.966 8 256 8 8 119.033 8 256zm248 184V72c101.705.0 184 82.311 184 184 0 101.705-82.311 184-184 184z"/></svg>
-<select class=color-theme-select id=theme-select-mobile aria-label=切换主题><option value=light>浅色</option><option value=dark>深色</option><option value=auto>跟随系统</option></select></button></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class="toc print:!tw-hidden" id=toc-auto><h2 class=toc-title>目录</h2><div class="toc-content always-active" id=toc-content-auto><nav id=TableOfContents><ul><li><a href=#point-cloud-library项目的编译使用>Point Cloud Library项目的编译使用</a><ul><li><a href=#创建cpp文件和cmakeliststxt>创建cpp文件和CMakeLists.txt</a></li><li><a href=#编译文件>编译文件</a></li><li><a href=#运行文件>运行文件</a></li><li><a href=#总结>总结</a></li></ul></li><li><a href=#point-cloud-library基础使用>Point Cloud Library基础使用</a><ul><li><a href=#pcd点云文件的读取>pcd点云文件的读取</a></li><li><a href=#保存点云到pcd文件>保存点云到pcd文件</a></li><li><a href=#显示点云>显示点云</a></li></ul></li><li><a href=#point-cloud-library学习指南>Point Cloud Library学习指南</a><ul><li><a href=#中文学习资料>中文学习资料</a></li><li><a href=#官方教程和文档>官方教程和文档</a></li><li><a href=#pcl问题解决方法查找>PCL问题解决方法查找</a></li></ul></li></ul></nav></div></div><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC","true")</script><article class="page single print:!tw-w-full print:!tw-max-w-none print:!tw-m-0 print:!tw-p-0"><h1 class=single-title>Point Cloud Library的基础入门及资料查找方法</h1><div class=post-meta><div class=post-meta-line><span class=post-author><svg class="icon" viewBox="0 0 496 512"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6.0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7.0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4.0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9s28-2.7 40.9-6.9c2.3-.7 4.7-1.1 7.1-1.1 42.9.0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z"/></svg><a href=https://github.com/railzy title=Author target=_blank rel="noopener noreferrer author" class=author>Ray</a></span></div><div class=post-meta-line><svg class="icon" viewBox="0 0 448 512"><path d="M148 288h-40c-6.6.0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6.0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5.0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6.0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6.0 12 5.4 12 12v52h48c26.5.0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3.0 6-2.7 6-6z"/></svg>&nbsp;<time datetime=2021-06-03>2021-06-03</time>&nbsp;<svg class="icon" viewBox="0 0 576 512"><path d="M402.3 344.9l32-32c5-5 13.7-1.5 13.7 5.7V464c0 26.5-21.5 48-48 48H48c-26.5.0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h273.5c7.1.0 10.7 8.6 5.7 13.7l-32 32c-1.5 1.5-3.5 2.3-5.7 2.3H48v352h352V350.5c0-2.1.8-4.1 2.3-5.6zm156.6-201.8L296.3 405.7l-90.4 10c-26.2 2.9-48.5-19.2-45.6-45.6l10-90.4L432.9 17.1c22.9-22.9 59.9-22.9 82.7.0l43.2 43.2c22.9 22.9 22.9 60 .1 82.8zM460.1 174 402 115.9 216.2 301.8l-7.3 65.3 65.3-7.3L460.1 174zm64.8-79.7-43.2-43.2c-4.1-4.1-10.8-4.1-14.8.0L436 82l58.1 58.1 30.9-30.9c4-4.2 4-10.8-.1-14.9z"/></svg>&nbsp;<time datetime=2021-06-09>2021-06-09</time>&nbsp;<svg class="icon" viewBox="0 0 512 512"><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3.0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9.0l60.1 60.1c18.8 18.7 18.8 49.1.0 67.9zM284.2 99.8 21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3.0-17l-111-111c-4.8-4.7-12.4-4.7-17.1.0zM124.1 339.9c-5.5-5.5-5.5-14.3.0-19.8l154-154c5.5-5.5 14.3-5.5 19.8.0s5.5 14.3.0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8.0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;约 3493 字&nbsp;<svg class="icon" viewBox="0 0 512 512"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5.0-2e2-89.5-2e2-2e2S145.5 56 256 56s2e2 89.5 2e2 2e2-89.5 2e2-2e2 2e2zm61.8-104.4-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6.0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg>&nbsp;预计阅读 7 分钟&nbsp;</div></div><div class="details toc print:!tw-block" id=toc-static kept><div class="details-summary toc-title"><span>目录</span>
-<span class=details-icon><svg class="icon" viewBox="0 0 256 512"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9.0l-22.6-22.6c-9.4-9.4-9.4-24.6.0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6.0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9.0l136 136c9.5 9.4 9.5 24.6.1 34z"/></svg></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#point-cloud-library项目的编译使用>Point Cloud Library项目的编译使用</a><ul><li><a href=#创建cpp文件和cmakeliststxt>创建cpp文件和CMakeLists.txt</a></li><li><a href=#编译文件>编译文件</a></li><li><a href=#运行文件>运行文件</a></li><li><a href=#总结>总结</a></li></ul></li><li><a href=#point-cloud-library基础使用>Point Cloud Library基础使用</a><ul><li><a href=#pcd点云文件的读取>pcd点云文件的读取</a></li><li><a href=#保存点云到pcd文件>保存点云到pcd文件</a></li><li><a href=#显示点云>显示点云</a></li></ul></li><li><a href=#point-cloud-library学习指南>Point Cloud Library学习指南</a><ul><li><a href=#中文学习资料>中文学习资料</a></li><li><a href=#官方教程和文档>官方教程和文档</a></li><li><a href=#pcl问题解决方法查找>PCL问题解决方法查找</a></li></ul></li></ul></nav></div></div><div class=content id=content><div class="details admonition warning open"><div class="details-summary admonition-title"><span class=icon><svg class="icon" viewBox="0 0 576 512"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937.0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154.0l239.94 416.028zM288 354c-25.405.0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346 7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373.0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884.0-12.356 5.78-11.981 12.654z"/></svg></span>警告<span class=details-icon><svg class="icon" viewBox="0 0 256 512"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9.0l-22.6-22.6c-9.4-9.4-9.4-24.6.0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6.0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9.0l136 136c9.5 9.4 9.5 24.6.1 34z"/></svg></span></div><div class=details-content><div class=admonition-content>本文最后更新于 <span class=timeago datetime=2021-06-09T21:40:22 title="June 9, 2021">2021-06-09</span>，文中内容可能已过时。</div></div></div><h2 id=point-cloud-library项目的编译使用 class=headerLink><a href=#point-cloud-library%e9%a1%b9%e7%9b%ae%e7%9a%84%e7%bc%96%e8%af%91%e4%bd%bf%e7%94%a8 class=header-mark aria-label="Header mark for 'Point Cloud Library项目的编译使用'"></a>Point Cloud Library项目的编译使用</h2><p>官方教程源地址： <a href=https://pointclouds.org/documentation/tutorials/using_pcl_pcl_config.html target=_blank rel="noopener noreferrer">https://pointclouds.org/documentation/tutorials/using_pcl_pcl_config.html</a></p><p>官方教程中提供了各平台比较通用的项目编译方法，这里作简单的翻译补充。</p><h3 id=创建cpp文件和cmakeliststxt class=headerLink><a href=#%e5%88%9b%e5%bb%bacpp%e6%96%87%e4%bb%b6%e5%92%8ccmakeliststxt class=header-mark aria-label="Header mark for '创建cpp文件和CMakeLists.txt'"></a>创建cpp文件和CMakeLists.txt</h3><p>在项目文件夹中，我们创建一个调用了pcl库保存pcd文件的模块的示例c++源码文件<code>pcd_write.cpp</code>，文件内容我们先不管。</p><div class="code-block highlight is-open show-line-numbers tw-group tw-my-2"><div class="code-block-title
-tw-flex
-tw-flex-row
-tw-justify-between
-tw-w-full tw-bg-bgColor-secondary"><button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-rotate-90
-tw-transition-[transform]
-tw-duration-500
-tw-ease-in-out
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 320 512"><path d="M285.476 272.971 91.132 467.314c-9.373 9.373-24.569 9.373-33.941.0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941.0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button><div class="code-block-title-bar tw-w-full"><p class="tw-select-none !tw-my-1">cpp</p></div><div class=tw-flex><button class="line-number-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.show-line-numbers]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle line numbers"><svg class="icon" viewBox="0 0 512 512"><path d="M61.77 401l17.5-20.15a19.92 19.92.0 005.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 00-8 8v16a8 8 0 008 8h22.83a157.41 157.41.0 00-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33.0 15.94 2.44 15.94 9.09.0 4.72-4.2 8.22-14.36 8.22a41.54 41.54.0 01-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16.0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zm0-160H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16V80a16 16 0 00-16-16zm0 320H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zM16 160h64a8 8 0 008-8v-16a8 8 0 00-8-8H64V40a8 8 0 00-8-8H32a8 8 0 00-7.14 4.42l-8 16A8 8 0 0024 64h8v64H16a8 8 0 00-8 8v16a8 8 0 008 8zm-3.91 160H80a8 8 0 008-8v-16a8 8 0 00-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44.0-29.06-25-39.56-44.47-39.56-21.36.0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44.0 019.46-3.84c3.33.0 9.28 1.56 9.28 8.75C51 248.19.0 257.31.0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
-<button class="wrap-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.is-wrap]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle code wrap"><svg class="icon" viewBox="0 0 448 512"><path d="M16 132h416c8.837.0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163.0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
-<button class="copy-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-hover:tw-text-fgColor-link
-print:!tw-hidden" title="Copy code">
-<span class="copy-icon tw-block"><svg class="icon" viewBox="0 0 448 512"><path d="M433.941 65.941l-51.882-51.882A48 48 0 00348.118.0H176c-26.51.0-48 21.49-48 48v48H48c-26.51.0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51.0 48-21.49 48-48v-48h80c26.51.0 48-21.49 48-48V99.882a48 48 0 00-14.059-33.941zM266 464H54a6 6 0 01-6-6V150a6 6 0 016-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 01-6 6zm128-96H182a6 6 0 01-6-6V54a6 6 0 016-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 01-6 6zm6-256h-64V48h9.632c1.591.0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 011.757 4.243V112z"/></svg></span>
-<span class="check-icon tw-hidden"><svg class="icon" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206.0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204.0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204.0l36.203 36.204c9.997 9.997 9.997 26.206.0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
-</button>
-<button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-hidden
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 512 512"><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button></div></div><pre style=counter-reset:codeblock class="tw-block tw-m-0 tw-p-0"><code id=codeblock-id-1 class="chroma
-!tw-block
-tw-p-0
-tw-m-0
-tw-transition-[max-height]
-tw-duration-500
-tw-ease-in-out
-group-[.is-closed]:!tw-max-h-0
-group-[.is-wrap]:tw-text-wrap
-tw-overflow-y-hidden
-tw-overflow-x-auto
-tw-scrollbar-thin"><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;iostream&gt;</span><span class=cp>
+<a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-desktop title=搜索><i class="fas fa-search fa-fw"></i>
+</a><a href=# onclick=return!1 class="search-button search-clear" id=search-clear-desktop title=清空><i class="fas fa-times-circle fa-fw"></i>
+</a><span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin"></i>
+</span></span><a href=# onclick=return!1 class="menu-item theme-select" title=切换主题><i class="fas fa-adjust fa-fw"></i>
+<select class=color-theme-select id=theme-select-desktop title=切换主题><option value=light>总是浅色</option><option value=dark>总是深色</option><option value=auto>跟随系统</option></select></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="Ray 的小站">Ray 的小站</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
+<a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-mobile title=搜索><i class="fas fa-search fa-fw"></i>
+</a><a href=# onclick=return!1 class="search-button search-clear" id=search-clear-mobile title=清空><i class="fas fa-times-circle fa-fw"></i>
+</a><span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin"></i></span></div><a href=# onclick=return!1 class=search-cancel id=search-cancel-mobile>取消</a></div><a class=menu-item href=/posts/ title>所有文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/about/ title>关于</a><a href=# onclick=return!1 class="menu-item theme-select" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i>
+<select class=color-theme-select id=theme-select-mobile title=切换主题><option value=light>总是浅色</option><option value=dark>总是深色</option><option value=auto>跟随系统</option></select></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class="toc-content always-active" id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Point Cloud Library的基础入门及资料查找方法</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=https://github.com/railzy title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw" aria-hidden=true></i>Ray</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw" aria-hidden=true></i>&nbsp;<time datetime=2021-06-03>2021-06-03</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2021-06-09>2021-06-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden=true></i>&nbsp;约 3669 字&nbsp;
+<i class="far fa-clock fa-fw" aria-hidden=true></i>&nbsp;预计阅读 8 分钟&nbsp;</div></div><div class="details toc" id=toc-static data-kept><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fas fa-angle-right" aria-hidden=true></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#point-cloud-library项目的编译使用>Point Cloud Library项目的编译使用</a><ul><li><a href=#创建cpp文件和cmakeliststxt>创建cpp文件和CMakeLists.txt</a></li><li><a href=#编译文件>编译文件</a></li><li><a href=#运行文件>运行文件</a></li><li><a href=#总结>总结</a></li></ul></li><li><a href=#point-cloud-library基础使用>Point Cloud Library基础使用</a><ul><li><a href=#pcd点云文件的读取>pcd点云文件的读取</a></li><li><a href=#保存点云到pcd文件>保存点云到pcd文件</a></li><li><a href=#显示点云>显示点云</a></li></ul></li><li><a href=#point-cloud-library学习指南>Point Cloud Library学习指南</a><ul><li><a href=#中文学习资料>中文学习资料</a></li><li><a href=#官方教程和文档>官方教程和文档</a></li><li><a href=#pcl问题解决方法查找>PCL问题解决方法查找</a></li></ul></li></ul></nav></div></div><div class=content id=content><h2 id=point-cloud-library项目的编译使用>Point Cloud Library项目的编译使用</h2><p>官方教程源地址： <a href=https://pointclouds.org/documentation/tutorials/using_pcl_pcl_config.html target=_blank rel="noopener noreffer">https://pointclouds.org/documentation/tutorials/using_pcl_pcl_config.html</a></p><p>官方教程中提供了各平台比较通用的项目编译方法，这里作简单的翻译补充。</p><h3 id=创建cpp文件和cmakeliststxt>创建cpp文件和CMakeLists.txt</h3><p>在项目文件夹中，我们创建一个调用了pcl库保存pcd文件的模块的示例c++源码文件<code>pcd_write.cpp</code>，文件内容我们先不管。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;iostream&gt;</span><span class=cp>
 </span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;pcl/io/pcd_io.h&gt;</span><span class=cp>
 </span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;pcl/point_types.h&gt;</span><span class=cp>
 </span></span></span><span class=line><span class=cl><span class=cp></span>
@@ -102,57 +71,32 @@ tw-scrollbar-thin"><span class=line><span class=cl><span class=cp>#include</span
 </span></span><span class=line><span class=cl>    <span class=n>std</span><span class=o>::</span><span class=n>cerr</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;    &#34;</span> <span class=o>&lt;&lt;</span> <span class=n>point</span><span class=p>.</span><span class=n>x</span> <span class=o>&lt;&lt;</span> <span class=s>&#34; &#34;</span> <span class=o>&lt;&lt;</span> <span class=n>point</span><span class=p>.</span><span class=n>y</span> <span class=o>&lt;&lt;</span> <span class=s>&#34; &#34;</span> <span class=o>&lt;&lt;</span> <span class=n>point</span><span class=p>.</span><span class=n>z</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=p>(</span><span class=mi>0</span><span class=p>);</span>
-</span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div><p>这个文件要先被编译成可执行文件，才能够运行使用。这里，我们使用CMake这个跨平台编译工具来对cpp文件进行编译。为此需要创建一个<code>CMakeLists.txt</code>来告诉CMake怎么编译。</p><p>不理解上面这段话没问题，在<code>pcd_write.cpp</code>同一个目录下创建一个<code>CMakeLists.txt</code>即可。</p><p><code>CMakeLists.txt</code>内容如下</p><div class="code-block highlight is-open show-line-numbers tw-group tw-my-2"><div class="code-block-title
-tw-flex
-tw-flex-row
-tw-justify-between
-tw-w-full tw-bg-bgColor-secondary"><button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-rotate-90
-tw-transition-[transform]
-tw-duration-500
-tw-ease-in-out
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 320 512"><path d="M285.476 272.971 91.132 467.314c-9.373 9.373-24.569 9.373-33.941.0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941.0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button><div class="code-block-title-bar tw-w-full"><p class="tw-select-none !tw-my-1">cmake</p></div><div class=tw-flex><button class="line-number-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.show-line-numbers]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle line numbers"><svg class="icon" viewBox="0 0 512 512"><path d="M61.77 401l17.5-20.15a19.92 19.92.0 005.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 00-8 8v16a8 8 0 008 8h22.83a157.41 157.41.0 00-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33.0 15.94 2.44 15.94 9.09.0 4.72-4.2 8.22-14.36 8.22a41.54 41.54.0 01-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16.0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zm0-160H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16V80a16 16 0 00-16-16zm0 320H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zM16 160h64a8 8 0 008-8v-16a8 8 0 00-8-8H64V40a8 8 0 00-8-8H32a8 8 0 00-7.14 4.42l-8 16A8 8 0 0024 64h8v64H16a8 8 0 00-8 8v16a8 8 0 008 8zm-3.91 160H80a8 8 0 008-8v-16a8 8 0 00-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44.0-29.06-25-39.56-44.47-39.56-21.36.0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44.0 019.46-3.84c3.33.0 9.28 1.56 9.28 8.75C51 248.19.0 257.31.0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
-<button class="wrap-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.is-wrap]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle code wrap"><svg class="icon" viewBox="0 0 448 512"><path d="M16 132h416c8.837.0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163.0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
-<button class="copy-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-hover:tw-text-fgColor-link
-print:!tw-hidden" title="Copy code">
-<span class="copy-icon tw-block"><svg class="icon" viewBox="0 0 448 512"><path d="M433.941 65.941l-51.882-51.882A48 48 0 00348.118.0H176c-26.51.0-48 21.49-48 48v48H48c-26.51.0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51.0 48-21.49 48-48v-48h80c26.51.0 48-21.49 48-48V99.882a48 48 0 00-14.059-33.941zM266 464H54a6 6 0 01-6-6V150a6 6 0 016-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 01-6 6zm128-96H182a6 6 0 01-6-6V54a6 6 0 016-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 01-6 6zm6-256h-64V48h9.632c1.591.0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 011.757 4.243V112z"/></svg></span>
-<span class="check-icon tw-hidden"><svg class="icon" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206.0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204.0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204.0l36.203 36.204c9.997 9.997 9.997 26.206.0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
-</button>
-<button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-hidden
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 512 512"><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button></div></div><pre style=counter-reset:codeblock class="tw-block tw-m-0 tw-p-0"><code id=codeblock-id-2 class="chroma
-!tw-block
-tw-p-0
-tw-m-0
-tw-transition-[max-height]
-tw-duration-500
-tw-ease-in-out
-group-[.is-closed]:!tw-max-h-0
-group-[.is-wrap]:tw-text-wrap
-tw-overflow-y-hidden
-tw-overflow-x-auto
-tw-scrollbar-thin"><span class=line><span class=cl><span class=c>## 这一行声明了需要的cmake最低版本号，不用改
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>这个文件要先被编译成可执行文件，才能够运行使用。这里，我们使用CMake这个跨平台编译工具来对cpp文件进行编译。为此需要创建一个<code>CMakeLists.txt</code>来告诉CMake怎么编译。</p><p>不理解上面这段话没问题，在<code>pcd_write.cpp</code>同一个目录下创建一个<code>CMakeLists.txt</code>即可。</p><p><code>CMakeLists.txt</code>内容如下</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cmake data-lang=cmake><span class=line><span class=cl><span class=c>## 这一行声明了需要的cmake最低版本号，不用改
 </span></span></span><span class=line><span class=cl><span class=c></span><span class=nb>cmake_minimum_required</span><span class=p>(</span><span class=s>VERSION</span> <span class=s>2.8</span> <span class=s>FATAL_ERROR</span><span class=p>)</span><span class=err>
 </span></span></span><span class=line><span class=cl><span class=err>
 </span></span></span><span class=line><span class=cl><span class=err></span><span class=c>## 这一行是项目名称，一般没什么影响
@@ -175,478 +119,93 @@ tw-scrollbar-thin"><span class=line><span class=cl><span class=c>## 这一行声
 </span></span></span><span class=line><span class=cl><span class=err></span><span class=c>## 这一句表示将PCL库文件与可执行文件main链接
 </span></span></span><span class=line><span class=cl><span class=c>## 这一句中可执行文件的名称要与前面一致
 </span></span></span><span class=line><span class=cl><span class=c></span><span class=nb>target_link_libraries</span> <span class=p>(</span><span class=s>main</span> <span class=o>${</span><span class=nv>PCL_LIBRARIES</span><span class=o>}</span><span class=p>)</span><span class=err>
-</span></span></span><span class=line><span class=cl><span class=err>##</span>                      <span class=err>^^^^</span></span></span></code></pre></div><p>正常使用中，我们只需要注意<strong>源文件名</strong>和<strong>可执行文件名</strong>保持正确，位置已在文件中标出</p><h3 id=编译文件 class=headerLink><a href=#%e7%bc%96%e8%af%91%e6%96%87%e4%bb%b6 class=header-mark aria-label="Header mark for '编译文件'"></a>编译文件</h3><p>正确创建完成上面这两个文件后，项目目录结构如下所示，可以开始对cpp源文件进行编译了！</p><div class="code-block highlight is-open show-line-numbers tw-group tw-my-2"><div class="code-block-title
-tw-flex
-tw-flex-row
-tw-justify-between
-tw-w-full tw-bg-bgColor-secondary"><button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-rotate-90
-tw-transition-[transform]
-tw-duration-500
-tw-ease-in-out
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 320 512"><path d="M285.476 272.971 91.132 467.314c-9.373 9.373-24.569 9.373-33.941.0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941.0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button><div class="code-block-title-bar tw-w-full"><p class="tw-select-none !tw-my-1">text</p></div><div class=tw-flex><button class="line-number-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.show-line-numbers]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle line numbers"><svg class="icon" viewBox="0 0 512 512"><path d="M61.77 401l17.5-20.15a19.92 19.92.0 005.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 00-8 8v16a8 8 0 008 8h22.83a157.41 157.41.0 00-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33.0 15.94 2.44 15.94 9.09.0 4.72-4.2 8.22-14.36 8.22a41.54 41.54.0 01-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16.0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zm0-160H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16V80a16 16 0 00-16-16zm0 320H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zM16 160h64a8 8 0 008-8v-16a8 8 0 00-8-8H64V40a8 8 0 00-8-8H32a8 8 0 00-7.14 4.42l-8 16A8 8 0 0024 64h8v64H16a8 8 0 00-8 8v16a8 8 0 008 8zm-3.91 160H80a8 8 0 008-8v-16a8 8 0 00-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44.0-29.06-25-39.56-44.47-39.56-21.36.0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44.0 019.46-3.84c3.33.0 9.28 1.56 9.28 8.75C51 248.19.0 257.31.0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
-<button class="wrap-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.is-wrap]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle code wrap"><svg class="icon" viewBox="0 0 448 512"><path d="M16 132h416c8.837.0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163.0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
-<button class="copy-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-hover:tw-text-fgColor-link
-print:!tw-hidden" title="Copy code">
-<span class="copy-icon tw-block"><svg class="icon" viewBox="0 0 448 512"><path d="M433.941 65.941l-51.882-51.882A48 48 0 00348.118.0H176c-26.51.0-48 21.49-48 48v48H48c-26.51.0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51.0 48-21.49 48-48v-48h80c26.51.0 48-21.49 48-48V99.882a48 48 0 00-14.059-33.941zM266 464H54a6 6 0 01-6-6V150a6 6 0 016-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 01-6 6zm128-96H182a6 6 0 01-6-6V54a6 6 0 016-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 01-6 6zm6-256h-64V48h9.632c1.591.0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 011.757 4.243V112z"/></svg></span>
-<span class="check-icon tw-hidden"><svg class="icon" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206.0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204.0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204.0l36.203 36.204c9.997 9.997 9.997 26.206.0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
-</button>
-<button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-hidden
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 512 512"><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button></div></div><pre style=counter-reset:codeblock class="tw-block tw-m-0 tw-p-0"><code id=codeblock-id-3 class="chroma
-!tw-block
-tw-p-0
-tw-m-0
-tw-transition-[max-height]
-tw-duration-500
-tw-ease-in-out
-group-[.is-closed]:!tw-max-h-0
-group-[.is-wrap]:tw-text-wrap
-tw-overflow-y-hidden
-tw-overflow-x-auto
-tw-scrollbar-thin"><span class=line><span class=cl>project_folder
-</span></span><span class=line><span class=cl>      |-- pcd_write.cpp
-</span></span><span class=line><span class=cl>      |-- CMakeLists.txt</span></span></code></pre></div><p>我们先在项目文件夹中创建一个名为<code>build</code>的空文件夹，我们将在里面完成编译，文件夹叫<code>build</code>是约定俗成的，一般不修改</p><p>现在项目目录结构是这样的</p><div class="code-block highlight is-open show-line-numbers tw-group tw-my-2"><div class="code-block-title
-tw-flex
-tw-flex-row
-tw-justify-between
-tw-w-full tw-bg-bgColor-secondary"><button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-rotate-90
-tw-transition-[transform]
-tw-duration-500
-tw-ease-in-out
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 320 512"><path d="M285.476 272.971 91.132 467.314c-9.373 9.373-24.569 9.373-33.941.0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941.0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button><div class="code-block-title-bar tw-w-full"><p class="tw-select-none !tw-my-1">text</p></div><div class=tw-flex><button class="line-number-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.show-line-numbers]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle line numbers"><svg class="icon" viewBox="0 0 512 512"><path d="M61.77 401l17.5-20.15a19.92 19.92.0 005.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 00-8 8v16a8 8 0 008 8h22.83a157.41 157.41.0 00-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33.0 15.94 2.44 15.94 9.09.0 4.72-4.2 8.22-14.36 8.22a41.54 41.54.0 01-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16.0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zm0-160H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16V80a16 16 0 00-16-16zm0 320H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zM16 160h64a8 8 0 008-8v-16a8 8 0 00-8-8H64V40a8 8 0 00-8-8H32a8 8 0 00-7.14 4.42l-8 16A8 8 0 0024 64h8v64H16a8 8 0 00-8 8v16a8 8 0 008 8zm-3.91 160H80a8 8 0 008-8v-16a8 8 0 00-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44.0-29.06-25-39.56-44.47-39.56-21.36.0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44.0 019.46-3.84c3.33.0 9.28 1.56 9.28 8.75C51 248.19.0 257.31.0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
-<button class="wrap-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.is-wrap]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle code wrap"><svg class="icon" viewBox="0 0 448 512"><path d="M16 132h416c8.837.0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163.0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
-<button class="copy-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-hover:tw-text-fgColor-link
-print:!tw-hidden" title="Copy code">
-<span class="copy-icon tw-block"><svg class="icon" viewBox="0 0 448 512"><path d="M433.941 65.941l-51.882-51.882A48 48 0 00348.118.0H176c-26.51.0-48 21.49-48 48v48H48c-26.51.0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51.0 48-21.49 48-48v-48h80c26.51.0 48-21.49 48-48V99.882a48 48 0 00-14.059-33.941zM266 464H54a6 6 0 01-6-6V150a6 6 0 016-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 01-6 6zm128-96H182a6 6 0 01-6-6V54a6 6 0 016-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 01-6 6zm6-256h-64V48h9.632c1.591.0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 011.757 4.243V112z"/></svg></span>
-<span class="check-icon tw-hidden"><svg class="icon" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206.0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204.0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204.0l36.203 36.204c9.997 9.997 9.997 26.206.0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
-</button>
-<button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-hidden
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 512 512"><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button></div></div><pre style=counter-reset:codeblock class="tw-block tw-m-0 tw-p-0"><code id=codeblock-id-4 class="chroma
-!tw-block
-tw-p-0
-tw-m-0
-tw-transition-[max-height]
-tw-duration-500
-tw-ease-in-out
-group-[.is-closed]:!tw-max-h-0
-group-[.is-wrap]:tw-text-wrap
-tw-overflow-y-hidden
-tw-overflow-x-auto
-tw-scrollbar-thin"><span class=line><span class=cl>project_folder
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=c>##                      ^^^^
+</span></span></span></code></pre></td></tr></table></div></div><p>正常使用中，我们只需要注意<strong>源文件名</strong>和<strong>可执行文件名</strong>保持正确，位置已在文件中标出</p><h3 id=编译文件>编译文件</h3><p>正确创建完成上面这两个文件后，项目目录结构如下所示，可以开始对cpp源文件进行编译了！</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>project_folder
 </span></span><span class=line><span class=cl>      |-- pcd_write.cpp
 </span></span><span class=line><span class=cl>      |-- CMakeLists.txt
-</span></span><span class=line><span class=cl>      |-- build</span></span></code></pre></div><p>我们从文件进入<code>build</code>文件夹，右键打开终端。或者在终端里手动输入命令切换到<code>build</code>目录下。</p><p>执行下面的指令，即可完成编译</p><div class="code-block highlight is-open show-line-numbers tw-group tw-my-2"><div class="code-block-title
-tw-flex
-tw-flex-row
-tw-justify-between
-tw-w-full tw-bg-bgColor-secondary"><button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-rotate-90
-tw-transition-[transform]
-tw-duration-500
-tw-ease-in-out
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 320 512"><path d="M285.476 272.971 91.132 467.314c-9.373 9.373-24.569 9.373-33.941.0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941.0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button><div class="code-block-title-bar tw-w-full"><p class="tw-select-none !tw-my-1">shell</p></div><div class=tw-flex><button class="line-number-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.show-line-numbers]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle line numbers"><svg class="icon" viewBox="0 0 512 512"><path d="M61.77 401l17.5-20.15a19.92 19.92.0 005.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 00-8 8v16a8 8 0 008 8h22.83a157.41 157.41.0 00-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33.0 15.94 2.44 15.94 9.09.0 4.72-4.2 8.22-14.36 8.22a41.54 41.54.0 01-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16.0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zm0-160H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16V80a16 16 0 00-16-16zm0 320H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zM16 160h64a8 8 0 008-8v-16a8 8 0 00-8-8H64V40a8 8 0 00-8-8H32a8 8 0 00-7.14 4.42l-8 16A8 8 0 0024 64h8v64H16a8 8 0 00-8 8v16a8 8 0 008 8zm-3.91 160H80a8 8 0 008-8v-16a8 8 0 00-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44.0-29.06-25-39.56-44.47-39.56-21.36.0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44.0 019.46-3.84c3.33.0 9.28 1.56 9.28 8.75C51 248.19.0 257.31.0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
-<button class="wrap-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.is-wrap]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle code wrap"><svg class="icon" viewBox="0 0 448 512"><path d="M16 132h416c8.837.0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163.0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
-<button class="copy-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-hover:tw-text-fgColor-link
-print:!tw-hidden" title="Copy code">
-<span class="copy-icon tw-block"><svg class="icon" viewBox="0 0 448 512"><path d="M433.941 65.941l-51.882-51.882A48 48 0 00348.118.0H176c-26.51.0-48 21.49-48 48v48H48c-26.51.0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51.0 48-21.49 48-48v-48h80c26.51.0 48-21.49 48-48V99.882a48 48 0 00-14.059-33.941zM266 464H54a6 6 0 01-6-6V150a6 6 0 016-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 01-6 6zm128-96H182a6 6 0 01-6-6V54a6 6 0 016-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 01-6 6zm6-256h-64V48h9.632c1.591.0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 011.757 4.243V112z"/></svg></span>
-<span class="check-icon tw-hidden"><svg class="icon" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206.0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204.0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204.0l36.203 36.204c9.997 9.997 9.997 26.206.0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
-</button>
-<button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-hidden
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 512 512"><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button></div></div><pre style=counter-reset:codeblock class="tw-block tw-m-0 tw-p-0"><code id=codeblock-id-5 class="chroma
-!tw-block
-tw-p-0
-tw-m-0
-tw-transition-[max-height]
-tw-duration-500
-tw-ease-in-out
-group-[.is-closed]:!tw-max-h-0
-group-[.is-wrap]:tw-text-wrap
-tw-overflow-y-hidden
-tw-overflow-x-auto
-tw-scrollbar-thin"><span class=line><span class=cl>cmake ..
-</span></span><span class=line><span class=cl>make</span></span></code></pre></div><p>编译成功后，终端中应该可以看到类似这样的信息</p><div class="code-block highlight is-open show-line-numbers tw-group tw-my-2"><div class="code-block-title
-tw-flex
-tw-flex-row
-tw-justify-between
-tw-w-full tw-bg-bgColor-secondary"><button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-rotate-90
-tw-transition-[transform]
-tw-duration-500
-tw-ease-in-out
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 320 512"><path d="M285.476 272.971 91.132 467.314c-9.373 9.373-24.569 9.373-33.941.0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941.0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button><div class="code-block-title-bar tw-w-full"><p class="tw-select-none !tw-my-1">sh</p></div><div class=tw-flex><button class="line-number-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.show-line-numbers]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle line numbers"><svg class="icon" viewBox="0 0 512 512"><path d="M61.77 401l17.5-20.15a19.92 19.92.0 005.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 00-8 8v16a8 8 0 008 8h22.83a157.41 157.41.0 00-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33.0 15.94 2.44 15.94 9.09.0 4.72-4.2 8.22-14.36 8.22a41.54 41.54.0 01-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16.0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zm0-160H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16V80a16 16 0 00-16-16zm0 320H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zM16 160h64a8 8 0 008-8v-16a8 8 0 00-8-8H64V40a8 8 0 00-8-8H32a8 8 0 00-7.14 4.42l-8 16A8 8 0 0024 64h8v64H16a8 8 0 00-8 8v16a8 8 0 008 8zm-3.91 160H80a8 8 0 008-8v-16a8 8 0 00-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44.0-29.06-25-39.56-44.47-39.56-21.36.0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44.0 019.46-3.84c3.33.0 9.28 1.56 9.28 8.75C51 248.19.0 257.31.0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
-<button class="wrap-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.is-wrap]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle code wrap"><svg class="icon" viewBox="0 0 448 512"><path d="M16 132h416c8.837.0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163.0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
-<button class="copy-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-hover:tw-text-fgColor-link
-print:!tw-hidden" title="Copy code">
-<span class="copy-icon tw-block"><svg class="icon" viewBox="0 0 448 512"><path d="M433.941 65.941l-51.882-51.882A48 48 0 00348.118.0H176c-26.51.0-48 21.49-48 48v48H48c-26.51.0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51.0 48-21.49 48-48v-48h80c26.51.0 48-21.49 48-48V99.882a48 48 0 00-14.059-33.941zM266 464H54a6 6 0 01-6-6V150a6 6 0 016-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 01-6 6zm128-96H182a6 6 0 01-6-6V54a6 6 0 016-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 01-6 6zm6-256h-64V48h9.632c1.591.0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 011.757 4.243V112z"/></svg></span>
-<span class="check-icon tw-hidden"><svg class="icon" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206.0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204.0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204.0l36.203 36.204c9.997 9.997 9.997 26.206.0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
-</button>
-<button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-hidden
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 512 512"><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button></div></div><pre style=counter-reset:codeblock class="tw-block tw-m-0 tw-p-0"><code id=codeblock-id-6 class="chroma
-!tw-block
-tw-p-0
-tw-m-0
-tw-transition-[max-height]
-tw-duration-500
-tw-ease-in-out
-group-[.is-closed]:!tw-max-h-0
-group-[.is-wrap]:tw-text-wrap
-tw-overflow-y-hidden
-tw-overflow-x-auto
-tw-scrollbar-thin"><span class=line><span class=cl>Scanning dependencies of target main
+</span></span></code></pre></td></tr></table></div></div><p>我们先在项目文件夹中创建一个名为<code>build</code>的空文件夹，我们将在里面完成编译，文件夹叫<code>build</code>是约定俗成的，一般不修改</p><p>现在项目目录结构是这样的</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>project_folder
+</span></span><span class=line><span class=cl>      |-- pcd_write.cpp
+</span></span><span class=line><span class=cl>      |-- CMakeLists.txt
+</span></span><span class=line><span class=cl>      |-- build
+</span></span></code></pre></td></tr></table></div></div><p>我们从文件进入<code>build</code>文件夹，右键打开终端。或者在终端里手动输入命令切换到<code>build</code>目录下。</p><p>执行下面的指令，即可完成编译</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>cmake ..
+</span></span><span class=line><span class=cl>make
+</span></span></code></pre></td></tr></table></div></div><p>编译成功后，终端中应该可以看到类似这样的信息</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>Scanning dependencies of target main
 </span></span><span class=line><span class=cl><span class=o>[</span> 50%<span class=o>]</span> Building CXX object CMakeFiles/main.dir/pcd_write.cpp.o
 </span></span><span class=line><span class=cl><span class=o>[</span>100%<span class=o>]</span> Linking CXX executable main
-</span></span><span class=line><span class=cl><span class=o>[</span>100%<span class=o>]</span> Built target main</span></span></code></pre></div><h3 id=运行文件 class=headerLink><a href=#%e8%bf%90%e8%a1%8c%e6%96%87%e4%bb%b6 class=header-mark aria-label="Header mark for '运行文件'"></a>运行文件</h3><p>现在我们可以输入以下指令运行可执行文件<code>main</code>，观察源cpp文件的效果</p><div class="code-block highlight is-open show-line-numbers tw-group tw-my-2"><div class="code-block-title
-tw-flex
-tw-flex-row
-tw-justify-between
-tw-w-full tw-bg-bgColor-secondary"><button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-rotate-90
-tw-transition-[transform]
-tw-duration-500
-tw-ease-in-out
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 320 512"><path d="M285.476 272.971 91.132 467.314c-9.373 9.373-24.569 9.373-33.941.0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941.0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button><div class="code-block-title-bar tw-w-full"><p class="tw-select-none !tw-my-1">sh</p></div><div class=tw-flex><button class="line-number-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.show-line-numbers]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle line numbers"><svg class="icon" viewBox="0 0 512 512"><path d="M61.77 401l17.5-20.15a19.92 19.92.0 005.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 00-8 8v16a8 8 0 008 8h22.83a157.41 157.41.0 00-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33.0 15.94 2.44 15.94 9.09.0 4.72-4.2 8.22-14.36 8.22a41.54 41.54.0 01-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16.0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zm0-160H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16V80a16 16 0 00-16-16zm0 320H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zM16 160h64a8 8 0 008-8v-16a8 8 0 00-8-8H64V40a8 8 0 00-8-8H32a8 8 0 00-7.14 4.42l-8 16A8 8 0 0024 64h8v64H16a8 8 0 00-8 8v16a8 8 0 008 8zm-3.91 160H80a8 8 0 008-8v-16a8 8 0 00-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44.0-29.06-25-39.56-44.47-39.56-21.36.0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44.0 019.46-3.84c3.33.0 9.28 1.56 9.28 8.75C51 248.19.0 257.31.0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
-<button class="wrap-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.is-wrap]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle code wrap"><svg class="icon" viewBox="0 0 448 512"><path d="M16 132h416c8.837.0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163.0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
-<button class="copy-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-hover:tw-text-fgColor-link
-print:!tw-hidden" title="Copy code">
-<span class="copy-icon tw-block"><svg class="icon" viewBox="0 0 448 512"><path d="M433.941 65.941l-51.882-51.882A48 48 0 00348.118.0H176c-26.51.0-48 21.49-48 48v48H48c-26.51.0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51.0 48-21.49 48-48v-48h80c26.51.0 48-21.49 48-48V99.882a48 48 0 00-14.059-33.941zM266 464H54a6 6 0 01-6-6V150a6 6 0 016-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 01-6 6zm128-96H182a6 6 0 01-6-6V54a6 6 0 016-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 01-6 6zm6-256h-64V48h9.632c1.591.0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 011.757 4.243V112z"/></svg></span>
-<span class="check-icon tw-hidden"><svg class="icon" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206.0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204.0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204.0l36.203 36.204c9.997 9.997 9.997 26.206.0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
-</button>
-<button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-hidden
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 512 512"><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button></div></div><pre style=counter-reset:codeblock class="tw-block tw-m-0 tw-p-0"><code id=codeblock-id-7 class="chroma
-!tw-block
-tw-p-0
-tw-m-0
-tw-transition-[max-height]
-tw-duration-500
-tw-ease-in-out
-group-[.is-closed]:!tw-max-h-0
-group-[.is-wrap]:tw-text-wrap
-tw-overflow-y-hidden
-tw-overflow-x-auto
-tw-scrollbar-thin"><span class=line><span class=cl>./main</span></span></code></pre></div><p>使用示例文件得到的终端运行显示结果应该类似于这样，运行成功</p><div class="code-block highlight is-open show-line-numbers tw-group tw-my-2"><div class="code-block-title
-tw-flex
-tw-flex-row
-tw-justify-between
-tw-w-full tw-bg-bgColor-secondary"><button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-rotate-90
-tw-transition-[transform]
-tw-duration-500
-tw-ease-in-out
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 320 512"><path d="M285.476 272.971 91.132 467.314c-9.373 9.373-24.569 9.373-33.941.0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941.0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button><div class="code-block-title-bar tw-w-full"><p class="tw-select-none !tw-my-1">text</p></div><div class=tw-flex><button class="line-number-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.show-line-numbers]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle line numbers"><svg class="icon" viewBox="0 0 512 512"><path d="M61.77 401l17.5-20.15a19.92 19.92.0 005.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 00-8 8v16a8 8 0 008 8h22.83a157.41 157.41.0 00-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33.0 15.94 2.44 15.94 9.09.0 4.72-4.2 8.22-14.36 8.22a41.54 41.54.0 01-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16.0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zm0-160H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16V80a16 16 0 00-16-16zm0 320H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zM16 160h64a8 8 0 008-8v-16a8 8 0 00-8-8H64V40a8 8 0 00-8-8H32a8 8 0 00-7.14 4.42l-8 16A8 8 0 0024 64h8v64H16a8 8 0 00-8 8v16a8 8 0 008 8zm-3.91 160H80a8 8 0 008-8v-16a8 8 0 00-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44.0-29.06-25-39.56-44.47-39.56-21.36.0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44.0 019.46-3.84c3.33.0 9.28 1.56 9.28 8.75C51 248.19.0 257.31.0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
-<button class="wrap-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.is-wrap]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle code wrap"><svg class="icon" viewBox="0 0 448 512"><path d="M16 132h416c8.837.0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163.0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
-<button class="copy-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-hover:tw-text-fgColor-link
-print:!tw-hidden" title="Copy code">
-<span class="copy-icon tw-block"><svg class="icon" viewBox="0 0 448 512"><path d="M433.941 65.941l-51.882-51.882A48 48 0 00348.118.0H176c-26.51.0-48 21.49-48 48v48H48c-26.51.0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51.0 48-21.49 48-48v-48h80c26.51.0 48-21.49 48-48V99.882a48 48 0 00-14.059-33.941zM266 464H54a6 6 0 01-6-6V150a6 6 0 016-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 01-6 6zm128-96H182a6 6 0 01-6-6V54a6 6 0 016-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 01-6 6zm6-256h-64V48h9.632c1.591.0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 011.757 4.243V112z"/></svg></span>
-<span class="check-icon tw-hidden"><svg class="icon" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206.0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204.0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204.0l36.203 36.204c9.997 9.997 9.997 26.206.0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
-</button>
-<button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-hidden
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 512 512"><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button></div></div><pre style=counter-reset:codeblock class="tw-block tw-m-0 tw-p-0"><code id=codeblock-id-8 class="chroma
-!tw-block
-tw-p-0
-tw-m-0
-tw-transition-[max-height]
-tw-duration-500
-tw-ease-in-out
-group-[.is-closed]:!tw-max-h-0
-group-[.is-wrap]:tw-text-wrap
-tw-overflow-y-hidden
-tw-overflow-x-auto
-tw-scrollbar-thin"><span class=line><span class=cl>Saved 5 data points to test_pcd.pcd.
+</span></span><span class=line><span class=cl><span class=o>[</span>100%<span class=o>]</span> Built target main
+</span></span></code></pre></td></tr></table></div></div><h3 id=运行文件>运行文件</h3><p>现在我们可以输入以下指令运行可执行文件<code>main</code>，观察源cpp文件的效果</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>./main
+</span></span></code></pre></td></tr></table></div></div><p>使用示例文件得到的终端运行显示结果应该类似于这样，运行成功</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>Saved 5 data points to test_pcd.pcd.
 </span></span><span class=line><span class=cl>  0.352222 -0.151883 -0.106395
 </span></span><span class=line><span class=cl>  -0.397406 -0.473106 0.292602
 </span></span><span class=line><span class=cl>  -0.731898 0.667105 0.441304
 </span></span><span class=line><span class=cl>  -0.734766 0.854581 -0.0361733
-</span></span><span class=line><span class=cl>  -0.4607 -0.277468 -0.916762</span></span></code></pre></div><p>我们可以看到在CMakeLists.txt中设置的名为<code>main</code>的可执行文件放在<code>build</code>目录下。现在项目目录结构如下</p><div class="code-block highlight is-open show-line-numbers tw-group tw-my-2"><div class="code-block-title
-tw-flex
-tw-flex-row
-tw-justify-between
-tw-w-full tw-bg-bgColor-secondary"><button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-rotate-90
-tw-transition-[transform]
-tw-duration-500
-tw-ease-in-out
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 320 512"><path d="M285.476 272.971 91.132 467.314c-9.373 9.373-24.569 9.373-33.941.0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941.0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button><div class="code-block-title-bar tw-w-full"><p class="tw-select-none !tw-my-1">text</p></div><div class=tw-flex><button class="line-number-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.show-line-numbers]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle line numbers"><svg class="icon" viewBox="0 0 512 512"><path d="M61.77 401l17.5-20.15a19.92 19.92.0 005.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 00-8 8v16a8 8 0 008 8h22.83a157.41 157.41.0 00-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33.0 15.94 2.44 15.94 9.09.0 4.72-4.2 8.22-14.36 8.22a41.54 41.54.0 01-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16.0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zm0-160H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16V80a16 16 0 00-16-16zm0 320H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zM16 160h64a8 8 0 008-8v-16a8 8 0 00-8-8H64V40a8 8 0 00-8-8H32a8 8 0 00-7.14 4.42l-8 16A8 8 0 0024 64h8v64H16a8 8 0 00-8 8v16a8 8 0 008 8zm-3.91 160H80a8 8 0 008-8v-16a8 8 0 00-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44.0-29.06-25-39.56-44.47-39.56-21.36.0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44.0 019.46-3.84c3.33.0 9.28 1.56 9.28 8.75C51 248.19.0 257.31.0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
-<button class="wrap-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.is-wrap]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle code wrap"><svg class="icon" viewBox="0 0 448 512"><path d="M16 132h416c8.837.0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163.0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
-<button class="copy-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-hover:tw-text-fgColor-link
-print:!tw-hidden" title="Copy code">
-<span class="copy-icon tw-block"><svg class="icon" viewBox="0 0 448 512"><path d="M433.941 65.941l-51.882-51.882A48 48 0 00348.118.0H176c-26.51.0-48 21.49-48 48v48H48c-26.51.0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51.0 48-21.49 48-48v-48h80c26.51.0 48-21.49 48-48V99.882a48 48 0 00-14.059-33.941zM266 464H54a6 6 0 01-6-6V150a6 6 0 016-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 01-6 6zm128-96H182a6 6 0 01-6-6V54a6 6 0 016-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 01-6 6zm6-256h-64V48h9.632c1.591.0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 011.757 4.243V112z"/></svg></span>
-<span class="check-icon tw-hidden"><svg class="icon" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206.0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204.0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204.0l36.203 36.204c9.997 9.997 9.997 26.206.0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
-</button>
-<button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-hidden
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 512 512"><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button></div></div><pre style=counter-reset:codeblock class="tw-block tw-m-0 tw-p-0"><code id=codeblock-id-9 class="chroma
-!tw-block
-tw-p-0
-tw-m-0
-tw-transition-[max-height]
-tw-duration-500
-tw-ease-in-out
-group-[.is-closed]:!tw-max-h-0
-group-[.is-wrap]:tw-text-wrap
-tw-overflow-y-hidden
-tw-overflow-x-auto
-tw-scrollbar-thin"><span class=line><span class=cl>project_folder
+</span></span><span class=line><span class=cl>  -0.4607 -0.277468 -0.916762
+</span></span></code></pre></td></tr></table></div></div><p>我们可以看到在CMakeLists.txt中设置的名为<code>main</code>的可执行文件放在<code>build</code>目录下。现在项目目录结构如下</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>project_folder
 </span></span><span class=line><span class=cl>      |-- pcd_write.cpp
 </span></span><span class=line><span class=cl>      |-- CMakeLists.txt
 </span></span><span class=line><span class=cl>      |-- build
 </span></span><span class=line><span class=cl>            |-- main
 </span></span><span class=line><span class=cl>            |-- 一些其它文件
-</span></span><span class=line><span class=cl>                ...</span></span></code></pre></div><h3 id=总结 class=headerLink><a href=#%e6%80%bb%e7%bb%93 class=header-mark aria-label="Header mark for '总结'"></a>总结</h3><p>以上就是编译运行一个使用了PCL的项目的步骤。在不同项目中基本只要注意<code>CMakeLists.txt</code>填写正确的<code>源文件名</code>和<code>可执行文件名</code>。</p><h2 id=point-cloud-library基础使用 class=headerLink><a href=#point-cloud-library%e5%9f%ba%e7%a1%80%e4%bd%bf%e7%94%a8 class=header-mark aria-label="Header mark for 'Point Cloud Library基础使用'"></a>Point Cloud Library基础使用</h2><h3 id=pcd点云文件的读取 class=headerLink><a href=#pcd%e7%82%b9%e4%ba%91%e6%96%87%e4%bb%b6%e7%9a%84%e8%af%bb%e5%8f%96 class=header-mark aria-label="Header mark for 'pcd点云文件的读取'"></a>pcd点云文件的读取</h3><p>PCL的pcd点云文件读写模块放在<code>pcl/io/pcd_io.h</code>中，记得include</p><p>读取pcd文件的关键代码为</p><div class="code-block highlight is-open show-line-numbers tw-group tw-my-2"><div class="code-block-title
-tw-flex
-tw-flex-row
-tw-justify-between
-tw-w-full tw-bg-bgColor-secondary"><button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-rotate-90
-tw-transition-[transform]
-tw-duration-500
-tw-ease-in-out
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 320 512"><path d="M285.476 272.971 91.132 467.314c-9.373 9.373-24.569 9.373-33.941.0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941.0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button><div class="code-block-title-bar tw-w-full"><p class="tw-select-none !tw-my-1">cpp</p></div><div class=tw-flex><button class="line-number-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.show-line-numbers]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle line numbers"><svg class="icon" viewBox="0 0 512 512"><path d="M61.77 401l17.5-20.15a19.92 19.92.0 005.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 00-8 8v16a8 8 0 008 8h22.83a157.41 157.41.0 00-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33.0 15.94 2.44 15.94 9.09.0 4.72-4.2 8.22-14.36 8.22a41.54 41.54.0 01-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16.0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zm0-160H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16V80a16 16 0 00-16-16zm0 320H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zM16 160h64a8 8 0 008-8v-16a8 8 0 00-8-8H64V40a8 8 0 00-8-8H32a8 8 0 00-7.14 4.42l-8 16A8 8 0 0024 64h8v64H16a8 8 0 00-8 8v16a8 8 0 008 8zm-3.91 160H80a8 8 0 008-8v-16a8 8 0 00-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44.0-29.06-25-39.56-44.47-39.56-21.36.0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44.0 019.46-3.84c3.33.0 9.28 1.56 9.28 8.75C51 248.19.0 257.31.0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
-<button class="wrap-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.is-wrap]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle code wrap"><svg class="icon" viewBox="0 0 448 512"><path d="M16 132h416c8.837.0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163.0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
-<button class="copy-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-hover:tw-text-fgColor-link
-print:!tw-hidden" title="Copy code">
-<span class="copy-icon tw-block"><svg class="icon" viewBox="0 0 448 512"><path d="M433.941 65.941l-51.882-51.882A48 48 0 00348.118.0H176c-26.51.0-48 21.49-48 48v48H48c-26.51.0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51.0 48-21.49 48-48v-48h80c26.51.0 48-21.49 48-48V99.882a48 48 0 00-14.059-33.941zM266 464H54a6 6 0 01-6-6V150a6 6 0 016-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 01-6 6zm128-96H182a6 6 0 01-6-6V54a6 6 0 016-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 01-6 6zm6-256h-64V48h9.632c1.591.0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 011.757 4.243V112z"/></svg></span>
-<span class="check-icon tw-hidden"><svg class="icon" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206.0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204.0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204.0l36.203 36.204c9.997 9.997 9.997 26.206.0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
-</button>
-<button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-hidden
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 512 512"><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button></div></div><pre style=counter-reset:codeblock class="tw-block tw-m-0 tw-p-0"><code id=codeblock-id-10 class="chroma
-!tw-block
-tw-p-0
-tw-m-0
-tw-transition-[max-height]
-tw-duration-500
-tw-ease-in-out
-group-[.is-closed]:!tw-max-h-0
-group-[.is-wrap]:tw-text-wrap
-tw-overflow-y-hidden
-tw-overflow-x-auto
-tw-scrollbar-thin"><span class=line><span class=cl><span class=n>pcl</span><span class=o>::</span><span class=n>PointCloud</span><span class=o>&lt;</span><span class=n>pcl</span><span class=o>::</span><span class=n>PointXYZ</span><span class=o>&gt;::</span><span class=n>Ptr</span> <span class=n>cloud</span><span class=p>(</span><span class=k>new</span> <span class=n>pcl</span><span class=o>::</span><span class=n>PointCloud</span><span class=o>&lt;</span><span class=n>pcl</span><span class=o>::</span><span class=n>PointXYZ</span><span class=o>&gt;</span><span class=p>);</span>
-</span></span><span class=line><span class=cl><span class=n>pcl</span><span class=o>::</span><span class=n>io</span><span class=o>::</span><span class=n>loadPCDFile</span><span class=p>(</span><span class=s>&#34;pcd文件的路径&#34;</span><span class=p>,</span> <span class=o>*</span><span class=n>cloud</span><span class=p>);</span></span></span></code></pre></div><p>第一行的代码创建一个点云类型为<code>pcl::PointXYZ</code>的名为<code>cloud</code>的空点云</p><p>第二行的代码从pcd文件中读取点云数据，存入<code>cloud</code>中</p><hr><p>完整的文件如下</p><p><strong>main.cpp</strong></p><div class="code-block highlight is-open show-line-numbers tw-group tw-my-2"><div class="code-block-title
-tw-flex
-tw-flex-row
-tw-justify-between
-tw-w-full tw-bg-bgColor-secondary"><button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-rotate-90
-tw-transition-[transform]
-tw-duration-500
-tw-ease-in-out
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 320 512"><path d="M285.476 272.971 91.132 467.314c-9.373 9.373-24.569 9.373-33.941.0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941.0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button><div class="code-block-title-bar tw-w-full"><p class="tw-select-none !tw-my-1">cpp</p></div><div class=tw-flex><button class="line-number-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.show-line-numbers]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle line numbers"><svg class="icon" viewBox="0 0 512 512"><path d="M61.77 401l17.5-20.15a19.92 19.92.0 005.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 00-8 8v16a8 8 0 008 8h22.83a157.41 157.41.0 00-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33.0 15.94 2.44 15.94 9.09.0 4.72-4.2 8.22-14.36 8.22a41.54 41.54.0 01-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16.0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zm0-160H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16V80a16 16 0 00-16-16zm0 320H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zM16 160h64a8 8 0 008-8v-16a8 8 0 00-8-8H64V40a8 8 0 00-8-8H32a8 8 0 00-7.14 4.42l-8 16A8 8 0 0024 64h8v64H16a8 8 0 00-8 8v16a8 8 0 008 8zm-3.91 160H80a8 8 0 008-8v-16a8 8 0 00-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44.0-29.06-25-39.56-44.47-39.56-21.36.0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44.0 019.46-3.84c3.33.0 9.28 1.56 9.28 8.75C51 248.19.0 257.31.0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
-<button class="wrap-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.is-wrap]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle code wrap"><svg class="icon" viewBox="0 0 448 512"><path d="M16 132h416c8.837.0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163.0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
-<button class="copy-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-hover:tw-text-fgColor-link
-print:!tw-hidden" title="Copy code">
-<span class="copy-icon tw-block"><svg class="icon" viewBox="0 0 448 512"><path d="M433.941 65.941l-51.882-51.882A48 48 0 00348.118.0H176c-26.51.0-48 21.49-48 48v48H48c-26.51.0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51.0 48-21.49 48-48v-48h80c26.51.0 48-21.49 48-48V99.882a48 48 0 00-14.059-33.941zM266 464H54a6 6 0 01-6-6V150a6 6 0 016-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 01-6 6zm128-96H182a6 6 0 01-6-6V54a6 6 0 016-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 01-6 6zm6-256h-64V48h9.632c1.591.0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 011.757 4.243V112z"/></svg></span>
-<span class="check-icon tw-hidden"><svg class="icon" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206.0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204.0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204.0l36.203 36.204c9.997 9.997 9.997 26.206.0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
-</button>
-<button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-hidden
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 512 512"><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button></div></div><pre style=counter-reset:codeblock class="tw-block tw-m-0 tw-p-0"><code id=codeblock-id-11 class="chroma
-!tw-block
-tw-p-0
-tw-m-0
-tw-transition-[max-height]
-tw-duration-500
-tw-ease-in-out
-group-[.is-closed]:!tw-max-h-0
-group-[.is-wrap]:tw-text-wrap
-tw-overflow-y-hidden
-tw-overflow-x-auto
-tw-scrollbar-thin"><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;iostream&gt;</span><span class=cp>			 </span><span class=c1>//标准C++库中的输入输出类相关头文件。
+</span></span><span class=line><span class=cl>                ...
+</span></span></code></pre></td></tr></table></div></div><h3 id=总结>总结</h3><p>以上就是编译运行一个使用了PCL的项目的步骤。在不同项目中基本只要注意<code>CMakeLists.txt</code>填写正确的<code>源文件名</code>和<code>可执行文件名</code>。</p><h2 id=point-cloud-library基础使用>Point Cloud Library基础使用</h2><h3 id=pcd点云文件的读取>pcd点云文件的读取</h3><p>PCL的pcd点云文件读写模块放在<code>pcl/io/pcd_io.h</code>中，记得include</p><p>读取pcd文件的关键代码为</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=n>pcl</span><span class=o>::</span><span class=n>PointCloud</span><span class=o>&lt;</span><span class=n>pcl</span><span class=o>::</span><span class=n>PointXYZ</span><span class=o>&gt;::</span><span class=n>Ptr</span> <span class=n>cloud</span><span class=p>(</span><span class=k>new</span> <span class=n>pcl</span><span class=o>::</span><span class=n>PointCloud</span><span class=o>&lt;</span><span class=n>pcl</span><span class=o>::</span><span class=n>PointXYZ</span><span class=o>&gt;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=n>pcl</span><span class=o>::</span><span class=n>io</span><span class=o>::</span><span class=n>loadPCDFile</span><span class=p>(</span><span class=s>&#34;pcd文件的路径&#34;</span><span class=p>,</span> <span class=o>*</span><span class=n>cloud</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div><p>第一行的代码创建一个点云类型为<code>pcl::PointXYZ</code>的名为<code>cloud</code>的空点云</p><p>第二行的代码从pcd文件中读取点云数据，存入<code>cloud</code>中</p><hr><p>完整的文件如下</p><p><strong>main.cpp</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;iostream&gt;</span><span class=cp>			 </span><span class=c1>//标准C++库中的输入输出类相关头文件。
 </span></span></span><span class=line><span class=cl><span class=c1></span><span class=cp>#include</span> <span class=cpf>&lt;pcl/io/pcd_io.h&gt;</span><span class=cp>	 </span><span class=c1>//pcd 读写类相关的头文件。
 </span></span></span><span class=line><span class=cl><span class=c1></span><span class=cp>#include</span> <span class=cpf>&lt;pcl/point_types.h&gt;</span><span class=cp> </span><span class=c1>//PCL中支持的点类型头文件。
 </span></span></span><span class=line><span class=cl><span class=c1></span>
@@ -672,57 +231,20 @@ tw-scrollbar-thin"><span class=line><span class=cl><span class=cp>#include</span
 </span></span><span class=line><span class=cl>				  <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>    
 </span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div><p><strong>CMakeLists.txt</strong></p><div class="code-block highlight is-open show-line-numbers tw-group tw-my-2"><div class="code-block-title
-tw-flex
-tw-flex-row
-tw-justify-between
-tw-w-full tw-bg-bgColor-secondary"><button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-rotate-90
-tw-transition-[transform]
-tw-duration-500
-tw-ease-in-out
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 320 512"><path d="M285.476 272.971 91.132 467.314c-9.373 9.373-24.569 9.373-33.941.0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941.0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button><div class="code-block-title-bar tw-w-full"><p class="tw-select-none !tw-my-1">cmake</p></div><div class=tw-flex><button class="line-number-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.show-line-numbers]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle line numbers"><svg class="icon" viewBox="0 0 512 512"><path d="M61.77 401l17.5-20.15a19.92 19.92.0 005.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 00-8 8v16a8 8 0 008 8h22.83a157.41 157.41.0 00-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33.0 15.94 2.44 15.94 9.09.0 4.72-4.2 8.22-14.36 8.22a41.54 41.54.0 01-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16.0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zm0-160H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16V80a16 16 0 00-16-16zm0 320H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zM16 160h64a8 8 0 008-8v-16a8 8 0 00-8-8H64V40a8 8 0 00-8-8H32a8 8 0 00-7.14 4.42l-8 16A8 8 0 0024 64h8v64H16a8 8 0 00-8 8v16a8 8 0 008 8zm-3.91 160H80a8 8 0 008-8v-16a8 8 0 00-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44.0-29.06-25-39.56-44.47-39.56-21.36.0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44.0 019.46-3.84c3.33.0 9.28 1.56 9.28 8.75C51 248.19.0 257.31.0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
-<button class="wrap-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.is-wrap]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle code wrap"><svg class="icon" viewBox="0 0 448 512"><path d="M16 132h416c8.837.0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163.0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
-<button class="copy-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-hover:tw-text-fgColor-link
-print:!tw-hidden" title="Copy code">
-<span class="copy-icon tw-block"><svg class="icon" viewBox="0 0 448 512"><path d="M433.941 65.941l-51.882-51.882A48 48 0 00348.118.0H176c-26.51.0-48 21.49-48 48v48H48c-26.51.0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51.0 48-21.49 48-48v-48h80c26.51.0 48-21.49 48-48V99.882a48 48 0 00-14.059-33.941zM266 464H54a6 6 0 01-6-6V150a6 6 0 016-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 01-6 6zm128-96H182a6 6 0 01-6-6V54a6 6 0 016-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 01-6 6zm6-256h-64V48h9.632c1.591.0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 011.757 4.243V112z"/></svg></span>
-<span class="check-icon tw-hidden"><svg class="icon" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206.0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204.0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204.0l36.203 36.204c9.997 9.997 9.997 26.206.0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
-</button>
-<button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-hidden
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 512 512"><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button></div></div><pre style=counter-reset:codeblock class="tw-block tw-m-0 tw-p-0"><code id=codeblock-id-12 class="chroma
-!tw-block
-tw-p-0
-tw-m-0
-tw-transition-[max-height]
-tw-duration-500
-tw-ease-in-out
-group-[.is-closed]:!tw-max-h-0
-group-[.is-wrap]:tw-text-wrap
-tw-overflow-y-hidden
-tw-overflow-x-auto
-tw-scrollbar-thin"><span class=line><span class=cl><span class=nb>cmake_minimum_required</span><span class=p>(</span><span class=s>VERSION</span> <span class=s>2.8</span> <span class=s>FATAL_ERROR</span><span class=p>)</span><span class=err>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p><strong>CMakeLists.txt</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cmake data-lang=cmake><span class=line><span class=cl><span class=nb>cmake_minimum_required</span><span class=p>(</span><span class=s>VERSION</span> <span class=s>2.8</span> <span class=s>FATAL_ERROR</span><span class=p>)</span><span class=err>
 </span></span></span><span class=line><span class=cl><span class=err>
 </span></span></span><span class=line><span class=cl><span class=err></span><span class=nb>project</span><span class=p>(</span><span class=s>pcd_read</span><span class=p>)</span><span class=err>
 </span></span></span><span class=line><span class=cl><span class=err>
@@ -733,357 +255,40 @@ tw-scrollbar-thin"><span class=line><span class=cl><span class=nb>cmake_minimum_
 </span></span></span><span class=line><span class=cl><span class=err></span><span class=nb>add_definitions</span><span class=p>(</span><span class=o>${</span><span class=nv>PCL_DEFINITIONS</span><span class=o>}</span><span class=p>)</span><span class=err>
 </span></span></span><span class=line><span class=cl><span class=err>
 </span></span></span><span class=line><span class=cl><span class=err></span><span class=nb>add_executable</span> <span class=p>(</span><span class=s>pcd_read</span> <span class=s>main.cpp</span><span class=p>)</span><span class=err>
-</span></span></span><span class=line><span class=cl><span class=err></span><span class=nb>target_link_libraries</span> <span class=p>(</span><span class=s>pcd_read</span> <span class=o>${</span><span class=nv>PCL_LIBRARIES</span><span class=o>}</span><span class=p>)</span></span></span></code></pre></div><hr><p>在源代码中，下面这一行这样写是为了程序运行时从命令行中获取参数</p><div class="code-block highlight is-open show-line-numbers tw-group tw-my-2"><div class="code-block-title
-tw-flex
-tw-flex-row
-tw-justify-between
-tw-w-full tw-bg-bgColor-secondary"><button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-rotate-90
-tw-transition-[transform]
-tw-duration-500
-tw-ease-in-out
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 320 512"><path d="M285.476 272.971 91.132 467.314c-9.373 9.373-24.569 9.373-33.941.0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941.0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button><div class="code-block-title-bar tw-w-full"><p class="tw-select-none !tw-my-1">cpp</p></div><div class=tw-flex><button class="line-number-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.show-line-numbers]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle line numbers"><svg class="icon" viewBox="0 0 512 512"><path d="M61.77 401l17.5-20.15a19.92 19.92.0 005.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 00-8 8v16a8 8 0 008 8h22.83a157.41 157.41.0 00-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33.0 15.94 2.44 15.94 9.09.0 4.72-4.2 8.22-14.36 8.22a41.54 41.54.0 01-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16.0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zm0-160H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16V80a16 16 0 00-16-16zm0 320H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zM16 160h64a8 8 0 008-8v-16a8 8 0 00-8-8H64V40a8 8 0 00-8-8H32a8 8 0 00-7.14 4.42l-8 16A8 8 0 0024 64h8v64H16a8 8 0 00-8 8v16a8 8 0 008 8zm-3.91 160H80a8 8 0 008-8v-16a8 8 0 00-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44.0-29.06-25-39.56-44.47-39.56-21.36.0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44.0 019.46-3.84c3.33.0 9.28 1.56 9.28 8.75C51 248.19.0 257.31.0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
-<button class="wrap-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.is-wrap]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle code wrap"><svg class="icon" viewBox="0 0 448 512"><path d="M16 132h416c8.837.0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163.0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
-<button class="copy-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-hover:tw-text-fgColor-link
-print:!tw-hidden" title="Copy code">
-<span class="copy-icon tw-block"><svg class="icon" viewBox="0 0 448 512"><path d="M433.941 65.941l-51.882-51.882A48 48 0 00348.118.0H176c-26.51.0-48 21.49-48 48v48H48c-26.51.0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51.0 48-21.49 48-48v-48h80c26.51.0 48-21.49 48-48V99.882a48 48 0 00-14.059-33.941zM266 464H54a6 6 0 01-6-6V150a6 6 0 016-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 01-6 6zm128-96H182a6 6 0 01-6-6V54a6 6 0 016-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 01-6 6zm6-256h-64V48h9.632c1.591.0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 011.757 4.243V112z"/></svg></span>
-<span class="check-icon tw-hidden"><svg class="icon" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206.0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204.0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204.0l36.203 36.204c9.997 9.997 9.997 26.206.0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
-</button>
-<button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-hidden
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 512 512"><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button></div></div><pre style=counter-reset:codeblock class="tw-block tw-m-0 tw-p-0"><code id=codeblock-id-13 class="chroma
-!tw-block
-tw-p-0
-tw-m-0
-tw-transition-[max-height]
-tw-duration-500
-tw-ease-in-out
-group-[.is-closed]:!tw-max-h-0
-group-[.is-wrap]:tw-text-wrap
-tw-overflow-y-hidden
-tw-overflow-x-auto
-tw-scrollbar-thin"><span class=line><span class=cl><span class=kt>int</span> <span class=n>main</span><span class=p>(</span><span class=kt>int</span> <span class=n>argc</span><span class=p>,</span> <span class=kt>char</span> <span class=o>**</span><span class=n>argv</span><span class=p>)</span></span></span></code></pre></div><p><code>argc</code>将包含参数数量，可执行文件本身占一个参数数量。</p><p><code>argv</code>为参数数组，里面包含了所有的参数。</p><p>当终端中执行命令行如下时，程序中<code>argc == 3</code>，<code>argv[0] == "./main"</code>，<code>argv[1] == "value1"</code></p><div class="code-block highlight is-open show-line-numbers tw-group tw-my-2"><div class="code-block-title
-tw-flex
-tw-flex-row
-tw-justify-between
-tw-w-full tw-bg-bgColor-secondary"><button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-rotate-90
-tw-transition-[transform]
-tw-duration-500
-tw-ease-in-out
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 320 512"><path d="M285.476 272.971 91.132 467.314c-9.373 9.373-24.569 9.373-33.941.0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941.0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button><div class="code-block-title-bar tw-w-full"><p class="tw-select-none !tw-my-1">text</p></div><div class=tw-flex><button class="line-number-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.show-line-numbers]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle line numbers"><svg class="icon" viewBox="0 0 512 512"><path d="M61.77 401l17.5-20.15a19.92 19.92.0 005.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 00-8 8v16a8 8 0 008 8h22.83a157.41 157.41.0 00-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33.0 15.94 2.44 15.94 9.09.0 4.72-4.2 8.22-14.36 8.22a41.54 41.54.0 01-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16.0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zm0-160H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16V80a16 16 0 00-16-16zm0 320H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zM16 160h64a8 8 0 008-8v-16a8 8 0 00-8-8H64V40a8 8 0 00-8-8H32a8 8 0 00-7.14 4.42l-8 16A8 8 0 0024 64h8v64H16a8 8 0 00-8 8v16a8 8 0 008 8zm-3.91 160H80a8 8 0 008-8v-16a8 8 0 00-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44.0-29.06-25-39.56-44.47-39.56-21.36.0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44.0 019.46-3.84c3.33.0 9.28 1.56 9.28 8.75C51 248.19.0 257.31.0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
-<button class="wrap-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.is-wrap]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle code wrap"><svg class="icon" viewBox="0 0 448 512"><path d="M16 132h416c8.837.0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163.0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
-<button class="copy-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-hover:tw-text-fgColor-link
-print:!tw-hidden" title="Copy code">
-<span class="copy-icon tw-block"><svg class="icon" viewBox="0 0 448 512"><path d="M433.941 65.941l-51.882-51.882A48 48 0 00348.118.0H176c-26.51.0-48 21.49-48 48v48H48c-26.51.0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51.0 48-21.49 48-48v-48h80c26.51.0 48-21.49 48-48V99.882a48 48 0 00-14.059-33.941zM266 464H54a6 6 0 01-6-6V150a6 6 0 016-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 01-6 6zm128-96H182a6 6 0 01-6-6V54a6 6 0 016-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 01-6 6zm6-256h-64V48h9.632c1.591.0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 011.757 4.243V112z"/></svg></span>
-<span class="check-icon tw-hidden"><svg class="icon" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206.0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204.0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204.0l36.203 36.204c9.997 9.997 9.997 26.206.0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
-</button>
-<button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-hidden
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 512 512"><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button></div></div><pre style=counter-reset:codeblock class="tw-block tw-m-0 tw-p-0"><code id=codeblock-id-14 class="chroma
-!tw-block
-tw-p-0
-tw-m-0
-tw-transition-[max-height]
-tw-duration-500
-tw-ease-in-out
-group-[.is-closed]:!tw-max-h-0
-group-[.is-wrap]:tw-text-wrap
-tw-overflow-y-hidden
-tw-overflow-x-auto
-tw-scrollbar-thin"><span class=line><span class=cl>./main value1 value2</span></span></code></pre></div><p>读取pcd文件的源代码如下，可以直接在终端执行时通过修改命令行读取不同的pcd文件，避免文件路径写死在程序中，为了读不同的文件浪费时间重复编译。</p><div class="code-block highlight is-open show-line-numbers tw-group tw-my-2"><div class="code-block-title
-tw-flex
-tw-flex-row
-tw-justify-between
-tw-w-full tw-bg-bgColor-secondary"><button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-rotate-90
-tw-transition-[transform]
-tw-duration-500
-tw-ease-in-out
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 320 512"><path d="M285.476 272.971 91.132 467.314c-9.373 9.373-24.569 9.373-33.941.0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941.0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button><div class="code-block-title-bar tw-w-full"><p class="tw-select-none !tw-my-1">cpp</p></div><div class=tw-flex><button class="line-number-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.show-line-numbers]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle line numbers"><svg class="icon" viewBox="0 0 512 512"><path d="M61.77 401l17.5-20.15a19.92 19.92.0 005.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 00-8 8v16a8 8 0 008 8h22.83a157.41 157.41.0 00-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33.0 15.94 2.44 15.94 9.09.0 4.72-4.2 8.22-14.36 8.22a41.54 41.54.0 01-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16.0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zm0-160H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16V80a16 16 0 00-16-16zm0 320H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zM16 160h64a8 8 0 008-8v-16a8 8 0 00-8-8H64V40a8 8 0 00-8-8H32a8 8 0 00-7.14 4.42l-8 16A8 8 0 0024 64h8v64H16a8 8 0 00-8 8v16a8 8 0 008 8zm-3.91 160H80a8 8 0 008-8v-16a8 8 0 00-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44.0-29.06-25-39.56-44.47-39.56-21.36.0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44.0 019.46-3.84c3.33.0 9.28 1.56 9.28 8.75C51 248.19.0 257.31.0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
-<button class="wrap-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.is-wrap]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle code wrap"><svg class="icon" viewBox="0 0 448 512"><path d="M16 132h416c8.837.0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163.0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
-<button class="copy-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-hover:tw-text-fgColor-link
-print:!tw-hidden" title="Copy code">
-<span class="copy-icon tw-block"><svg class="icon" viewBox="0 0 448 512"><path d="M433.941 65.941l-51.882-51.882A48 48 0 00348.118.0H176c-26.51.0-48 21.49-48 48v48H48c-26.51.0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51.0 48-21.49 48-48v-48h80c26.51.0 48-21.49 48-48V99.882a48 48 0 00-14.059-33.941zM266 464H54a6 6 0 01-6-6V150a6 6 0 016-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 01-6 6zm128-96H182a6 6 0 01-6-6V54a6 6 0 016-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 01-6 6zm6-256h-64V48h9.632c1.591.0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 011.757 4.243V112z"/></svg></span>
-<span class="check-icon tw-hidden"><svg class="icon" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206.0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204.0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204.0l36.203 36.204c9.997 9.997 9.997 26.206.0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
-</button>
-<button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-hidden
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 512 512"><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button></div></div><pre style=counter-reset:codeblock class="tw-block tw-m-0 tw-p-0"><code id=codeblock-id-15 class="chroma
-!tw-block
-tw-p-0
-tw-m-0
-tw-transition-[max-height]
-tw-duration-500
-tw-ease-in-out
-group-[.is-closed]:!tw-max-h-0
-group-[.is-wrap]:tw-text-wrap
-tw-overflow-y-hidden
-tw-overflow-x-auto
-tw-scrollbar-thin"><span class=line><span class=cl><span class=n>pcl</span><span class=o>::</span><span class=n>io</span><span class=o>::</span><span class=n>loadPCDFile</span><span class=p>(</span><span class=n>argv</span><span class=p>[</span><span class=mi>1</span><span class=p>],</span> <span class=o>*</span><span class=n>cloud</span><span class=p>);</span></span></span></code></pre></div><hr><p>编译完成后，终端执行命令行如下，就能够读取pcd文件了，文件路径根据实际修改</p><div class="code-block highlight is-open show-line-numbers tw-group tw-my-2"><div class="code-block-title
-tw-flex
-tw-flex-row
-tw-justify-between
-tw-w-full tw-bg-bgColor-secondary"><button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-rotate-90
-tw-transition-[transform]
-tw-duration-500
-tw-ease-in-out
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 320 512"><path d="M285.476 272.971 91.132 467.314c-9.373 9.373-24.569 9.373-33.941.0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941.0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button><div class="code-block-title-bar tw-w-full"><p class="tw-select-none !tw-my-1">text</p></div><div class=tw-flex><button class="line-number-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.show-line-numbers]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle line numbers"><svg class="icon" viewBox="0 0 512 512"><path d="M61.77 401l17.5-20.15a19.92 19.92.0 005.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 00-8 8v16a8 8 0 008 8h22.83a157.41 157.41.0 00-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33.0 15.94 2.44 15.94 9.09.0 4.72-4.2 8.22-14.36 8.22a41.54 41.54.0 01-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16.0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zm0-160H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16V80a16 16 0 00-16-16zm0 320H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zM16 160h64a8 8 0 008-8v-16a8 8 0 00-8-8H64V40a8 8 0 00-8-8H32a8 8 0 00-7.14 4.42l-8 16A8 8 0 0024 64h8v64H16a8 8 0 00-8 8v16a8 8 0 008 8zm-3.91 160H80a8 8 0 008-8v-16a8 8 0 00-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44.0-29.06-25-39.56-44.47-39.56-21.36.0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44.0 019.46-3.84c3.33.0 9.28 1.56 9.28 8.75C51 248.19.0 257.31.0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
-<button class="wrap-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.is-wrap]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle code wrap"><svg class="icon" viewBox="0 0 448 512"><path d="M16 132h416c8.837.0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163.0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
-<button class="copy-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-hover:tw-text-fgColor-link
-print:!tw-hidden" title="Copy code">
-<span class="copy-icon tw-block"><svg class="icon" viewBox="0 0 448 512"><path d="M433.941 65.941l-51.882-51.882A48 48 0 00348.118.0H176c-26.51.0-48 21.49-48 48v48H48c-26.51.0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51.0 48-21.49 48-48v-48h80c26.51.0 48-21.49 48-48V99.882a48 48 0 00-14.059-33.941zM266 464H54a6 6 0 01-6-6V150a6 6 0 016-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 01-6 6zm128-96H182a6 6 0 01-6-6V54a6 6 0 016-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 01-6 6zm6-256h-64V48h9.632c1.591.0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 011.757 4.243V112z"/></svg></span>
-<span class="check-icon tw-hidden"><svg class="icon" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206.0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204.0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204.0l36.203 36.204c9.997 9.997 9.997 26.206.0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
-</button>
-<button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-hidden
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 512 512"><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button></div></div><pre style=counter-reset:codeblock class="tw-block tw-m-0 tw-p-0"><code id=codeblock-id-16 class="chroma
-!tw-block
-tw-p-0
-tw-m-0
-tw-transition-[max-height]
-tw-duration-500
-tw-ease-in-out
-group-[.is-closed]:!tw-max-h-0
-group-[.is-wrap]:tw-text-wrap
-tw-overflow-y-hidden
-tw-overflow-x-auto
-tw-scrollbar-thin"><span class=line><span class=cl>./pcd_read ~/pcl/pcdXYZ_files/cloud00000.pcd </span></span></code></pre></div><p><div class=fiximg style=max-width:899px><div class=fiximg__container style=padding-bottom:67.4082%><img id=zoom-img loading=lazy src=https://ray233.pages.dev/pcl-getstarted-searching/image-20210604015912820_hu14495423948220552883.webp alt=image-20210604015912820 data-zoomable></div></div></p><h3 id=保存点云到pcd文件 class=headerLink><a href=#%e4%bf%9d%e5%ad%98%e7%82%b9%e4%ba%91%e5%88%b0pcd%e6%96%87%e4%bb%b6 class=header-mark aria-label="Header mark for '保存点云到pcd文件'"></a>保存点云到pcd文件</h3><p>PCL的pcd点云文件写入模块同样放在<code>pcl/io/pcd_io.h</code>中，记得include</p><p>PCL将点云写入pcd文件的代码如下，点云数据默认以二进制的格式写入pcd文件中，加快读写速度</p><div class="code-block highlight is-open show-line-numbers tw-group tw-my-2"><div class="code-block-title
-tw-flex
-tw-flex-row
-tw-justify-between
-tw-w-full tw-bg-bgColor-secondary"><button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-rotate-90
-tw-transition-[transform]
-tw-duration-500
-tw-ease-in-out
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 320 512"><path d="M285.476 272.971 91.132 467.314c-9.373 9.373-24.569 9.373-33.941.0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941.0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button><div class="code-block-title-bar tw-w-full"><p class="tw-select-none !tw-my-1">cpp</p></div><div class=tw-flex><button class="line-number-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.show-line-numbers]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle line numbers"><svg class="icon" viewBox="0 0 512 512"><path d="M61.77 401l17.5-20.15a19.92 19.92.0 005.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 00-8 8v16a8 8 0 008 8h22.83a157.41 157.41.0 00-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33.0 15.94 2.44 15.94 9.09.0 4.72-4.2 8.22-14.36 8.22a41.54 41.54.0 01-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16.0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zm0-160H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16V80a16 16 0 00-16-16zm0 320H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zM16 160h64a8 8 0 008-8v-16a8 8 0 00-8-8H64V40a8 8 0 00-8-8H32a8 8 0 00-7.14 4.42l-8 16A8 8 0 0024 64h8v64H16a8 8 0 00-8 8v16a8 8 0 008 8zm-3.91 160H80a8 8 0 008-8v-16a8 8 0 00-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44.0-29.06-25-39.56-44.47-39.56-21.36.0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44.0 019.46-3.84c3.33.0 9.28 1.56 9.28 8.75C51 248.19.0 257.31.0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
-<button class="wrap-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.is-wrap]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle code wrap"><svg class="icon" viewBox="0 0 448 512"><path d="M16 132h416c8.837.0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163.0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
-<button class="copy-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-hover:tw-text-fgColor-link
-print:!tw-hidden" title="Copy code">
-<span class="copy-icon tw-block"><svg class="icon" viewBox="0 0 448 512"><path d="M433.941 65.941l-51.882-51.882A48 48 0 00348.118.0H176c-26.51.0-48 21.49-48 48v48H48c-26.51.0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51.0 48-21.49 48-48v-48h80c26.51.0 48-21.49 48-48V99.882a48 48 0 00-14.059-33.941zM266 464H54a6 6 0 01-6-6V150a6 6 0 016-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 01-6 6zm128-96H182a6 6 0 01-6-6V54a6 6 0 016-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 01-6 6zm6-256h-64V48h9.632c1.591.0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 011.757 4.243V112z"/></svg></span>
-<span class="check-icon tw-hidden"><svg class="icon" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206.0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204.0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204.0l36.203 36.204c9.997 9.997 9.997 26.206.0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
-</button>
-<button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-hidden
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 512 512"><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button></div></div><pre style=counter-reset:codeblock class="tw-block tw-m-0 tw-p-0"><code id=codeblock-id-17 class="chroma
-!tw-block
-tw-p-0
-tw-m-0
-tw-transition-[max-height]
-tw-duration-500
-tw-ease-in-out
-group-[.is-closed]:!tw-max-h-0
-group-[.is-wrap]:tw-text-wrap
-tw-overflow-y-hidden
-tw-overflow-x-auto
-tw-scrollbar-thin"><span class=line><span class=cl><span class=n>pcl</span><span class=o>::</span><span class=n>io</span><span class=o>::</span><span class=n>savePCDFile</span><span class=p>(</span><span class=s>&#34;path_to_save_pcd_file&#34;</span><span class=p>,</span> <span class=o>*</span><span class=n>cloud</span><span class=p>);</span></span></span></code></pre></div><p>如果希望pcd文件中的点云数据以人类可读的格式保存，则使用如下代码</p><div class="code-block highlight is-open show-line-numbers tw-group tw-my-2"><div class="code-block-title
-tw-flex
-tw-flex-row
-tw-justify-between
-tw-w-full tw-bg-bgColor-secondary"><button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-rotate-90
-tw-transition-[transform]
-tw-duration-500
-tw-ease-in-out
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 320 512"><path d="M285.476 272.971 91.132 467.314c-9.373 9.373-24.569 9.373-33.941.0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941.0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button><div class="code-block-title-bar tw-w-full"><p class="tw-select-none !tw-my-1">cpp</p></div><div class=tw-flex><button class="line-number-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.show-line-numbers]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle line numbers"><svg class="icon" viewBox="0 0 512 512"><path d="M61.77 401l17.5-20.15a19.92 19.92.0 005.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 00-8 8v16a8 8 0 008 8h22.83a157.41 157.41.0 00-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33.0 15.94 2.44 15.94 9.09.0 4.72-4.2 8.22-14.36 8.22a41.54 41.54.0 01-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16.0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zm0-160H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16V80a16 16 0 00-16-16zm0 320H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zM16 160h64a8 8 0 008-8v-16a8 8 0 00-8-8H64V40a8 8 0 00-8-8H32a8 8 0 00-7.14 4.42l-8 16A8 8 0 0024 64h8v64H16a8 8 0 00-8 8v16a8 8 0 008 8zm-3.91 160H80a8 8 0 008-8v-16a8 8 0 00-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44.0-29.06-25-39.56-44.47-39.56-21.36.0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44.0 019.46-3.84c3.33.0 9.28 1.56 9.28 8.75C51 248.19.0 257.31.0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
-<button class="wrap-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.is-wrap]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle code wrap"><svg class="icon" viewBox="0 0 448 512"><path d="M16 132h416c8.837.0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163.0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
-<button class="copy-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-hover:tw-text-fgColor-link
-print:!tw-hidden" title="Copy code">
-<span class="copy-icon tw-block"><svg class="icon" viewBox="0 0 448 512"><path d="M433.941 65.941l-51.882-51.882A48 48 0 00348.118.0H176c-26.51.0-48 21.49-48 48v48H48c-26.51.0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51.0 48-21.49 48-48v-48h80c26.51.0 48-21.49 48-48V99.882a48 48 0 00-14.059-33.941zM266 464H54a6 6 0 01-6-6V150a6 6 0 016-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 01-6 6zm128-96H182a6 6 0 01-6-6V54a6 6 0 016-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 01-6 6zm6-256h-64V48h9.632c1.591.0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 011.757 4.243V112z"/></svg></span>
-<span class="check-icon tw-hidden"><svg class="icon" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206.0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204.0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204.0l36.203 36.204c9.997 9.997 9.997 26.206.0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
-</button>
-<button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-hidden
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 512 512"><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button></div></div><pre style=counter-reset:codeblock class="tw-block tw-m-0 tw-p-0"><code id=codeblock-id-18 class="chroma
-!tw-block
-tw-p-0
-tw-m-0
-tw-transition-[max-height]
-tw-duration-500
-tw-ease-in-out
-group-[.is-closed]:!tw-max-h-0
-group-[.is-wrap]:tw-text-wrap
-tw-overflow-y-hidden
-tw-overflow-x-auto
-tw-scrollbar-thin"><span class=line><span class=cl><span class=n>pcl</span><span class=o>::</span><span class=n>io</span><span class=o>::</span><span class=n>savePCDFileASCII</span><span class=p>(</span><span class=s>&#34;path_to_save_pcd_file&#34;</span><span class=p>,</span> <span class=o>*</span><span class=n>cloud</span><span class=p>);</span></span></span></code></pre></div><p>完整示例代码</p><div class="code-block highlight is-open show-line-numbers tw-group tw-my-2"><div class="code-block-title
-tw-flex
-tw-flex-row
-tw-justify-between
-tw-w-full tw-bg-bgColor-secondary"><button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-rotate-90
-tw-transition-[transform]
-tw-duration-500
-tw-ease-in-out
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 320 512"><path d="M285.476 272.971 91.132 467.314c-9.373 9.373-24.569 9.373-33.941.0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941.0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button><div class="code-block-title-bar tw-w-full"><p class="tw-select-none !tw-my-1">cpp</p></div><div class=tw-flex><button class="line-number-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.show-line-numbers]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle line numbers"><svg class="icon" viewBox="0 0 512 512"><path d="M61.77 401l17.5-20.15a19.92 19.92.0 005.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 00-8 8v16a8 8 0 008 8h22.83a157.41 157.41.0 00-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33.0 15.94 2.44 15.94 9.09.0 4.72-4.2 8.22-14.36 8.22a41.54 41.54.0 01-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16.0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zm0-160H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16V80a16 16 0 00-16-16zm0 320H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zM16 160h64a8 8 0 008-8v-16a8 8 0 00-8-8H64V40a8 8 0 00-8-8H32a8 8 0 00-7.14 4.42l-8 16A8 8 0 0024 64h8v64H16a8 8 0 00-8 8v16a8 8 0 008 8zm-3.91 160H80a8 8 0 008-8v-16a8 8 0 00-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44.0-29.06-25-39.56-44.47-39.56-21.36.0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44.0 019.46-3.84c3.33.0 9.28 1.56 9.28 8.75C51 248.19.0 257.31.0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
-<button class="wrap-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.is-wrap]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle code wrap"><svg class="icon" viewBox="0 0 448 512"><path d="M16 132h416c8.837.0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163.0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
-<button class="copy-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-hover:tw-text-fgColor-link
-print:!tw-hidden" title="Copy code">
-<span class="copy-icon tw-block"><svg class="icon" viewBox="0 0 448 512"><path d="M433.941 65.941l-51.882-51.882A48 48 0 00348.118.0H176c-26.51.0-48 21.49-48 48v48H48c-26.51.0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51.0 48-21.49 48-48v-48h80c26.51.0 48-21.49 48-48V99.882a48 48 0 00-14.059-33.941zM266 464H54a6 6 0 01-6-6V150a6 6 0 016-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 01-6 6zm128-96H182a6 6 0 01-6-6V54a6 6 0 016-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 01-6 6zm6-256h-64V48h9.632c1.591.0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 011.757 4.243V112z"/></svg></span>
-<span class="check-icon tw-hidden"><svg class="icon" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206.0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204.0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204.0l36.203 36.204c9.997 9.997 9.997 26.206.0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
-</button>
-<button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-hidden
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 512 512"><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button></div></div><pre style=counter-reset:codeblock class="tw-block tw-m-0 tw-p-0"><code id=codeblock-id-19 class="chroma
-!tw-block
-tw-p-0
-tw-m-0
-tw-transition-[max-height]
-tw-duration-500
-tw-ease-in-out
-group-[.is-closed]:!tw-max-h-0
-group-[.is-wrap]:tw-text-wrap
-tw-overflow-y-hidden
-tw-overflow-x-auto
-tw-scrollbar-thin"><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;iostream&gt;</span><span class=cp>			 </span><span class=c1>//标准C++库中的输入输出类相关头文件。
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=nb>target_link_libraries</span> <span class=p>(</span><span class=s>pcd_read</span> <span class=o>${</span><span class=nv>PCL_LIBRARIES</span><span class=o>}</span><span class=p>)</span><span class=err>
+</span></span></span></code></pre></td></tr></table></div></div><hr><p>在源代码中，下面这一行这样写是为了程序运行时从命令行中获取参数</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=kt>int</span> <span class=n>main</span><span class=p>(</span><span class=kt>int</span> <span class=n>argc</span><span class=p>,</span> <span class=kt>char</span> <span class=o>**</span><span class=n>argv</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p><code>argc</code>将包含参数数量，可执行文件本身占一个参数数量。</p><p><code>argv</code>为参数数组，里面包含了所有的参数。</p><p>当终端中执行命令行如下时，程序中<code>argc == 3</code>，<code>argv[0] == "./main"</code>，<code>argv[1] == "value1"</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>./main value1 value2
+</span></span></code></pre></td></tr></table></div></div><p>读取pcd文件的源代码如下，可以直接在终端执行时通过修改命令行读取不同的pcd文件，避免文件路径写死在程序中，为了读不同的文件浪费时间重复编译。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=n>pcl</span><span class=o>::</span><span class=n>io</span><span class=o>::</span><span class=n>loadPCDFile</span><span class=p>(</span><span class=n>argv</span><span class=p>[</span><span class=mi>1</span><span class=p>],</span> <span class=o>*</span><span class=n>cloud</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div><hr><p>编译完成后，终端执行命令行如下，就能够读取pcd文件了，文件路径根据实际修改</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>./pcd_read ~/pcl/pcdXYZ_files/cloud00000.pcd 
+</span></span></code></pre></td></tr></table></div></div><p><div class=fiximg style=max-width:899px><div class=fiximg__container style=padding-bottom:67.4082%><img id=zoom-img loading=lazy src=https://ray233.pages.dev/pcl-getstarted-searching/image-20210604015912820_hu2d5616b23d2c74c2105ca2e3843175ae_116699_7dd707160b411113baeb5b9ca941a657.webp alt=image-20210604015912820 data-zoomable></div></div></p><h3 id=保存点云到pcd文件>保存点云到pcd文件</h3><p>PCL的pcd点云文件写入模块同样放在<code>pcl/io/pcd_io.h</code>中，记得include</p><p>PCL将点云写入pcd文件的代码如下，点云数据默认以二进制的格式写入pcd文件中，加快读写速度</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=n>pcl</span><span class=o>::</span><span class=n>io</span><span class=o>::</span><span class=n>savePCDFile</span><span class=p>(</span><span class=s>&#34;path_to_save_pcd_file&#34;</span><span class=p>,</span> <span class=o>*</span><span class=n>cloud</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div><p>如果希望pcd文件中的点云数据以人类可读的格式保存，则使用如下代码</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=n>pcl</span><span class=o>::</span><span class=n>io</span><span class=o>::</span><span class=n>savePCDFileASCII</span><span class=p>(</span><span class=s>&#34;path_to_save_pcd_file&#34;</span><span class=p>,</span> <span class=o>*</span><span class=n>cloud</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div><p>完整示例代码</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;iostream&gt;</span><span class=cp>			 </span><span class=c1>//标准C++库中的输入输出类相关头文件。
 </span></span></span><span class=line><span class=cl><span class=c1></span><span class=cp>#include</span> <span class=cpf>&lt;pcl/io/pcd_io.h&gt;</span><span class=cp>	 </span><span class=c1>//pcd 读写类相关的头文件。
 </span></span></span><span class=line><span class=cl><span class=c1></span><span class=cp>#include</span> <span class=cpf>&lt;pcl/point_types.h&gt;</span><span class=cp> </span><span class=c1>//PCL中支持的点类型头文件。
 </span></span></span><span class=line><span class=cl><span class=c1></span>
@@ -1102,258 +307,30 @@ tw-scrollbar-thin"><span class=line><span class=cl><span class=cp>#include</span
 </span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=n>pcl</span><span class=o>::</span><span class=n>io</span><span class=o>::</span><span class=n>savePCDFileASCII</span><span class=p>(</span><span class=s>&#34;output.pcd&#34;</span><span class=p>,</span> <span class=o>*</span><span class=n>cloud</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>    
 </span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div><h3 id=显示点云 class=headerLink><a href=#%e6%98%be%e7%a4%ba%e7%82%b9%e4%ba%91 class=header-mark aria-label="Header mark for '显示点云'"></a>显示点云</h3><p>包含PCL完整可视化类的头文件为<code>pcl/visualization/pcl_visualizer.h</code></p><p>首先，我们通过下面的代码建立一个名为<code>viewer</code>的可视化类对象，该对象弹出的显示的窗口名为<code>Cloud Viewer</code></p><div class="code-block highlight is-open show-line-numbers tw-group tw-my-2"><div class="code-block-title
-tw-flex
-tw-flex-row
-tw-justify-between
-tw-w-full tw-bg-bgColor-secondary"><button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-rotate-90
-tw-transition-[transform]
-tw-duration-500
-tw-ease-in-out
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 320 512"><path d="M285.476 272.971 91.132 467.314c-9.373 9.373-24.569 9.373-33.941.0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941.0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button><div class="code-block-title-bar tw-w-full"><p class="tw-select-none !tw-my-1">cpp</p></div><div class=tw-flex><button class="line-number-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.show-line-numbers]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle line numbers"><svg class="icon" viewBox="0 0 512 512"><path d="M61.77 401l17.5-20.15a19.92 19.92.0 005.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 00-8 8v16a8 8 0 008 8h22.83a157.41 157.41.0 00-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33.0 15.94 2.44 15.94 9.09.0 4.72-4.2 8.22-14.36 8.22a41.54 41.54.0 01-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16.0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zm0-160H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16V80a16 16 0 00-16-16zm0 320H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zM16 160h64a8 8 0 008-8v-16a8 8 0 00-8-8H64V40a8 8 0 00-8-8H32a8 8 0 00-7.14 4.42l-8 16A8 8 0 0024 64h8v64H16a8 8 0 00-8 8v16a8 8 0 008 8zm-3.91 160H80a8 8 0 008-8v-16a8 8 0 00-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44.0-29.06-25-39.56-44.47-39.56-21.36.0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44.0 019.46-3.84c3.33.0 9.28 1.56 9.28 8.75C51 248.19.0 257.31.0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
-<button class="wrap-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.is-wrap]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle code wrap"><svg class="icon" viewBox="0 0 448 512"><path d="M16 132h416c8.837.0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163.0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
-<button class="copy-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-hover:tw-text-fgColor-link
-print:!tw-hidden" title="Copy code">
-<span class="copy-icon tw-block"><svg class="icon" viewBox="0 0 448 512"><path d="M433.941 65.941l-51.882-51.882A48 48 0 00348.118.0H176c-26.51.0-48 21.49-48 48v48H48c-26.51.0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51.0 48-21.49 48-48v-48h80c26.51.0 48-21.49 48-48V99.882a48 48 0 00-14.059-33.941zM266 464H54a6 6 0 01-6-6V150a6 6 0 016-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 01-6 6zm128-96H182a6 6 0 01-6-6V54a6 6 0 016-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 01-6 6zm6-256h-64V48h9.632c1.591.0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 011.757 4.243V112z"/></svg></span>
-<span class="check-icon tw-hidden"><svg class="icon" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206.0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204.0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204.0l36.203 36.204c9.997 9.997 9.997 26.206.0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
-</button>
-<button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-hidden
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 512 512"><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button></div></div><pre style=counter-reset:codeblock class="tw-block tw-m-0 tw-p-0"><code id=codeblock-id-20 class="chroma
-!tw-block
-tw-p-0
-tw-m-0
-tw-transition-[max-height]
-tw-duration-500
-tw-ease-in-out
-group-[.is-closed]:!tw-max-h-0
-group-[.is-wrap]:tw-text-wrap
-tw-overflow-y-hidden
-tw-overflow-x-auto
-tw-scrollbar-thin"><span class=line><span class=cl><span class=n>pcl</span><span class=o>::</span><span class=n>visualization</span><span class=o>::</span><span class=n>PCLVisualizer</span><span class=o>::</span><span class=n>Ptr</span> <span class=n>viewer</span><span class=p>(</span><span class=k>new</span> <span class=n>pcl</span><span class=o>::</span><span class=n>visualization</span><span class=o>::</span><span class=n>PCLVisualizer</span><span class=p>(</span><span class=s>&#34;Cloud Viewer&#34;</span><span class=p>));</span></span></span></code></pre></div><p>我们现在有一个如下定义的一个名为<code>cloud</code>的点云对象</p><div class="code-block highlight is-open show-line-numbers tw-group tw-my-2"><div class="code-block-title
-tw-flex
-tw-flex-row
-tw-justify-between
-tw-w-full tw-bg-bgColor-secondary"><button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-rotate-90
-tw-transition-[transform]
-tw-duration-500
-tw-ease-in-out
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 320 512"><path d="M285.476 272.971 91.132 467.314c-9.373 9.373-24.569 9.373-33.941.0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941.0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button><div class="code-block-title-bar tw-w-full"><p class="tw-select-none !tw-my-1">cpp</p></div><div class=tw-flex><button class="line-number-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.show-line-numbers]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle line numbers"><svg class="icon" viewBox="0 0 512 512"><path d="M61.77 401l17.5-20.15a19.92 19.92.0 005.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 00-8 8v16a8 8 0 008 8h22.83a157.41 157.41.0 00-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33.0 15.94 2.44 15.94 9.09.0 4.72-4.2 8.22-14.36 8.22a41.54 41.54.0 01-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16.0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zm0-160H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16V80a16 16 0 00-16-16zm0 320H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zM16 160h64a8 8 0 008-8v-16a8 8 0 00-8-8H64V40a8 8 0 00-8-8H32a8 8 0 00-7.14 4.42l-8 16A8 8 0 0024 64h8v64H16a8 8 0 00-8 8v16a8 8 0 008 8zm-3.91 160H80a8 8 0 008-8v-16a8 8 0 00-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44.0-29.06-25-39.56-44.47-39.56-21.36.0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44.0 019.46-3.84c3.33.0 9.28 1.56 9.28 8.75C51 248.19.0 257.31.0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
-<button class="wrap-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.is-wrap]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle code wrap"><svg class="icon" viewBox="0 0 448 512"><path d="M16 132h416c8.837.0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163.0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
-<button class="copy-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-hover:tw-text-fgColor-link
-print:!tw-hidden" title="Copy code">
-<span class="copy-icon tw-block"><svg class="icon" viewBox="0 0 448 512"><path d="M433.941 65.941l-51.882-51.882A48 48 0 00348.118.0H176c-26.51.0-48 21.49-48 48v48H48c-26.51.0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51.0 48-21.49 48-48v-48h80c26.51.0 48-21.49 48-48V99.882a48 48 0 00-14.059-33.941zM266 464H54a6 6 0 01-6-6V150a6 6 0 016-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 01-6 6zm128-96H182a6 6 0 01-6-6V54a6 6 0 016-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 01-6 6zm6-256h-64V48h9.632c1.591.0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 011.757 4.243V112z"/></svg></span>
-<span class="check-icon tw-hidden"><svg class="icon" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206.0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204.0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204.0l36.203 36.204c9.997 9.997 9.997 26.206.0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
-</button>
-<button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-hidden
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 512 512"><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button></div></div><pre style=counter-reset:codeblock class="tw-block tw-m-0 tw-p-0"><code id=codeblock-id-21 class="chroma
-!tw-block
-tw-p-0
-tw-m-0
-tw-transition-[max-height]
-tw-duration-500
-tw-ease-in-out
-group-[.is-closed]:!tw-max-h-0
-group-[.is-wrap]:tw-text-wrap
-tw-overflow-y-hidden
-tw-overflow-x-auto
-tw-scrollbar-thin"><span class=line><span class=cl><span class=n>pcl</span><span class=o>::</span><span class=n>PointCloud</span><span class=o>&lt;</span><span class=n>pcl</span><span class=o>::</span><span class=n>PointXYZ</span><span class=o>&gt;::</span><span class=n>Ptr</span> <span class=n>cloud</span><span class=p>(</span><span class=k>new</span> <span class=n>pcl</span><span class=o>::</span><span class=n>PointCloud</span><span class=o>&lt;</span><span class=n>pcl</span><span class=o>::</span><span class=n>PointXYZ</span><span class=o>&gt;</span><span class=p>);</span></span></span></code></pre></div><p>然后通过以下代码，我们就可以将点云<code>cloud</code>显示在一个名为<code>Cloud Viewer</code>的窗口中，该点云在<code>viewer</code>中的id为<code>cloud1</code></p><div class="code-block highlight is-open show-line-numbers tw-group tw-my-2"><div class="code-block-title
-tw-flex
-tw-flex-row
-tw-justify-between
-tw-w-full tw-bg-bgColor-secondary"><button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-rotate-90
-tw-transition-[transform]
-tw-duration-500
-tw-ease-in-out
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 320 512"><path d="M285.476 272.971 91.132 467.314c-9.373 9.373-24.569 9.373-33.941.0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941.0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button><div class="code-block-title-bar tw-w-full"><p class="tw-select-none !tw-my-1">cpp</p></div><div class=tw-flex><button class="line-number-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.show-line-numbers]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle line numbers"><svg class="icon" viewBox="0 0 512 512"><path d="M61.77 401l17.5-20.15a19.92 19.92.0 005.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 00-8 8v16a8 8 0 008 8h22.83a157.41 157.41.0 00-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33.0 15.94 2.44 15.94 9.09.0 4.72-4.2 8.22-14.36 8.22a41.54 41.54.0 01-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16.0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zm0-160H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16V80a16 16 0 00-16-16zm0 320H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zM16 160h64a8 8 0 008-8v-16a8 8 0 00-8-8H64V40a8 8 0 00-8-8H32a8 8 0 00-7.14 4.42l-8 16A8 8 0 0024 64h8v64H16a8 8 0 00-8 8v16a8 8 0 008 8zm-3.91 160H80a8 8 0 008-8v-16a8 8 0 00-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44.0-29.06-25-39.56-44.47-39.56-21.36.0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44.0 019.46-3.84c3.33.0 9.28 1.56 9.28 8.75C51 248.19.0 257.31.0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
-<button class="wrap-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.is-wrap]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle code wrap"><svg class="icon" viewBox="0 0 448 512"><path d="M16 132h416c8.837.0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163.0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
-<button class="copy-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-hover:tw-text-fgColor-link
-print:!tw-hidden" title="Copy code">
-<span class="copy-icon tw-block"><svg class="icon" viewBox="0 0 448 512"><path d="M433.941 65.941l-51.882-51.882A48 48 0 00348.118.0H176c-26.51.0-48 21.49-48 48v48H48c-26.51.0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51.0 48-21.49 48-48v-48h80c26.51.0 48-21.49 48-48V99.882a48 48 0 00-14.059-33.941zM266 464H54a6 6 0 01-6-6V150a6 6 0 016-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 01-6 6zm128-96H182a6 6 0 01-6-6V54a6 6 0 016-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 01-6 6zm6-256h-64V48h9.632c1.591.0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 011.757 4.243V112z"/></svg></span>
-<span class="check-icon tw-hidden"><svg class="icon" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206.0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204.0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204.0l36.203 36.204c9.997 9.997 9.997 26.206.0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
-</button>
-<button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-hidden
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 512 512"><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button></div></div><pre style=counter-reset:codeblock class="tw-block tw-m-0 tw-p-0"><code id=codeblock-id-22 class="chroma
-!tw-block
-tw-p-0
-tw-m-0
-tw-transition-[max-height]
-tw-duration-500
-tw-ease-in-out
-group-[.is-closed]:!tw-max-h-0
-group-[.is-wrap]:tw-text-wrap
-tw-overflow-y-hidden
-tw-overflow-x-auto
-tw-scrollbar-thin"><span class=line><span class=cl><span class=n>viewer</span><span class=o>-&gt;</span><span class=n>addPointCloud</span><span class=p>(</span><span class=n>cloud</span><span class=p>,</span> <span class=s>&#34;cloud1&#34;</span><span class=p>);</span></span></span></code></pre></div><p>如果想显示多个点云，要注意id不能重复，否则后面重复id的点云将不会显示</p><div class="code-block highlight is-open show-line-numbers tw-group tw-my-2"><div class="code-block-title
-tw-flex
-tw-flex-row
-tw-justify-between
-tw-w-full tw-bg-bgColor-secondary"><button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-rotate-90
-tw-transition-[transform]
-tw-duration-500
-tw-ease-in-out
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 320 512"><path d="M285.476 272.971 91.132 467.314c-9.373 9.373-24.569 9.373-33.941.0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941.0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button><div class="code-block-title-bar tw-w-full"><p class="tw-select-none !tw-my-1">cpp</p></div><div class=tw-flex><button class="line-number-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.show-line-numbers]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle line numbers"><svg class="icon" viewBox="0 0 512 512"><path d="M61.77 401l17.5-20.15a19.92 19.92.0 005.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 00-8 8v16a8 8 0 008 8h22.83a157.41 157.41.0 00-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33.0 15.94 2.44 15.94 9.09.0 4.72-4.2 8.22-14.36 8.22a41.54 41.54.0 01-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16.0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zm0-160H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16V80a16 16 0 00-16-16zm0 320H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zM16 160h64a8 8 0 008-8v-16a8 8 0 00-8-8H64V40a8 8 0 00-8-8H32a8 8 0 00-7.14 4.42l-8 16A8 8 0 0024 64h8v64H16a8 8 0 00-8 8v16a8 8 0 008 8zm-3.91 160H80a8 8 0 008-8v-16a8 8 0 00-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44.0-29.06-25-39.56-44.47-39.56-21.36.0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44.0 019.46-3.84c3.33.0 9.28 1.56 9.28 8.75C51 248.19.0 257.31.0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
-<button class="wrap-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.is-wrap]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle code wrap"><svg class="icon" viewBox="0 0 448 512"><path d="M16 132h416c8.837.0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163.0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
-<button class="copy-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-hover:tw-text-fgColor-link
-print:!tw-hidden" title="Copy code">
-<span class="copy-icon tw-block"><svg class="icon" viewBox="0 0 448 512"><path d="M433.941 65.941l-51.882-51.882A48 48 0 00348.118.0H176c-26.51.0-48 21.49-48 48v48H48c-26.51.0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51.0 48-21.49 48-48v-48h80c26.51.0 48-21.49 48-48V99.882a48 48 0 00-14.059-33.941zM266 464H54a6 6 0 01-6-6V150a6 6 0 016-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 01-6 6zm128-96H182a6 6 0 01-6-6V54a6 6 0 016-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 01-6 6zm6-256h-64V48h9.632c1.591.0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 011.757 4.243V112z"/></svg></span>
-<span class="check-icon tw-hidden"><svg class="icon" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206.0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204.0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204.0l36.203 36.204c9.997 9.997 9.997 26.206.0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
-</button>
-<button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-hidden
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 512 512"><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button></div></div><pre style=counter-reset:codeblock class="tw-block tw-m-0 tw-p-0"><code id=codeblock-id-23 class="chroma
-!tw-block
-tw-p-0
-tw-m-0
-tw-transition-[max-height]
-tw-duration-500
-tw-ease-in-out
-group-[.is-closed]:!tw-max-h-0
-group-[.is-wrap]:tw-text-wrap
-tw-overflow-y-hidden
-tw-overflow-x-auto
-tw-scrollbar-thin"><span class=line><span class=cl><span class=n>viewer</span><span class=o>-&gt;</span><span class=n>addPointCloud</span><span class=p>(</span><span class=n>cloud1</span><span class=p>,</span> <span class=s>&#34;cloud1&#34;</span><span class=p>);</span>
-</span></span><span class=line><span class=cl><span class=n>viewer</span><span class=o>-&gt;</span><span class=n>addPointCloud</span><span class=p>(</span><span class=n>cloud2</span><span class=p>,</span> <span class=s>&#34;cloud2&#34;</span><span class=p>);</span></span></span></code></pre></div><p>点云显示在窗口中后，程序会继续运行，运行完成后会直接退出，同时关闭点云显示窗口，这显然不是我们想要的</p><p>使用PCL时可以通过下面的两种方法暂停程序，保持点云显示，直到在点云显示窗口中按<code>q</code>退出</p><div class="code-block highlight is-open show-line-numbers tw-group tw-my-2"><div class="code-block-title
-tw-flex
-tw-flex-row
-tw-justify-between
-tw-w-full tw-bg-bgColor-secondary"><button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-rotate-90
-tw-transition-[transform]
-tw-duration-500
-tw-ease-in-out
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 320 512"><path d="M285.476 272.971 91.132 467.314c-9.373 9.373-24.569 9.373-33.941.0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941.0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button><div class="code-block-title-bar tw-w-full"><p class="tw-select-none !tw-my-1">cpp</p></div><div class=tw-flex><button class="line-number-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.show-line-numbers]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle line numbers"><svg class="icon" viewBox="0 0 512 512"><path d="M61.77 401l17.5-20.15a19.92 19.92.0 005.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 00-8 8v16a8 8 0 008 8h22.83a157.41 157.41.0 00-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33.0 15.94 2.44 15.94 9.09.0 4.72-4.2 8.22-14.36 8.22a41.54 41.54.0 01-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16.0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zm0-160H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16V80a16 16 0 00-16-16zm0 320H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zM16 160h64a8 8 0 008-8v-16a8 8 0 00-8-8H64V40a8 8 0 00-8-8H32a8 8 0 00-7.14 4.42l-8 16A8 8 0 0024 64h8v64H16a8 8 0 00-8 8v16a8 8 0 008 8zm-3.91 160H80a8 8 0 008-8v-16a8 8 0 00-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44.0-29.06-25-39.56-44.47-39.56-21.36.0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44.0 019.46-3.84c3.33.0 9.28 1.56 9.28 8.75C51 248.19.0 257.31.0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
-<button class="wrap-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.is-wrap]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle code wrap"><svg class="icon" viewBox="0 0 448 512"><path d="M16 132h416c8.837.0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163.0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
-<button class="copy-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-hover:tw-text-fgColor-link
-print:!tw-hidden" title="Copy code">
-<span class="copy-icon tw-block"><svg class="icon" viewBox="0 0 448 512"><path d="M433.941 65.941l-51.882-51.882A48 48 0 00348.118.0H176c-26.51.0-48 21.49-48 48v48H48c-26.51.0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51.0 48-21.49 48-48v-48h80c26.51.0 48-21.49 48-48V99.882a48 48 0 00-14.059-33.941zM266 464H54a6 6 0 01-6-6V150a6 6 0 016-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 01-6 6zm128-96H182a6 6 0 01-6-6V54a6 6 0 016-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 01-6 6zm6-256h-64V48h9.632c1.591.0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 011.757 4.243V112z"/></svg></span>
-<span class="check-icon tw-hidden"><svg class="icon" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206.0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204.0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204.0l36.203 36.204c9.997 9.997 9.997 26.206.0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
-</button>
-<button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-hidden
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 512 512"><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button></div></div><pre style=counter-reset:codeblock class="tw-block tw-m-0 tw-p-0"><code id=codeblock-id-24 class="chroma
-!tw-block
-tw-p-0
-tw-m-0
-tw-transition-[max-height]
-tw-duration-500
-tw-ease-in-out
-group-[.is-closed]:!tw-max-h-0
-group-[.is-wrap]:tw-text-wrap
-tw-overflow-y-hidden
-tw-overflow-x-auto
-tw-scrollbar-thin"><span class=line><span class=cl><span class=c1>// 两种方法二选一
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=显示点云>显示点云</h3><p>包含PCL完整可视化类的头文件为<code>pcl/visualization/pcl_visualizer.h</code></p><p>首先，我们通过下面的代码建立一个名为<code>viewer</code>的可视化类对象，该对象弹出的显示的窗口名为<code>Cloud Viewer</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=n>pcl</span><span class=o>::</span><span class=n>visualization</span><span class=o>::</span><span class=n>PCLVisualizer</span><span class=o>::</span><span class=n>Ptr</span> <span class=n>viewer</span><span class=p>(</span><span class=k>new</span> <span class=n>pcl</span><span class=o>::</span><span class=n>visualization</span><span class=o>::</span><span class=n>PCLVisualizer</span><span class=p>(</span><span class=s>&#34;Cloud Viewer&#34;</span><span class=p>));</span>
+</span></span></code></pre></td></tr></table></div></div><p>我们现在有一个如下定义的一个名为<code>cloud</code>的点云对象</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=n>pcl</span><span class=o>::</span><span class=n>PointCloud</span><span class=o>&lt;</span><span class=n>pcl</span><span class=o>::</span><span class=n>PointXYZ</span><span class=o>&gt;::</span><span class=n>Ptr</span> <span class=n>cloud</span><span class=p>(</span><span class=k>new</span> <span class=n>pcl</span><span class=o>::</span><span class=n>PointCloud</span><span class=o>&lt;</span><span class=n>pcl</span><span class=o>::</span><span class=n>PointXYZ</span><span class=o>&gt;</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div><p>然后通过以下代码，我们就可以将点云<code>cloud</code>显示在一个名为<code>Cloud Viewer</code>的窗口中，该点云在<code>viewer</code>中的id为<code>cloud1</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=n>viewer</span><span class=o>-&gt;</span><span class=n>addPointCloud</span><span class=p>(</span><span class=n>cloud</span><span class=p>,</span> <span class=s>&#34;cloud1&#34;</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div><p>如果想显示多个点云，要注意id不能重复，否则后面重复id的点云将不会显示</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=n>viewer</span><span class=o>-&gt;</span><span class=n>addPointCloud</span><span class=p>(</span><span class=n>cloud1</span><span class=p>,</span> <span class=s>&#34;cloud1&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=n>viewer</span><span class=o>-&gt;</span><span class=n>addPointCloud</span><span class=p>(</span><span class=n>cloud2</span><span class=p>,</span> <span class=s>&#34;cloud2&#34;</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div><p>点云显示在窗口中后，程序会继续运行，运行完成后会直接退出，同时关闭点云显示窗口，这显然不是我们想要的</p><p>使用PCL时可以通过下面的两种方法暂停程序，保持点云显示，直到在点云显示窗口中按<code>q</code>退出</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=c1>// 两种方法二选一
 </span></span></span><span class=line><span class=cl><span class=c1></span>
 </span></span><span class=line><span class=cl><span class=c1>// 方法1，阻塞式，完全停止程序
 </span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>viewer</span><span class=o>-&gt;</span><span class=n>spin</span><span class=p>();</span>
@@ -1364,57 +341,44 @@ tw-scrollbar-thin"><span class=line><span class=cl><span class=c1>// 两种方�
 </span></span><span class=line><span class=cl>    <span class=c1>// 可如下添加其他操作
 </span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=n>viewer</span><span class=o>-&gt;</span><span class=n>spinOnce</span><span class=p>(</span><span class=mi>100</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>    <span class=c1>// boost::this_thread::sleep(boost::posix_time::microseconds(100000));
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>}</span></span></span></code></pre></div><p>有的代码用的是<code>system("pause");</code>来暂停程序，该方法只在Windows中有效，通用性差，不灵活，不建议使用</p><hr><p>完整代码如下</p><div class="code-block highlight is-open show-line-numbers tw-group tw-my-2"><div class="code-block-title
-tw-flex
-tw-flex-row
-tw-justify-between
-tw-w-full tw-bg-bgColor-secondary"><button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-rotate-90
-tw-transition-[transform]
-tw-duration-500
-tw-ease-in-out
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 320 512"><path d="M285.476 272.971 91.132 467.314c-9.373 9.373-24.569 9.373-33.941.0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941.0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button><div class="code-block-title-bar tw-w-full"><p class="tw-select-none !tw-my-1">cpp</p></div><div class=tw-flex><button class="line-number-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.show-line-numbers]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle line numbers"><svg class="icon" viewBox="0 0 512 512"><path d="M61.77 401l17.5-20.15a19.92 19.92.0 005.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 00-8 8v16a8 8 0 008 8h22.83a157.41 157.41.0 00-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33.0 15.94 2.44 15.94 9.09.0 4.72-4.2 8.22-14.36 8.22a41.54 41.54.0 01-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16.0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zm0-160H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16V80a16 16 0 00-16-16zm0 320H176a16 16 0 00-16 16v32a16 16 0 0016 16h320a16 16 0 0016-16v-32a16 16 0 00-16-16zM16 160h64a8 8 0 008-8v-16a8 8 0 00-8-8H64V40a8 8 0 00-8-8H32a8 8 0 00-7.14 4.42l-8 16A8 8 0 0024 64h8v64H16a8 8 0 00-8 8v16a8 8 0 008 8zm-3.91 160H80a8 8 0 008-8v-16a8 8 0 00-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44.0-29.06-25-39.56-44.47-39.56-21.36.0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44.0 019.46-3.84c3.33.0 9.28 1.56 9.28 8.75C51 248.19.0 257.31.0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
-<button class="wrap-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-group-[.is-wrap]:tw-text-fgColor-link
-print:!tw-hidden" title="Toggle code wrap"><svg class="icon" viewBox="0 0 448 512"><path d="M16 132h416c8.837.0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163.0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837.0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837.0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
-<button class="copy-code-button
-tw-select-none
-tw-mx-2
-tw-hidden
-group-[.is-open]:tw-block
-hover:tw-text-fgColor-link
-print:!tw-hidden" title="Copy code">
-<span class="copy-icon tw-block"><svg class="icon" viewBox="0 0 448 512"><path d="M433.941 65.941l-51.882-51.882A48 48 0 00348.118.0H176c-26.51.0-48 21.49-48 48v48H48c-26.51.0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51.0 48-21.49 48-48v-48h80c26.51.0 48-21.49 48-48V99.882a48 48 0 00-14.059-33.941zM266 464H54a6 6 0 01-6-6V150a6 6 0 016-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 01-6 6zm128-96H182a6 6 0 01-6-6V54a6 6 0 016-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 01-6 6zm6-256h-64V48h9.632c1.591.0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 011.757 4.243V112z"/></svg></span>
-<span class="check-icon tw-hidden"><svg class="icon" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206.0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204.0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204.0l36.203 36.204c9.997 9.997 9.997 26.206.0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
-</button>
-<button class="tw-select-none
-tw-mx-2
-tw-block
-group-[.is-open]:tw-hidden
-print:!tw-hidden" disabled aria-hidden=true><svg class="icon" viewBox="0 0 512 512"><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8.0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button></div></div><pre style=counter-reset:codeblock class="tw-block tw-m-0 tw-p-0"><code id=codeblock-id-25 class="chroma
-!tw-block
-tw-p-0
-tw-m-0
-tw-transition-[max-height]
-tw-duration-500
-tw-ease-in-out
-group-[.is-closed]:!tw-max-h-0
-group-[.is-wrap]:tw-text-wrap
-tw-overflow-y-hidden
-tw-overflow-x-auto
-tw-scrollbar-thin"><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;iostream&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>有的代码用的是<code>system("pause");</code>来暂停程序，该方法只在Windows中有效，通用性差，不灵活，不建议使用</p><hr><p>完整代码如下</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;iostream&gt;</span><span class=cp>
 </span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;pcl/io/pcd_io.h&gt;</span><span class=cp>
 </span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;pcl/point_types.h&gt;</span><span class=cp>
 </span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;pcl/visualization/pcl_visualizer.h&gt;</span><span class=cp>
@@ -1449,14 +413,6 @@ tw-scrollbar-thin"><span class=line><span class=cl><span class=cp>#include</span
 </span></span></span><span class=line><span class=cl><span class=cm>  */</span>
 </span></span><span class=line><span class=cl>    
 </span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div><h2 id=point-cloud-library学习指南 class=headerLink><a href=#point-cloud-library%e5%ad%a6%e4%b9%a0%e6%8c%87%e5%8d%97 class=header-mark aria-label="Header mark for 'Point Cloud Library学习指南'"></a>Point Cloud Library学习指南</h2><h3 id=中文学习资料 class=headerLink><a href=#%e4%b8%ad%e6%96%87%e5%ad%a6%e4%b9%a0%e8%b5%84%e6%96%99 class=header-mark aria-label="Header mark for '中文学习资料'"></a>中文学习资料</h3><p>PCL学习可以先看看<a href=https://www.zhihu.com/people/huang-zhong-qing- target=_blank rel="noopener noreferrer">双愚</a>这位作者写的学习指南和学习笔记，是中文的，很详细清晰，很适合学习理解</p><p><a href=https://zhuanlan.zhihu.com/p/268524083 target=_blank rel="noopener noreferrer">https://zhuanlan.zhihu.com/p/268524083</a> 里面对Point Cloud Library整体框架、入门学习作了比较详细的介绍和总结</p><p><a href=https://www.yuque.com/huangzhongqing/pcl target=_blank rel="noopener noreferrer">https://www.yuque.com/huangzhongqing/pcl</a> 这里面是对PCL的学习总结，基本覆盖了正常操作需要的所有应用，对每个部分都有着较为详细的解释说明，而且包含了示例文件。我在学习时参考了很多</p><h3 id=官方教程和文档 class=headerLink><a href=#%e5%ae%98%e6%96%b9%e6%95%99%e7%a8%8b%e5%92%8c%e6%96%87%e6%a1%a3 class=header-mark aria-label="Header mark for '官方教程和文档'"></a>官方教程和文档</h3><p>官方也提供了PCL的使用指南，覆盖了PCL各个模块的使用，不过因为是全英文，刚学习时可能会比较难理解，但是官方教程保证了准确性和规范性，如果英语能力较好还是建议对照着读一读</p><p><a href=https://pointclouds.org/documentation/tutorials/index.html target=_blank rel="noopener noreferrer">https://pointclouds.org/documentation/tutorials/index.html</a></p><p>当你想知道某个模块的完整功能使用说明，或是知道某个模块需要引入哪个头文件，或是某个方法的来源，都可以在官方提供的PCL的API的完整说明文档中找到答案。建议对模块有问题的时候，先到里面看一看</p><p><a href=https://pointclouds.org/documentation/index.html target=_blank rel="noopener noreferrer">https://pointclouds.org/documentation/index.html</a></p><h3 id=pcl问题解决方法查找 class=headerLink><a href=#pcl%e9%97%ae%e9%a2%98%e8%a7%a3%e5%86%b3%e6%96%b9%e6%b3%95%e6%9f%a5%e6%89%be class=header-mark aria-label="Header mark for 'PCL问题解决方法查找'"></a>PCL问题解决方法查找</h3><p>遇到问题我们通常先直接搜索引擎找答案，不过PCL开发相关的中文文章和资料占比其实是比较小的，有时如果想更好地找到问题的解决方法，要用英语关键词去搜一下，看看英语的文章资料</p><ol><li><p>百度</p><p>百度搜索pcl+中文关键词，通常可以解决常见问题，搜到的大部分都是中文内容，不过有时会发现好几篇文章内容都是一模一样的</p><p>百度搜索pcl+英语关键词，可以查到官网页面，有时可以查到其它英语的文章</p></li><li><p>Google</p><p>用Google搜索pcl+中文关键词，有时可以查到百度没查到但是写得不错的中文文章</p><p>用Google搜索pcl+英语关键词，可以找到比较多的国外的文章以及论坛讨论</p></li><li><p>Github</p><p>Github上会有一些PCL的示例代码和笔记，以及PCL的应用项目，有时候一些问题在Github里找找，可能可以发现别人已经搭好的项目源代码</p><p>可以直接在Github里搜关键词，也可以在Google里搜关键词+github</p></li></ol></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2021-06-09</span></div><div class=post-info-license></div></div><div class="post-info-line print:!tw-hidden"><div class=post-info-md></div><div class=post-info-share></div></div></div><div class=post-info-more><section class=post-tags><svg class="icon" viewBox="0 0 640 512"><path d="M497.941 225.941 286.059 14.059A48 48 0 00252.118.0H48C21.49.0.0 21.49.0 48v204.118a48 48 0 0014.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882.0l204.118-204.118c18.745-18.745 18.745-49.137.0-67.882zM112 160c-26.51.0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882.0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397.0h48.721a48 48 0 0133.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137.0 67.882z"/></svg>&nbsp;<a href=/tags/pcl/>PCL</a>,&nbsp;<a href=/tags/c++/>C++</a></section><section class=print:!tw-hidden><span><button class="tw-text-fgColor-link-muted hover:tw-text-fgColor-link-muted-hover" onclick=window.history.back()>返回</button></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class="post-nav print:tw-hidden"><a href=/pcl-dev-env-ubuntu18.04-virtualbox/ class=next rel=next title="配置PCL开发环境到Virtualbox Ubuntu18.04虚拟机">配置PCL开发环境到Virtualbox Ubuntu18.04虚拟机<svg class="icon" viewBox="0 0 256 512"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9.0l-22.6-22.6c-9.4-9.4-9.4-24.6.0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6.0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9.0l136 136c9.5 9.4 9.5 24.6.1 34z"/></svg></a></div></div><div id=comments class="print:!tw-hidden tw-pt-32 tw-pb-8"><div id=giscus></div><noscript>Please enable JavaScript to view the comments powered by <a href=https://giscus.app/>giscus</a>.</noscript></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>由 <a href=https://gohugo.io/ target=_blank rel="noopener noreferrer" title="Hugo 0.134.3">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href=https://github.com/HEIGE-PCloud/DoIt target=_blank rel="noopener noreferrer" title="DoIt 0.4.0"><svg class="icon" viewBox="0 0 576 512"><path d="M402.3 344.9l32-32c5-5 13.7-1.5 13.7 5.7V464c0 26.5-21.5 48-48 48H48c-26.5.0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h273.5c7.1.0 10.7 8.6 5.7 13.7l-32 32c-1.5 1.5-3.5 2.3-5.7 2.3H48v352h352V350.5c0-2.1.8-4.1 2.3-5.6zm156.6-201.8L296.3 405.7l-90.4 10c-26.2 2.9-48.5-19.2-45.6-45.6l10-90.4L432.9 17.1c22.9-22.9 59.9-22.9 82.7.0l43.2 43.2c22.9 22.9 22.9 60 .1 82.8zM460.1 174 402 115.9 216.2 301.8l-7.3 65.3 65.3-7.3L460.1 174zm64.8-79.7-43.2-43.2c-4.1-4.1-10.8-4.1-14.8.0L436 82l58.1 58.1 30.9-30.9c4-4.2 4-10.8-.1-14.9z"/></svg> DoIt</a></div><div class=footer-line><svg class="icon" viewBox="0 0 512 512"><path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 448c-110.532.0-2e2-89.451-2e2-2e2.0-110.531 89.451-2e2 2e2-2e2 110.532.0 2e2 89.451 2e2 2e2.0 110.532-89.451 2e2-2e2 2e2zm107.351-101.064c-9.614 9.712-45.53 41.396-104.065 41.396-82.43.0-140.484-61.425-140.484-141.567.0-79.152 60.275-139.401 139.762-139.401 55.531.0 88.738 26.62 97.593 34.779a11.965 11.965.0 011.936 15.322l-18.155 28.113c-3.841 5.95-11.966 7.282-17.499 2.921-8.595-6.776-31.814-22.538-61.708-22.538-48.303.0-77.916 35.33-77.916 80.082.0 41.589 26.888 83.692 78.277 83.692 32.657.0 56.843-19.039 65.726-27.225 5.27-4.857 13.596-4.039 17.82 1.738l19.865 27.17a11.947 11.947.0 01-1.152 15.518z"/></svg>2021 - 2024<span class=author>&nbsp;<a href=https://github.com/railzy target=_blank rel="noopener noreferrer">Ray</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div><div class=footer-line></div><div class=footer-line></div></div></footer></div><div id=fixed-buttons class=print:!tw-hidden><a href=#back-to-top id=back-to-top-button class="fixed-button tw-transition-opacity tw-opacity-0" title=回到顶部><svg class="icon" viewBox="0 0 448 512"><path d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6.0-33.9L207 39c9.4-9.4 24.6-9.4 33.9.0l194.3 194.3c9.4 9.4 9.4 24.6.0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3.0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"/></svg>
-</a><a href=#comments id=view-comments class=fixed-button title=查看评论><svg class="icon" viewBox="0 0 512 512"><path d="M256 32C114.6 32 0 125.1.0 240c0 49.6 21.4 95 57 130.7C44.5 421.1 2.7 466 2.2 466.5c-2.2 2.3-2.8 5.7-1.5 8.7S4.8 480 8 480c66.3.0 116-31.8 140.6-51.4 32.7 12.3 69 19.4 107.4 19.4 141.4.0 256-93.1 256-208S397.4 32 256 32z"/></svg></a></div><script>window.config={"autocomplete.min.js":"/lib/autocomplete/autocomplete.min.js",comment:{giscus:{darkTheme:"dark",dataCategory:"Announcements",dataCategoryId:"DIC_kwDOGdwdec4CaktI",dataEmitMetadata:"0",dataInputPosition:"top",dataLang:"zh-CN",dataLoading:"lazy",dataMapping:"pathname",dataReactionsEnabled:"1",dataRepo:"railzy/blog-comments",dataRepoId:"R_kgDOGdwdeQ",dataStrict:"0",lightTheme:"light"}},"fuse.min.js":"/lib/fuse/fuse.min.js",search:{distance:100,findAllMatches:!1,fuseIndexURL:"/index.json",highlightTag:"em",ignoreFieldNorm:!1,ignoreLocation:!0,isCaseSensitive:!1,location:0,maxResultLength:10,minMatchCharLength:2,noResultsFound:"没有找到结果",snippetLength:50,threshold:.3,type:"fuse",useExtendedSearch:!1}}</script><script src=https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js></script><script src=/js/custom.js></script><script src=/js/theme.min.js defer></script><script src=/js/giscus.min.js defer></script><script type=speculationrules>
-        {
-          "prerender": [
-            {
-              "where": { "href_matches": "/*" },
-              "eagerness": "moderate"
-            }
-          ]
-        }
-    </script></body></html>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=point-cloud-library学习指南>Point Cloud Library学习指南</h2><h3 id=中文学习资料>中文学习资料</h3><p>PCL学习可以先看看<a href=https://www.zhihu.com/people/huang-zhong-qing- target=_blank rel="noopener noreffer">双愚</a>这位作者写的学习指南和学习笔记，是中文的，很详细清晰，很适合学习理解</p><p><a href=https://zhuanlan.zhihu.com/p/268524083 target=_blank rel="noopener noreffer">https://zhuanlan.zhihu.com/p/268524083</a> 里面对Point Cloud Library整体框架、入门学习作了比较详细的介绍和总结</p><p><a href=https://www.yuque.com/huangzhongqing/pcl target=_blank rel="noopener noreffer">https://www.yuque.com/huangzhongqing/pcl</a> 这里面是对PCL的学习总结，基本覆盖了正常操作需要的所有应用，对每个部分都有着较为详细的解释说明，而且包含了示例文件。我在学习时参考了很多</p><h3 id=官方教程和文档>官方教程和文档</h3><p>官方也提供了PCL的使用指南，覆盖了PCL各个模块的使用，不过因为是全英文，刚学习时可能会比较难理解，但是官方教程保证了准确性和规范性，如果英语能力较好还是建议对照着读一读</p><p><a href=https://pointclouds.org/documentation/tutorials/index.html target=_blank rel="noopener noreffer">https://pointclouds.org/documentation/tutorials/index.html</a></p><p>当你想知道某个模块的完整功能使用说明，或是知道某个模块需要引入哪个头文件，或是某个方法的来源，都可以在官方提供的PCL的API的完整说明文档中找到答案。建议对模块有问题的时候，先到里面看一看</p><p><a href=https://pointclouds.org/documentation/index.html target=_blank rel="noopener noreffer">https://pointclouds.org/documentation/index.html</a></p><h3 id=pcl问题解决方法查找>PCL问题解决方法查找</h3><p>遇到问题我们通常先直接搜索引擎找答案，不过PCL开发相关的中文文章和资料占比其实是比较小的，有时如果想更好地找到问题的解决方法，要用英语关键词去搜一下，看看英语的文章资料</p><ol><li><p>百度</p><p>百度搜索pcl+中文关键词，通常可以解决常见问题，搜到的大部分都是中文内容，不过有时会发现好几篇文章内容都是一模一样的</p><p>百度搜索pcl+英语关键词，可以查到官网页面，有时可以查到其它英语的文章</p></li><li><p>Google</p><p>用Google搜索pcl+中文关键词，有时可以查到百度没查到但是写得不错的中文文章</p><p>用Google搜索pcl+英语关键词，可以找到比较多的国外的文章以及论坛讨论</p></li><li><p>Github</p><p>Github上会有一些PCL的示例代码和笔记，以及PCL的应用项目，有时候一些问题在Github里找找，可能可以发现别人已经搭好的项目源代码</p><p>可以直接在Github里搜关键词，也可以在Google里搜关键词+github</p></li></ol></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2021-06-09</span></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw" aria-hidden=true></i>&nbsp;<a href=/tags/pcl/>PCL</a>,&nbsp;<a href=/tags/c++/>C++</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/pcl-dev-env-ubuntu18.04-virtualbox/ class=next rel=next title="配置PCL开发环境到Virtualbox Ubuntu18.04虚拟机">配置PCL开发环境到Virtualbox Ubuntu18.04虚拟机<i class="fas fa-angle-right fa-fw" aria-hidden=true></i></a></div></div><div id=comments><div id=giscus class=comment></div><noscript>Please enable JavaScript to view the comments powered by <a href=https://giscus.app>Giscus</a>.</noscript></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>由 <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.122.0">Hugo</a> 强力驱动 | 主题 - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden=true></i> LoveIt</a></div><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright fa-fw" aria-hidden=true></i><span itemprop=copyrightYear>2021 - 2024</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://github.com/railzy target=_blank>Ray</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw" aria-hidden=true></i>
+</a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw" aria-hidden=true></i></a></div><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js></script><script type=text/javascript src=/js/custom.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:99999},comment:{giscus:{category:"Announcements",categoryId:"",darkTheme:"dark",emitMetadata:"0",inputPosition:"bottom",lang:"zh-CN",lazyLoading:!1,lightTheme:"light",mapping:"pathname",reactionsEnabled:"1",repo:"",repoId:""}},search:{highlightTag:"em",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:50}}</script><script type=text/javascript src=/js/theme.min.js></script></body></html>
